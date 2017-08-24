@@ -1,0 +1,40 @@
+	<td markdown="block">
+* [Intro](slides/01/intro.html)
+* [About JavaScript](slides/01/javascript.html)
+* [Values, Types, and Operators](slides/01/values-types-operators.html)
+* [Variables, Built-in Functions](slides/01/variables-control-structures.html)
+
+{% comment %}
+* [About Class #3](slides/03/meta.html)
+{% endcomment %}
+</td>
+	<td markdown="block">
+    
+For an in-depth JavaScript introduction, __skim__ these chapters in [{{ site.book_js }}]({{ site.book_js_5_link }})
+
+* [Chapter 7 - JavaScript's Syntax (the section on "Strict Mode" can be skipped)](http://speakingjs.com/es5/ch07.html) 
+* [Chapter 8 - Values](http://speakingjs.com/es5/ch08.html)
+* [Chapter 9 - Operators ("Comma Operator" and everything after can be skipped)](http://speakingjs.com/es5/ch09.html)
+* [Chapter 10 - Booleans](http://speakingjs.com/es5/ch10.html)
+* [Chapter 11 - Numbers](http://speakingjs.com/es5/ch11.html)
+* [Chapter 12 - Strings](http://speakingjs.com/es5/ch12.html)
+* [Chapter 13 - Statements](http://speakingjs.com/es5/ch13.html)
+
+For a more gentle introduction to JavaScript, read the first 3 chapters of [{{ site.book_js_5 }}]({{ site.book_js_5_link }}) 
+
+* Chapter 1 - Values, Types, and Operators
+* Chapter 2 - Program Structure
+
+{% comment %}
+* [{{ site.book_js_2 }}](http://speakingjs.com/es5/ch13.html) - Chapter 13 - Statements
+{% endcomment %}
+</td>
+	<td markdown="block">
+Due Today, 1/23 (during class / immediately after?)
+
+* [A Survey]({{ site.survey_intro }}) / form for GitHub username
+
+Due Wednesday, 1/25, before 11am
+
+* [Homework #0](homework/00.html) (install node)
+</td>

@@ -1,0 +1,39 @@
+	<td markdown="block">
+<!-- 
+* [](slides//.html)
+* [](slides//.html)
+-->
+
+* go back over DOM slides
+* [DOM Continued sample markup](code/dom-continued.html)
+* reminder re: final project - milestone 2: [deployment](homework/deploy.html) and [submit form](https://docs.google.com/a/nyu.edu/forms/d/e/1FAIpQLSe2TvDeXusZAqmG8644BKK8ItTvOOx-ByTE-6dmM_bleHhJCA/viewform)
+* [Modifying and Adding Elements](slides/18/modifying-creating.html)
+
+
+
+
+
+
+</td>
+	<td markdown="block">
+(readings same as previous class)
+
+{% comment %}
+* {{site.book_js}} - Chapter 12 - JavaScript and the Browser
+* {{site.book_js}} - Chapter 13 - The Document Object Model
+* [HTML and CSS from shayhowe.com](http://learn.shayhowe.com/html-css/getting-to-know-html/)
+{% endcomment %}
+</td>
+	<td markdown="block">
+
+{% comment %}
+Due <strike>Tuesday, November 15th</strike>
+
+Extended to: Thursday, November 17th
+
+* [Milestone #2 - Deployment](final-project.html#milestone2) 
+* [Milestone #2 - Submit this Form](https://docs.google.com/a/nyu.edu/forms/d/15R40l21BD9DzBHFy4MuqKKJskdTr33Tq0RvkpwidLRw/edit)
+* [Homework #7](homework/07.html)
+{% endcomment %}
+
+</td>

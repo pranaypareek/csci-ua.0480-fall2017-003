@@ -1,0 +1,527 @@
+---
+layout: homework
+title: CSCI-UA.0480 - Homework #5
+---
+
+<div class="panel panel-default">
+	<div class="panel-heading">Homework #5</div>
+	<div class="panel-body" markdown="block">
+
+
+# Link Aggregator Site with Comments - __Due Thursday, March 30th, by 11PM__
+
+## Overview
+
+### Description
+
+#### Create an image posting site called "480 News"
+
+[Hacker News](news.ycombinator.com) is a popular link aggregator site for technology, science and start-up related news. Looking to waste a bunch of time? Want to procrastinate on your next homework assignment? Check it out!
+
+We're going to implement a crude version of Hacker News where anyone visiting the site can post a link, and anyone visiting the site can comment on a posted link.
+
+To implement the features above, we'll use the following techniques:
+
+* creating a schema / data model
+* using a mongoose plugin to add a slug to your schema
+* connecting to MongoDB with Mongoose
+* creating and reading data from MongoDB
+* extracting parameters from a URL path
+* adding and removing embedded documents with Mongoose
+* using express sessions
+
+And, as extra credit:
+
+* user input validation
+* using references to other documents instead of embedded
+* upvoting
+* writing your own session management
+
+#### In this application, any user will be able to:
+
+* view all posted links
+* post a link
+* comment on an existing link
+
+Aaaand, if you do the extra credit...
+
+* validation
+* upvoting
+
+
+#### You'll only have 2 pages and 2 forms:
+
+* __/__ 
+    * a list of all links posted
+    * contains a form to post another link
+    * links to an __individual__ link's page... that allows you to add comments
+* __/&lt;slug&gt;__ 
+    * displays the comments for a single link
+    * contains a form to add a comment
+    * displays the last link that the user has entered for their _session_ (there's no login, so we'll rely on sessions to keep track of repeat users)
+
+
+#### Example Interaction
+
+![Example](../resources/img/hw05-news-03-all.gif)
+
+
+### Submission Process
+
+You will be given access to a private repository on GitHub. The final version of your assignment should be in GitHub
+
+* __Push__ your changes to the homework repository on GitHub.
+* Add the URL of the repository to your assignment submission in NYU Classes.
+
+### Make at Least 3 Commits
+
+* Commit multiple times throughout your development process.
+* Make at least 3 separate commits - (for example, one option may be to make one commit per part in the homework).
+
+## Part 1 - Setup
+
+### Installing Tools, Starting Project
+
+Specifically, we'll be using the following tool to help with our development process:
+
+* __nodemon__ to automatically restart your server
+
+Install this globally:
+
+* <code>npm install -g nodemon</code>
+
+There should be an `ait-news` director in your repository. Start your project by changing into that directory and going through a typical setup:
+
+* create a `package.json` 
+* create a `.gitignore` (and ignore node_modules)
+
+Within `ait-news`, create an express project that:
+
+1. serves static files (with `express.static`), 
+2. is able to handle forms that POST (with `body-parser`)
+3. uses templating (`hbs`) 
+4. ...and has session handling (`express-session`). 
+
+Again, put all of this in a folder called `ait-news`, and in a file called `app.js`. __Make sure to use dynamically generated paths for your views and static files by using a special built in variable, `__dirname`:__ &rarr;
+
+`dirname` is a variable that contains the path to the current module (file). [See the node docs](https://nodejs.org/docs/latest/api/globals.html#globals_dirname). Using this variable will allow you to dynamically create absolute paths (thereby avoiding the need for hardcoding paths to directories such as `public` or `views`. For example:
+
+```
+// express static setup
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
+
+// hbs setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+```
+And finally, __listen on port 3000__ (please make sure to keep this port number; graders will look for your app on localhost:3000)
+
+Within the ait-news directory, we'll be using a couple of modules to help with database access and creating _url slugs_:
+
+* `npm install --save mongoose`
+* `npm install --save mongoose-url-slugs`
+
+Add your own eslint configuration file (you can just use one from a previous assignment):
+
+* `.eslintrc`
+
+Lastly, start your server in a different terminal window using __nodemon__ to automatically restart whenever a file changes:
+
+* `nodemon app.js`
+
+
+## Part 2 - Installing MongoDB, Creating a Schema, Connecting to the Database
+
+###  Install MongoDB
+
+* follow the [install instructions](http://docs.mongodb.org/manual/installation/) for your operating system
+* ensure that it is up and running by connecting to it using a commandline client:
+	* connect to the test database by typing in <code>mongo</code> (in any directory)
+	* you should be given a message with the version number of the Mongo shell
+	* ....along with a prompt
+	* <code>CTRL-D</code> quits
+
+### Connect to the Database
+
+Create a file called <code>db.js</code> within the root of your project directory. <code>db.js</code> will contain the following:
+
+* the required data related modules for our project
+	* mongoose - our __Object to Document Mapper__, which we'll use to access MongoDB from our app
+	* mongoose-url-slugs - a plugin for mongoose that automatically creates a unique slug property in a specified object
+		* a slug is a string that serves as a short, human readable name
+		* usually contains dashes to separate words, and a number suffix
+		* for example, <code>this-is-a-slug</code>
+
+Add the required modules:
+
+<pre><code data-trim contenteditable>var mongoose = require('mongoose'),
+	const URLSlugs = require('mongoose-url-slugs');
+</code></pre>
+
+Leave a placeholder for your schema...
+
+<pre><code data-trim contenteditable>// my schema goes here!</code></pre>
+
+Here's the connection string... we'll connect to the local instance of MongoDB, and we'll use a database called <code>hw05</code> (this will be created for you once you start inserting documents!).
+
+<pre><code data-trim contenteditable>mongoose.connect('mongodb://localhost/hw05');
+</code></pre>
+
+### Schema 
+
+For larger projects, there is usually one file per schema, all located in a separate folder called models. For now, however, define the following Schema within <code>db.js</code>. Check out the slides on:
+
+* [the MongoDB Demo](../slides/14/mongo.html) 
+* [and/or the Mongoose API](../slides/14/mongoose.html) 
+* [lastly, you can check look over the mongoose documentation!](http://mongoosejs.com/docs/guide.html)
+
+Your model should accommodate the following requirements:
+
+* for a comment, `Comment` , you'll need the following fields:
+	* `text` - the text of a comment
+	* `user` - the name associated with a comment
+* for a single link, `Link`, you'll need the following fields:
+	* `url` - the link's url 
+	* `title` - the title for the link that's being posted
+	* `comments` (an Array of embedded documents... you can use the following syntax): `comments: [Comment]`
+    * note that there will be another property, `slug`, that will be added automatically by using the plugin below
+        * (remember, a slug is a unique, human readable identifier that's based on one or more of a document's existing fields)
+        * for more info on slugs, check out [the general definition via wikipedia](https://en.wikipedia.org/wiki/Semantic_URL#Slug) and [the docs from the module that we're using to generate slugs](https://www.npmjs.com/package/mongoose-url-slugs#what-is-a-slug)
+
+* outside of the `Link` schema, but before you "register" your schemas as models, use the `mongoose-url-slugs` plugin to automatically generate a `slug` property:
+	* <code>&lt;your schema name&gt;plugin(URLSlugs('&lt;what properties your slug should consist of&gt;'));</code>
+	* (don't include the angle brackets, come up with your own schema name, etc.)
+
+Make sure all of this goes under your <code>// my schema goes here!</code> comment.
+
+Then, use your schemas to define your models... these will be used as constructors later on in our project. You can place this code after your schema and before the connection (assuming that you're schema looks something like this):
+
+<pre><code data-trim contenteditable>mongoose.model('Comment', Comment);
+mongoose.model('Link', Link);
+</code></pre>
+
+## Part 3 - Adding a Link and Displaying All Links
+
+### Overview
+
+We'll be using mongoose to create, read and modify data from MongoDB, and we'll be doing this in the functions that handle our routes.
+
+Consequently, in a file that contains your route handlers (likely `app.js`):
+
+* require mongoose
+* retrieve a model (to be used as a constructor later)
+
+<pre><code data-trim contenteditable>const mongoose = require('mongoose'),
+const Link = mongoose.model('Link');
+</code></pre>
+
+* you'll have to create route, <code>/</code>; it'll contain:
+    * a form to add a link
+    * a list of all of the links added so far
+* you'll also need to create another route to handle a <code>POST</code> request from the form to add a link ; __you can make the path whatever you like__ 
+
+The flow of the link creation form should follow the conventional POST, redirect, GET workflow:
+
+* <code>GET /</code> (to display all links and the form)
+* <code>POST /some/path/you/choose</code> (to actually process the submitted form)
+* <code>redirect to GET /</code> (to go back to the listing of all links)
+
+### Form to Create a Link
+
+
+In this route handler, <code>GET /</code>: 
+
+1. render a template that displays a form (it'll also display all links... but we'll get to that later)
+2. add the fields necessary to satisfy the schema that you created earlier
+    * it should have the title
+    * as well as a url
+        ![form](../resources/img/hw05-news-01-add.gif) 
+3. have the form post to a path of your choosing (you'll define this route handler later in the next part)
+4. __test that your form renders by going to__ <code>/</code>
+
+### Handling the Link Creation Form
+
+
+In this route handler, <code>POST /path/of/your/choosing</code>: 
+
+* use your mongoose model for a link to create a new <code>Link</code> instance
+    * create a new <code>Link</code> first, and just populate the title and url
+* ... and, of course, save it ([here's an example from our pizza demo](../slides/14/mongoose.html#/14))
+* this should create a single <code>Link</code> 
+* within your callback for save
+    * check if there's an error! ...if there is an error, just send back an error to the frontend (`res.send(err)` ... or better yet, render a template with a generic error message)
+    * redirect to <code>/</code> (only redirect page when we're sure the new link has been saved - that is, within the callback, if there are no errors)
+    
+
+### Testing Out Link Creation
+
+Testing Process
+
+1. got to <code>/</code>
+2. fill in:
+    * title
+    * url
+3. submit
+4. verify that you're redirected back to `/`
+    * in the network tab in Chrome...
+* if you're implementing this as part of your extra credit, __link to your session middleware module in your README file__
+    * you should have:
+        * <code>GET /</code> - <code>200</code>
+        * <code>POST /path/of/your/choosing</code> - <code>302</code> or <code>303</code>
+        * <code>GET /</code> - <code>200</code> again
+5. verify that a new <code>Link</code> object is created in your database
+    * [see the slides on how to do this with the commandline database client](../slides/14/mongo.html#/21)
+    * (the collection name should be all lowercase, plural: <code>db.links.find()</code>)
+
+Troubleshooting if No Documents Are Found
+
+1. verify that your collection name and schema name match (remember, the collection name is the lowercase, plural version of your schema name: <code>Link</code> &rarr; <code>links</code>)
+2. in the route handler that deals with your POST, either log out the error from your save callback or send it back as a response:
+    * <code>console.log(err)</code>
+    * <code>res.send(err)</code>
+
+### (10 Points) Displaying All Links
+
+The list of all <code>Links</code>s should appear above your form. Retrieve all of the links from the database (see [the slides on the mongoose API](../slides/14/mongoose.html)), and for every Link object:
+
+* create a link (an `a` tag) to display the title of the Link object and _link_ out to its url
+* create an additional link (`a` tag) that will _link_ out to this Link object's comments page - do this by using the Link object's `slug` (as that will be the path to the comments page)
+* if you were to place a list of <code>Link</code>s into your template context (via `res.render`), you could access every individual <code>Link</code> object in an <code>#each</code> loop
+* __within that loop, you can use__:
+    * you can name your loop variable using the `#each arrayOfObjects as |newName|` syntax and then use the dot operator to access each field: `newName.field`
+    * alternatively, you can just use <code>&#123;&#123;fieldName&#125;&#125;</code> directly to access a property named <code>fieldName</code> (note that there's no need to use dot, <code>.</code>, or square brackets, <code>[]</code>'s)
+
+### Testing That Links Can be Read from the Database
+
+* try going to <code>/</code> in your browser
+* see that the `Link` that you created earlier is displayed above the form
+* try adding a new link 
+* verify that you're redirected back to <code>/</code> with your new link added to the page.
+* see the example below:
+
+![add again](![form](../resources/img/hw05-news-01-add.gif) 
+
+
+
+## Part 4 - Single Link Comments Page, Adding Comments
+
+### Single Link Comments Page
+
+
+In this route handler, <code>GET /[slug-name]</code>: 
+
+* you'll use the slug in the url to render an __link's comments__ page
+* find __exactly one link__ that matches the slug in the url
+	* remember to use [route parameters](../slides/14/params.html) 
+	* use <code>:slug</code> in your path to specify a part of the path as a parameter
+	* you can find this part of the path in your request object (<code>req.params.slug</code>)
+* display the title of the <code>Link</code> as well as it's corresponding url
+* in the next part, add a form to add a comment
+
+<div markdown="block" class="img">
+![add a comment](../resources/img/hw05-news-02-comments.gif) 
+</div>
+
+### Adding Comments
+
+Add your comment creation form directly underneath your link's title and url in the link comments page. The flow of the __comment creation form__ should be:
+
+* <code>GET /[slug-name]</code>
+* <code>POST /path/of/your/choosing</code>
+* <code>redirect to GET /[slug-name]</code> (go back to page that you came from)
+
+__Add a form to add a new comment to the Link object:__
+
+* create a form that posts to <code>/path/of/your/choosing</code>
+* your form will have the following fields
+	* text
+	* user
+* __you'll have to let the server know which Link object  you're adding this new comment to__ ... and you can do this by:
+    * having the slug in the url that you're posting to
+    * or by having a hidden input field that contains the slug [(check out the slides on revisiting forms)](../slides/11/forms-revisited.html#/16)
+
+__you'll have to handle this post, so...__
+
+* create a route handler to accept a <code>POST /path/of/your/choosing</code>... 
+* use one of these methods to add a comment:
+	* [findOneAndUpdate](../slides/15/mongoose.html#/18)
+	* [lots of callbacks](../slides/15/mongoose.html#/17)
+* in your last callback, redirect back to the original __link comments__ page (that is the /[slug-name])
+* here's the example interaction:
+
+![add a comment](../resources/img/hw05-news-02-comments.gif) 
+
+## Part 5 - Remembering Your Last Comment
+
+### Using Sessions
+
+Use the `express-session` module to enable sessions. Store the last comment that was created in a visiting user's session. This means that if a user adds a comment, they will see their last comment entered (regardless of what link comments page they're on) underneath the form to add a comment. This last comment feature is per session, so if a user opens another browser, their last comment will not be present.
+
+[Check out the background slides on session handling](../slides/10/sessions.html/)
+
+* start by installing `express-session` with `npm`
+* bring in the session module in `app.js` by requiring <code>express-session</code>
+* set up some options for your session:
+
+<pre><code data-trim contenteditable>
+var sessionOptions = {
+	secret: 'secret cookie thang',
+	resave: true,
+	saveUninitialized: true
+};
+</code></pre>
+
+* then use those options for session handling middleware: <code>app.use(session(sessionOptions));</code>
+* modify your route for handling comment creation by adding the last comment's text to `req.session` after a new comment has been created (for example: `req.session.lastComment = comment.text`)
+* when displaying the link's comments page, pass the last comment stored in the session to the frontend
+
+
+## Part 6 - Style Your Site!
+
+Add a public folder, add a css file, include your css file and style your site. You can style your site any way that you like; you will get credit for this as long as your css is served as a static file and the styles are visible in your working application.
+
+## Extra Credit
+
+Do __one or two__ of the following for extra credit. Partial credit will be given.
+
+__If you're doing extra credit, add a REAMDE.md file that specifies which extra credit you'll be doing__ (otherwise, the graders won't check for it!):
+
+1. Validation and Error Messages (25 points)
+2. Referenced Documents (30 points)
+3. Upvoting (30 points)
+4. Writing Your Own Session Management (35 points)
+
+### Validation and Error Messages
+
+1. make all fields in every schema required (see the slides on [validation](../slides/14/validation.html))
+2. if a required field is blank, send back an error message to the user
+    * check the <code>err</code> object in the callback to your mongoose related functions like <code>save</code>
+    * if it exists, and it has to do with a required field...
+    * populate a template variable so that the error message can be displayed in red above your form
+    * in this case (that is, the case where there's an error), you can allow your `app.post` calls to render the original page instead of redirecting so that you can propagate the error to the frontend
+    * ...or you can stash the error in the session and have the route handler that deals with the redirect check the session for error messages and remove the message from the session and display it in the frontend
+
+### Referenced Documents
+
+Instead of embedding <code>Comment</code>s in <code>Link</code>s, make them separate documents linked together by some id field. Check out [the mongoose docs](http://mongoosejs.com/docs/populate.html).
+
+This is more difficult than just changing the schema, as you'll have to change all of your route handlers that modify or add data.
+
+### Upvoting / Likes
+
+Allow users to "upvote" a link. 
+
+1. add a field to your `Link` object that keeps track of number of votes
+2. add a form in the link comments page that allows a user to "vote" for a link (this can be as simple as a submit button with a name and value)
+3. increment the number of votes that a `Link` object has when the vote button is submitted
+4. display the number of votes adjacent to a link on the homepage, `/`
+5. (it might be useful to have a [default initial value](http://mongoosejs.com/docs/defaults.html) for votes (like 0!)... and you can use [findOneAndUpdate](http://mongoosejs.com/docs/api.html#model_Model.findOneAndUpdate) and the [$inc operator](https://docs.mongodb.com/manual/reference/operator/update/inc/) to actually increment the number of votes)
+
+### Writing Your Own Session Handling Middleware
+
+Create a module that contains two middleware functions:
+
+1. one middleware that parses cookies
+2. another middleware to manage sessions
+
+`parseCookies` middleware
+
+* this middleware...
+    * checks the incoming request for a `Cookie` header ...
+    * and parses name value pairs from the value into a property on the 'req' object called `hwCookies` 
+* create a function called `parseCookies`
+* it should have 3 arguments ([see middleware](../slides/09/middleware.html))
+* SPOILERS / WALK THROUGH (feel free to implement on your own rather than use the details below) 
+    * use `req.get` to retrieve the `Cookie` header from the request
+    * check out our readings to parse the names and values out of the cookie header ([MDN on Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) and [nczonline's article on cookies](https://www.nczonline.net/blog/2009/05/05/http-cookies-explained/))
+    * create a property called `hwCookies` on the request object; it should be initialized as an empty object
+    * add the names and values parsed from the `Cookie` as properties and values on `req.hwCookies`
+    * don't forget to call `next` when you're done!
+    * export the function from the module so that it's available when `require`'d
+
+`manageSession` middleware
+
+* this middleware...
+    * checks cookies from the request for a session id
+    * tries to retrieve data for that session id from an in-memory (_read: global variable_)
+    * if it's not an existing session id (or if no session id came through), generate a new session id and send it back to the browser
+    * allows the setting and reading of arbitrary properties/values from a property on the request object ... that represents session data
+* install `node-uuid`
+* create a function called `manageSession`
+* it should have 3 arguments ([see middleware](../slides/09/middleware.html))
+* when it is done running, `req` should have a property called `hwSession` where data retrieved from the session store is placed
+* additionally, `req.hwSession` should have a property called `sessionId` that stores the current session id (just for debugging purposes)
+* if it generates a session id, the id that it generates should be created by the `uuid` module using `var uuid = require('node-uuid'), then... `uuid.v4()`
+* when it tells the browser to set a session id cookie, the name of the cookie should be `sessionId` and it should be `HttpOnly`
+* it should also log out `session already exists: [session id]` if the middleware found an existing session
+* finally, it should log out `session generated: [session id]` if it creates a new session id
+* SPOILERS / WALK THROUGH (feel free to implement on your own rather than use the details below) 
+    * create a global variable in your __module__; initialize it to an empty object
+    * this will be your session store - session ids will be keys, and values will be an object of name / value pairs associated with that session
+    * within your `manageSession` function, check if `sessionId` is in `req.hwCookies` and check if that session id exists within your session store
+        * if the above conditions are true, we know we can set `req.hwSession` to the data that's in our session store for that session id
+    * however, if there is no `sessionId` in `hwCookies` or if the `sessionId` isn't in our session store, then generate a new session id and create an empty object for that ids data in the session store
+        * again, `req.hwSession` can be set to the data associated with the id from the session store (Which, of course, is just an empty object)
+        * add a `Set-Cookie` header to the response useing `res.append`... so that the browser will send back the session id in every subsequent request
+    * finally, add a property called `sessionId` to `req.hwSession` that has a value of the current session id (regardless of whether or not it was an existing id or one that was just generated)
+    * don't forget to call `next` when you're done!
+    * export the function from the module so that it's availabe when `require`'d
+* if you're implementing this as part of your extra credit, __link to your session middleware module in your README file__
+
+Here's an example of how you might use your middleware:
+
+```
+const myModule = require('./nameOfYourModule');
+
+// this will parse the incoming "Cookie" header
+// into a property called hwCookies on the req object
+app.use(myModule.parseCookies);
+
+// this will either fetch the data associated with an
+// incoming session id (based on parsed cookies from
+// above) or generate a new session id and use
+// Set-Cookie to create a cookie with that session id on
+// the client side
+app.use(myModule.manageSession);
+
+// after this, you can use req.hwSession to add or 
+// retrieve session data (much like you would use 
+// req.session from express-session
+```
+
+{% comment %}
+### Authentication
+
+#### Overview
+
+Add users to the site. Instead of showing all lists, when a user is logged in: 
+
+* they will only the lists they created
+* when they create a list, the list will be associated with them (rather than having a createdBy field)
+
+
+#### Add the following URLs:
+
+* <code>GET and POST /register</code> - display registration form and register, respectively
+* <code>GET and POST /login</code> - display login form and login, respectively
+* <code>GET /logout</code> - logout
+
+#### Modify the following URLs
+
+* <code>/</code> ... no longer redirects to /image-posts, just displays links to login or register if user not logged in
+* <code>/image-posts</code> ... displays a username after the image-post's title
+* when image-post is created, associate with user
+* adding and removing images can only be done by the user that created it
+
+#### Modify your existing code:
+
+* add a User schema; it should reference your list (see [example repository for user with images demo](https://github.com/nyu-csci-ua-0480-001-fall-2016/examples/blob/master/class16/user-image/db.js) - you'll need to be logged in to view)
+* integrate passport-local-mongoose (see [bare bones authentication demo](https://github.com/nyu-csci-ua-0480-001-fall-2016/examples/tree/master/class16/passport-demo))
+
+{% endcomment %}
+
+</div>
+
+</div>
+

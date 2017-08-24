@@ -1,0 +1,31 @@
+	<td markdown="block">
+
+Slides
+
+* [About Class #13 / Homework?](slides/13/meta.html)
+* [About the Midterm](slides/13/exam.html)
+
+
+Sample Questions for Midterm
+
+* [Sample Questions](resources/handouts/midterm/midterm_1_practice.pdf)
+* [Solutions for Sample Questions](resources/handouts/midterm/midterm_1_practice_solutions.pdf)
+
+</td>
+	<td markdown="block">
+<!--
+* Chapter 
+* Chapter 
+-->
+</td>
+	<td markdown="block">
+<!--
+* [](assignments/.html)
+-->
+{% comment %}
+Due October 27th
+
+* [Homework #5](homework/05.html)
+{% endcomment %}
+
+</td>

@@ -1,0 +1,35 @@
+	<td markdown="block">
+
+* Exams returned on Wednesday, but Results Are...
+* Cookies, Sessions!
+* [Project Layout and Scaffolding](slides/11/scaffolding.html) (from class before midterm review)
+* [Parameters from URLs](slides/14/params.html)
+* [Mongo DB  and Mongoose](slides/14/mongo.html)
+
+{% comment %}
+* [Final Project](final-project.html)
+{% endcomment %}
+
+</td>
+	<td markdown="block">
+
+MongoDB
+
+* [MongoDB Documentation](http://docs.mongodb.org/manual/)
+* [Install](http://docs.mongodb.org/manual/installation/)
+* [MongoDB Intro](https://docs.mongodb.com/manual/introduction/)
+
+Mongoose
+
+* [Mongoose Documentation](http://mongoosejs.com/)
+* [Quick Start](http://mongoosejs.com/docs/index.html)
+
+</td>
+	<td markdown="block">
+
+Due Monday, March 27th 11PM
+
+* Quiz in NYU Classes on MongoDB 
+* (Based on readings from class 14 and 15)
+
+</td>

@@ -1,0 +1,19 @@
+* what constitutes client side validation?
+	* use a library... 
+		* like jquery
+		* http://parsleyjs.org/
+	* create your own...
+		* when you click on submit, capture the event, and prevent default
+		* then do validation
+	* html5 form elements with validation
+* what about jshint?
+	* how can i be aware that you ran it?
+	* i'll run jshint.... if there are any errors, minor deductions
+* about authentication
+	* passport can be really picky
+	* if you're blocked by authentication
+	* then fake auth (create your own user model)
+	* (you don't have to hash, or store a salt... but note that in your readme)
+	* on registration... create a new user
+	* on login... just do a string comparison on username and password
+	* add userid to session so you know someone's logged in
