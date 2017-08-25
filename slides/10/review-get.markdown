@@ -95,7 +95,7 @@ app.get('/', function(req, res) {
 <section markdown="block">
 ## Create Your Templates and Layouts
 
-__Create your surrounding html in <code>views/layout.hbs</code> (don't forget <code>{{{body}}}</code>):__ &rarr;
+__Create your surrounding html in <code>views/layout.hbs</code> (don't forget <code>body</code> with 3 curly braces):__ &rarr;
 
 <pre><code data-trim contenteditable>
 &lt;!doctype html&gt;

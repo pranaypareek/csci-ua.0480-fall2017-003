@@ -547,7 +547,7 @@ app.set('view engine', 'hbs');
 Render a template!
 
 <pre><code data-trim contenteditable>
-res.render('index', {{ "greeting":"HELLLOOOO" }});
+res.render('index', { "greeting":"HELLLOOOO" });
 </code></pre>
 
 </section>
