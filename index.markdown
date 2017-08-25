@@ -3,195 +3,469 @@ layout: default
 nav-state: index
 ---
 
-<div class="row">
-
-  <div class="col-md-6">
-    <div class="panel panel-default">
-
-<a name="info"></a>
-<div class="panel-heading">Course Info</div>
-<div class="panel-body" markdown="block">
-
-* __Course Title:__ {{ site.course_name }}
-* __Course Number:__ {{ site.course_number }}-{{ site.course_section }}
-* __Semester:__ {{ site.course_semester }}
-* __Meeting Time:__ {{ site.course_time }}
-* __Room:__ {{ site.course_room }}
-* __Instructor:__ Joe Versoza
-* __Contact:__ <a href="{{ site.contact_link }}">{{ site.contact_label }} {{ site.contact_note }}</a>
-* __Email:__ jversoza at cs dot nyu dot edu
-* __Office Hours:__ {{ site.office_hours }}
-* __Office Hours Room:__  {{ site.office_hours_room }}
+<div id="quick-links">
+<h3><a href="syllabus.html">Course Info</a> | <a href="syllabus.html#tutoring">Tutoring</a> | <a href="syllabus.html#hw-policy">Homework Policy</a> | <a href="syllabus.html#quiz-policy">Quiz Policy</a></h3>
 </div>
-    </div>
-  </div><!-- end col -->
 
-  <div class="col-md-6">
-    <div class="panel panel-default">
-<a name="description"></a>
-<div class="panel-heading">Course Description</div>
-<div class="panel-body" markdown="block">
+<table class="table table-striped table-hover">
+<thead>
+<tr>
+	<th>#</th>
+	<th>Date</th>
+	<th>Topics</th>
+	<th>Slides</th>
+	<th>Readings</th>
+	<th>Assignments</th>
+</tr>
+</thead>
+<tbody>
 
-This course is a __practical introduction__ to creating __modern web applications__.
+<!-- ------------ --><a name="01"></a>
+<tr><td>1</td><td><strong>Sep 05</strong><br>Tue</td>
+<td markdown="block">
+* Introductions
+* JavaScript Basics
+* Variables
+* Functions
 
-It will cover __full stack web development__ - from database design all the way through client side interactivity.  Students will use current server and client side web frameworks to build dynamic, data-driven sites.  Various tools to support development will also be introduced, such as version control and build systems.
-
-__\*__ Basic knowledge of __HTML__ and __CSS__ and familiarity with using __command line__ tools are required.
-</div>
-    </div>
-  </div><!-- end col -->
-
-</div><!-- end row -->
-
-<div class="row">
-
-  <div class="col-md-6">
-    <div class="panel panel-default">
-<a name="topics"></a>
-<div class="panel-heading">Topics</div>
-<div class="panel-body" markdown="block">
-* __JavaScript__ 
-* __Server Side Programming__ (with Node and Express)
-* __Storing and Retrieving Data__ (with a NoSQL database, such as MongoDB)
-* __Client Side Build-Out__
-* __Client Side Programming__ (both with vanilla JavaScript and using a JavaScript framework)
-* __Realtime Web Applications__ (socket.io)
-* __Development Tools__ (version control with git, task automation, static analysis tools, etc.)
-* __Extra Topics Time Permitting__ (JS Framework like React, ES6?)
-</div>
-    </div>
-  </div><!-- end col -->
-
-  <div class="col-md-6" name="quiz-policy" id="quiz-policy">
-    <div class="panel panel-default">
-<a name="homework"></a>
-<div class="panel-heading">Quizzes</div>
-<div class="panel-body" markdown="block">
-Expect about __one quiz__ every __week__, which can be in one of the following formats:
-
-* Take from home quizzes 
-    * Submitted __electronically via NYU Classes__ 
-    * Quizzes will be closed at the due date given
-* In-class quizzes
-    * Dates for in-class quizzes will be posted one week before quiz is given
-    * Will be based on homework
-    * Will be given at the beginning of class
-* Make ups will be allowed for the following exceptions:
-    1. illness, with documentation
-    2. religious observance
-    3. technical issues (NYU Classes down, Quiz not Appearing, etc.), with documentation
-* Please read the [page on academic integrity](http://www.cs.nyu.edu/webapps/content/academic/undergrad/academic_integrity)
-
-</div>
-    </div>
-  </div><!-- end col -->
-
-</div><!-- end row -->
-
-<div class="row" name="hw-policy" id="hw-policy">
-  <div class="col-md-6">
-    <div class="panel panel-default">
-<a name="homework"></a>
-<div class="panel-heading">Homework</div>
-<div class="panel-body" markdown="block">
-Expect about __one homework__ every __week or two__:
-
-* Turned in __electronically via git__ 
-* Late homework will not be accepted (graders will not consider commits beyond that point)
-    * Exceptions:
-        1. illness or family/personal issue, with documentation
-        2. religious observance
-        3. technical issues (broken computer, github down, etc.), with documentation
-* __Write your own code!__ This means:
-    * Don't copy anyone else's code
-    * Don't distribute/publicly publish your code 
-    * (You can publish your final project once the class is over)
-* If you use any online resources outside of the course materials, annotate your code with comments and the link to the resource
-* If there is an instance of cheating or software plagiarism, you will be directed to the Director of Undergraduate Studies
-
-</div>
-    </div>
-  </div><!-- end col -->
-
-  <div class="col-md-6">
-    <div class="panel panel-default">
-<a name="books"></a>
-<div class="panel-heading">Books</div>
-<div class="panel-body" markdown="block">
-
-__Readings will be sourced from the following books__ (all are free to read online, but a hardcopy or ebook can purchased as well!): 
-
-* [{{ site.book_js }}]( {{ site.book_js_link }}) by {{ site.book_js_author }} 
-* [{{ site.book_js_2 }}]( {{ site.book_js_2_link }}) by {{ site.book_js_2_author }} 
-* [{{ site.book_js_3 }}]( {{ site.book_js_3_link }}) by {{ site.book_js_3_author }} 
-* [{{ site.book_js_4 }}]( {{ site.book_js_4_link }}) by {{ site.book_js_4_author }} 
-* [{{ site.book_js_5 }}]( {{ site.book_js_5_link }}) by {{ site.book_js_5_author }} 
-* [{{ site.book_js_6 }}]( {{ site.book_js_6_link }}) by {{ site.book_js_6_author }} 
-* [{{ site.book_js_7 }}]( {{ site.book_js_7_link }}) by {{ site.book_js_7_author }} 
-* [{{ site.book_js_8 }}]( {{ site.book_js_8_link }}) by {{ site.book_js_8_author }} 
-* [{{ site.book_js_9 }}]( {{ site.book_js_9_link }}) by {{ site.book_js_9_author }} 
-
-Significant material will be pulled from the following sites:
-
-* [Mozilla Developer Network](https://developer.mozilla.org/en-US/)
-* [ECMAScript® 2015 Language Specification](http://www.ecma-international.org/ecma-262/6.0/)
-* [2ality](http://www.2ality.com/)
-* [IETF (Internet Engineering Task Force) Tools](https://tools.ietf.org)
-* [OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Main_Page)
-* [NODESCHOOL](https://nodeschool.io/)
-* [NCZOnline](https://www.nczonline.net/)
-* documentation for [node](https://nodejs.org/en/docs/), [express](https://expressjs.com/en/api.html), [mongodb](https://docs.mongodb.com/manual/), [socket.io](http://socket.io/docs/), and [react](https://facebook.github.io/react/docs/hello-world.html).
-
-</div>
-    </div>
-  </div><!-- end col -->
-</div><!-- end row -->
-
-<div class="row">
-
-  <div class="col-md-6">
-    <div class="panel panel-default">
-<a name="grading"></a>
-<div class="panel-heading">Grading</div>
-<div class="panel-body" markdown="block">
-* __25%__ - Homework
-* __25%__ - Exam #1
-* __25%__ - Exam #2
-* __10%__ - Quizzes / Activities
-* __15%__ - Final Project
-</div>
-    </div>
-  </div><!-- end col -->
-
-
-
-  <div class="col-md-6">
-    <div class="panel panel-default">
-<a name="Tutoring"></a>
-<div class="panel-heading">Tutoring</div>
-<div class="panel-body" markdown="block">
-There is a __tutor available__ for the course.
-
-* Location
-    * __WWH 412__
-* Hours
-    * See pinned message on Piazza
-
-{% comment %}
-    * __Wednesday__  - 5pm - 7pm
-    * __Thursday__ -  1pm - 3pm 
-    * __Friday__  - 1pm - 3pm
+{% comment %} 
+TODO:
+* keep types 
+* add readings for es5
+    * coercion
+    * var
+    * control structures
+    * etc.
+* destructuring?
 {% endcomment %}
 
-Additionally, the tutor will hold workshops based on student demand. Some workshops may include:
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/01.markdown %}
+{% endcomment %}
+</tr>
 
-* commandline
-* git
-* http
-* html
-* css
 
-</div>
-    </div>
-  </div><!-- end col -->
-</div><!-- end row -->
+<!-- ------------ --><a name="02"></a>
+<tr><td>2</td><td><strong>Sep 07</strong><br>Thu</td>
+<td markdown="block">
+* Objects
+* Node
+* Modules and Require
+* Static Analysis Tools
+* Introduction to Higher Order Functions (Maybe?)
+
+{% comment %} 
+TODO
+=====
+* eslint
+* file io
+    * readlinesync
+    * vs readline
+* commandline args
+* process.env
+* add readings for es5
+    * coercion
+    * var
+    * control structures
+    * etc.
+* let/const
+* destructuring?
+* functions
+    * arrow
+    * default values
+* homework policy
+{% endcomment %}
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/02.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ --><a name="03"></a>
+<tr><td>3</td><td><strong>Sep 12</strong><br>Tue</td>
+<td markdown="block">
+* Higher Order Functions
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/03.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ --><a name="04"></a>
+<tr><td>4</td><td><strong>Sep 14</strong><br>Thu</td>
+<td markdown="block">
+* Objects and Prototypes
+* Patterns
+* Networking Primer
+* Network Programming
+* Streams / Buffers / File IO
+
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/04.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ --><a name="05"></a>
+<tr><td>5</td><td><strong>Sep 19</strong><br>Tue</td>
+<td markdown="block">
+* Web Development
+* HTTP
+* A Simple Web Server
+
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/05.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ --><a name="06"></a>
+<tr><td>6</td><td><strong>Sep 21</strong><br>Thu</td>
+<td markdown="block">
+* A Simple Web Server Continued / Our "Framework"
+* Routing
+* Node HTTP Module
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/06.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ --><a name="07"></a>
+<tr><td>7</td><td><strong>Sep 26</strong><br>Tue</td>
+<td markdown="block">
+* HTTP Module
+* Web Framework
+* Project Layout
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/07.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ --><a name="08"></a>
+<tr><td>8</td><td><strong>Sep 28</strong><br>Thu</td>
+<td markdown="block">
+* Web Framework Continued
+* Middleware
+* Templating
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/08.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ --><a name="09"></a>
+<tr><td>9</td><td><strong>Oct 03</strong><br>Tue</td>
+<td markdown="block">
+* Cookies
+* Sessions
+* Forms
+
+{% comment %} 
+* make sure to go over advanced forms
+* such as other input types
+* select and option
+* checkboxes
+* etc.
+{% endcomment %}
+
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/09.markdown %}
+{% endcomment %}
+<!--<td></td><td></td><td></td>-->
+</tr>
+
+{% comment %}
+<tr class="success"><td></td><td><strong>Oct 09</strong><br>Mon</td> <td markdown="block"> __No class (Columbus Day)__ 
+</td> <td></td> <td></td> <td></td> </tr>
+
+{% endcomment %}
+
+<!-- ------------ --><a name="10"></a>
+<tr><td>10</td><td><strong>Oct 05</strong><br>Thu</td>
+<td markdown="block">
+* NoSQL Database
+* Object Document Mapper 
+* Database Design
+
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/10.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ --><a name="11"></a>
+<tr><td>11</td><td><strong>Oct 10</strong><br>Tue</td>
+<td markdown="block">
+
+
+* About the Exam, Review
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/11.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ --><a name="12"></a>
+<tr class="danger"><td>12</td><td><strong>Oct 12</strong><br>Thu</td>
+<td markdown="block">
+__EXAM #1 (Midterm Exam)__
+</td>
+<!--was <td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/13.markdown %}
+{% endcomment %}-->
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/12.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ --><a name="13"></a>
+<tr><td>13</td><td><strong>Oct 17</strong><br>Tue</td>
+<td markdown="block">
+* Database Design Continued
+* Authentication
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/14.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ --><a name="14"></a>
+<tr><td>14</td><td><strong>Oct 19</strong><br>Thu</td>
+<td markdown="block">
+* URL Parameters
+* Finishing Database
+* Validation
+
+{% comment %}
+* validation comes from next class?
+{% endcomment %}
+
+</td>
+
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/14.markdown %}
+{% endcomment %}
+
+</tr>
+
+
+
+<!-- ------------ --><a name="15"></a>
+<tr><td>15</td><td><strong>Oct 24</strong><br>Tue</td>
+<td markdown="block">
+
+* Authentication
+* Authentication Library
+
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/15.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ --><a name="16"></a>
+<tr><td>16</td><td><strong>Oct 26</strong><br>Thu</td>
+<td markdown="block">
+* HTML Primer, JavaScript and the Browser
+* The Document Object Model
+* Deployment
+
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/16.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ --><a name="17"></a>
+<tr><td>17</td><td><strong>Oct 31</strong><br>Tue</td>
+<td markdown="block">
+* Manipulating Elements
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/17.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ --><a name="18"></a>
+<tr><td>18</td><td><strong>Nov 02</strong><br>Thu</td>
+<td markdown="block">
+
+* Timers
+* Events
+* CSS
+
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/18.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ --><a name="19"></a>
+<tr><td>19</td><td><strong>Nov 07</strong><br>Tue</td>
+<td markdown="block">
+* CSS/ Events / Timers Continued
+* AJAX
+* APIs
+
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/19.markdown %}
+{% endcomment %}
+</tr>
+
+<!-- ------------ --><a name="20"></a>
+<tr><td>20</td><td><strong>Nov 09</strong><br>Thu</td>
+<td markdown="block">
+* AJAX Continued
+* Promises
+* Maybe Fetch API
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/20.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ --><a name="21"></a>
+<tr><td>21</td><td><strong>Nov 14</strong><br>Tue</td>
+<td markdown="block">
+
+* More Promises/AJAX
+* SocketIO
+
+{% comment %}
+concat and min? grunt and/or gulp?
+{% endcomment %}
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/21.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ --><a name="22"></a>
+<tr><td>22</td><td><strong>Nov 16</strong><br>Thu</td>
+<td markdown="block">
+
+* SocketIO - Lab
+
+{% comment %}
+remove css refresher 
+flexbox, etc from old 24
+show react basics
+{% endcomment %}
+
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/22.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ --><a name="23"></a>
+<tr><td>23</td><td><strong>Nov 21</strong><br>Tue</td>
+<td markdown="block">
+
+* Frontend Framework
+{% comment %} consolidate React stuff here maybe from 26 and 27, including build tools {% endcomment %}
+
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/23.markdown %}
+{% endcomment %}
+</tr>
+
+<tr class="success"><td></td><td><strong>Nov 23</strong><br>Thu</td> <td markdown="block"> __No class (Thanksgiving Break)__ 
+</td> <td></td> <td></td> <td></td> </tr>
+
+
+<!-- ------------ --><a name="24"></a>
+<tr><td>24</td><td><strong>Nov 28</strong><br>Tue</td>
+<td markdown="block">
+* Frontend Framework - Lab
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/24.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ --><a name="25"></a>
+<tr><td>25</td><td><strong>Nov 30</strong><br>Thu</td>
+<td markdown="block">
+
+* Maybe Flexbox
+* Maybe CSS Meta Languages
+
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/25.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ -->
+<a name="26"></a>
+<tr><td>26</td><td><strong>Dec 05</strong><br>Tue</td>
+<td markdown="block">
+* TBD
+
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/26.markdown %}
+{% endcomment %}
+</tr>
+
+
+<!-- ------------ -->
+<tr><td>27</td><td><strong>Dec 07</strong><br>Thu</td>
+<td markdown="block">
+* Review
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/27.markdown %}
+{% endcomment %}
+</tr>
+
+<!-- ------------ --><a name="28"></a>
+<tr class="danger"><td>28</td><td><strong>{{ site.final_date }}</strong><br>{{ site.final_day }}</td>
+<td markdown="block">
+__EXAM #2 (Final Exam)__ - {{ site.final_time }}, {{ site.final_room }} 
+</td>
+<td></td><td></td><td markdown="block"></td>{% comment %}
+{% include schedule/28.markdown %}
+{% endcomment %}
+</tr>
+
+<!--
+<tr class="danger"><td></td><td><strong>Dec 20</strong><br>Tue</td>
+<td markdown="block">
+__FINAL EXAM__ - 8:00AM to 9:50AM, WWH 101
+</td>
+<td></td><td></td>
+<td markdown="block">
+</td>
+</tr>
+-->
+
+</tbody>
+</table>
