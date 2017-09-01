@@ -9,7 +9,7 @@ title: CSCI-UA.0480 - Homework #1
 
 # Reversi / Othello
 
-## Due __Feb 8th, by 11PM__
+## Due __Sep 14th, by 11PM__
 
 <pre>     A   B   C   D   E   F   G   H
    +---+---+---+---+---+---+---+---+
@@ -67,6 +67,13 @@ See the [example game](#hw01-reversi-sample) shown at the end of these instructi
 7. Use the fs module to read a file / handle asynchronous I/O
 8. Parse JSON
 
+### Grading
+
+* __all parts of the homework count toward your grade__
+* __there will be a significant penalty for not adding the config file and scripted moves portion__
+    * these parts are at the end of the instructions (see `User Controlled Game Settings` and `Handling Scripted Moves`)
+    * the implementation of these features is important because they help both _you_ and the graders test your program
+
 ### Submission Process
 
 The final version of your assignment should be in GitHub.
@@ -86,7 +93,7 @@ Ensure that node and npm are installed (this should have been done for _homework
     * eshint for cleaning up your JavaScript / spotting common sources of bugs and errors in your code
 3. install modules required by your game
 
-### (4 points) Use Git / Clone the repository
+### Use Git / Clone the repository
 
 Make sure you have git / a git client!
 
@@ -102,7 +109,7 @@ Assuming that you've already:
 
 You can then go through the following steps to clone your repository and commit your first changes:
 
-1. ...go to the [class github page](https://github.com/nyu-csci-ua-0480-008-spring-2017)
+1. ...go to the [class github page](https://github.com/nyu-csci-ua-0480-003-fall-2017)
 2. find the repository that starts with your NYU NetID and ends with homework01 (for example, jjv222-homework01) 
 3. on the repository's page, use the green "Clone or download" button on the right side of the screen to copy the HTTPS clone URL to __clone__ the homework. To use the commandline client (with GITHUB_REPOSITORY_URL being the url you copied from the green button):
     <pre><code data-trim contenteditable> git clone GITHUB_REPOSITORY_URL
@@ -116,7 +123,7 @@ You can then go through the following steps to clone your repository and commit 
 8. save your work locally by running <code>git commit -m "first commit"</code>... everything within the quotes after <code>-m</code> is any commit message you'd like
 0. finally, send your work to github by running <code>git push</code> (or <code>git push origin master</code>)
 
-### (1 point) Install Development Modules
+### Install Development Modules
 
 You'll have to install a couple of node modules to help you run tests and use static analysis tools on your code. These tools won't be required for your program to run, but they will be useful while you're writing your programs. 
 
@@ -141,7 +148,7 @@ Note that the last commands install modules _locally_ to your project directory.
 * It will make a modification to an existing file, `package.json`, within your project folder
 * It will create a `node_modules` folder where your downloaded modules are stored (this folder is included in your `.gitignore` file because these external libraries are not meant to be in your project's version control
 
-### (1 point) Install Required Modules
+### Install Required Modules
 
 You'll also need a module to help you ask the user for input.
 
@@ -156,7 +163,7 @@ You'll also need a module to help you ask the user for input.
     * which imports the function <code>question</code> from the <code>readline-sync</code> module into your program
 * note that installing `readline-sync` will make a modification to `package.json` as well. This modification to `package.json` should be committed and pushed as well!
 
-### (4 points) Minimum Number of Commits
+### Minimum Number of Commits
 
 As you write your code, make sure that you make at least four commits total (more commits are better; if you can, try to commit per feature added). 
 
@@ -473,18 +480,17 @@ __Returns:__
 
 __Description:__
 
-Sets the value of the cell at the specified row and column numbers on the board, `board`, to the value, `letter`.
+Sets the value of the cell at the specified row and column numbers on the board, `board`, to the value, `letter` without mutating the original board passed in. 
 
-You can either set the cell in the `board` argument passed in... and return it, or you can shallow copy `board` and mutate and return the copy. To shallow copy an `Array`, use the [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator#Copy_an_array) or the [slice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) method.
+Do this by creating a shallow copy of `board` and modifying it.  Return the copy instead of the original `board` passed in. To shallow copy an `Array`, use the [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator#Copy_an_array) or the [slice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) method.
 
 __Example:__
 
-    // sets two squares, one X and one O
+    // sets a single square, but does not mutate the original board passed in
     const board = rev.generateBoard(3, 3, " ");
-    const b1 = rev.setBoardCell(board, "X", 1, 1);
-    const b2 = rev.setBoardCell(b1, "O", 0, 2);
-    // b1 is [" ", " ", " ", " ", "X", " ", " ", " ", " "];
-    // b2 is [" ", " ", "O", " ", "X", " ", " ", " ", " "];
+    const updatedBoard = rev.setBoardCell(board, "X", 1, 1);
+    // board is [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+    // updatedBoard is [" ", " ", " ", " ", "X", " ", " ", " ", " "]
 
 <hr> 
 
@@ -516,7 +522,7 @@ Finally if you feel like wrangling regular expressions, you can try using the [m
 __Example:__
 
     // valid
-    rev.algrbraicToRowCol("B3") // for a 4 x 4 board, {"row": 2, "col": 1}
+    rev.algebraicToRowCol("B3") // for a 4 x 4 board, {"row": 2, "col": 1}
     rev.algebraicToRowCol("D4") // for a 4 x 4 board, {"row": 3, "col": 3}
 
     // not valid:
@@ -546,7 +552,7 @@ __Description:__
 
 Translates algebraic notation specifying a cell into a row and column specifying the same cell.
 
-Use the `setBoardCell` function you created above to implement this.
+Use the `setBoardCell` function you created above to implement this. Consequently, the incoming board should not be mutated (instead, copy it, modify the copy and return the modified copy).
 
 __Example:__
 
@@ -573,7 +579,7 @@ __Returns:__
 
 __Description:__
 
-Same as `placeLetter`, but can accept multiple cells
+Same as `placeLetter`, but can accept multiple cells as extra arguments. Use [rest parameters](http://exploringjs.com/es6/ch_parameter-handling.html#sec_rest-parameters) to implement this. Again, the original board passed in should not be changed (instead, copy it, modify the copy, and return the copy).
 
 __Example:__
 
@@ -846,8 +852,17 @@ So for example, in the board setup below, if there were an X move to D4, there w
 
 </code></pre>
 
+__Hint - a possible brute force algorithm to do this__:
+
+1. For every possible straight line starting from the move (up, down, left, right, diagonal upper left, etc.):
+2. Check if the next cell contains your opponent's letter
+3. If it does, add it to a list of potential cell coordinates continue to the next cell in your line...
+4. If that cell contains your letter, you're done! ...all of your collected cells are cells to flip
+5. If the next cell doesn't exist or the next cell is empty (a space) none of the cells you've collected can be flipped
+
 
 Lastly, the ordering of the groups, as well as the cells in those groups can vary. __Ordering does not matter!__ (This will depend on the algorithm that you use for this, so a specific ordering is not required.)
+
 
 
 __Example:__
@@ -1265,7 +1280,7 @@ O: 1
 No valid moves available for you.
 Press &lt;ENTER&gt; to pass.        
 </code></pre>
-	* however if a player is able to move, once they complete their move, ask the player to press <ENTER> to allow the computer move (ask for any input again using something like `readlineSync.question('Press <ENTER> to show computer\'s move...');`... without storing the input in a variable
+	* however if a player is able to move, once they complete their move, ask the player to press &lt;ENTER&gt; to allow the computer move (ask for any input again using something like `readlineSync.question('Press &lt;ENTER&gt; to show computer\'s move...');`... without storing the input in a variable
         <pre><code data-trim contenteditable>     A   B   C   D
          +---+---+---+---+
  1 |   |   |   |   |
@@ -1299,14 +1314,15 @@ You won! 👍
 
 ### Handling Scripted Moves
 
+
 If there were scripted moves defined in the config file, allow the game to proceed by pulling the moves for the computer and player from these Arrays... and using them to make a move:
 
 1. if the move pulled from the Array is not valid, then ignore it and allow the computer or player to make their move manually
 2. otherwise, if the move _is_ valid, then prompt the player to press <ENTER> to see their next move
 3. if there are no more moves to pull from the array of scripted moves, allow the computer or player to choose their move like usual
 4. Some more details:
-    * again, the player can move manually after the scripted moves have been exhausted
-    * if the scripted move is an invalid move, that scripted move is exhausted (skipped), and the next scripted move for that player (comp or user) will be used on that player's next turn
+    * again, __the player can move manually after the scripted moves have been exhausted__
+    * if the scripted move is an invalid move, that scripted move is skipped, and the next scripted move for that player (comp or user) will be used on that player's next turn
     * execute the scripted moves based on who is 'X', so if the player is 'X', their scripted moves will start first (same as if playing interactively)
     * there can be an uneven number of moves - if there are, follow this process: is there a scripted move to use? use it... otherwise move like you would normally (computer picks randomly or player enters move manually)
 5. for example using this configuration:
@@ -1416,9 +1432,9 @@ __Text Example__
 
 <pre><code data-trim contenteditable>
 How wide should the board be? (even numbers between 4 and 26, inclusive)
-> 4
+&gt; 4
 Pick your letter: X (black) or O (white)
-> X
+&gt; X
 Player is X
      A   B   C   D
    +---+---+---+---+
@@ -1432,7 +1448,7 @@ Player is X
    +---+---+---+---+
 
 What's your move?
-> B1
+&gt; B1
 
      A   B   C   D
    +---+---+---+---+
@@ -1450,7 +1466,7 @@ Score
 X: 4
 O: 1
 
-Press <ENTER> to show computer's move...
+Press &lt;ENTER&gt; to show computer's move...
      A   B   C   D
    +---+---+---+---+
  1 |   | X |   |   |
@@ -1468,7 +1484,7 @@ X: 3
 O: 3
 
 What's your move?
-> B4
+&gt; B4
      A   B   C   D
    +---+---+---+---+
  1 |   | X |   |   |
@@ -1485,7 +1501,7 @@ Score
 X: 5
 O: 2
 
-Press <ENTER> to show computer's move...
+Press &lt;ENTER&gt; to show computer's move...
      A   B   C   D
    +---+---+---+---+
  1 | O | X |   |   |
@@ -1503,7 +1519,7 @@ X: 4
 O: 4
 
 What's your move?
-> A2
+&gt; A2
      A   B   C   D
    +---+---+---+---+
  1 | O | X |   |   |
@@ -1520,7 +1536,7 @@ Score
 X: 6
 O: 3
 
-Press <ENTER> to show computer's move...
+Press &lt;ENTER&gt; to show computer's move...
      A   B   C   D
    +---+---+---+---+
  1 | O | O | O |   |
@@ -1538,7 +1554,7 @@ X: 3
 O: 7
 
 What's your move?
-> A4
+&gt; A4
      A   B   C   D
    +---+---+---+---+
  1 | O | O | O |   |
@@ -1555,15 +1571,15 @@ Score
 X: 5
 O: 6
 
-Press <ENTER> to show computer's move...
-Computer has no valid moves. Press <ENTER> to continue
+Press &lt;ENTER&gt; to show computer's move...
+Computer has no valid moves. Press &lt;ENTER&gt; to continue
 Score
 =====
 X: 5
 O: 6
 
 What's your move?
-> D2
+&gt; D2
      A   B   C   D
    +---+---+---+---+
  1 | O | O | O |   |
@@ -1580,7 +1596,7 @@ Score
 X: 9
 O: 3
 
-Press <ENTER> to show computer's move...
+Press &lt;ENTER&gt; to show computer's move...
      A   B   C   D
    +---+---+---+---+
  1 | O | O | O |   |
@@ -1598,7 +1614,7 @@ X: 8
 O: 5
 
 What's your move?
-> D4
+&gt; D4
      A   B   C   D
    +---+---+---+---+
  1 | O | O | O |   |
@@ -1615,7 +1631,7 @@ Score
 X: 10
 O: 4
 
-Press <ENTER> to show computer's move...
+Press &lt;ENTER&gt; to show computer's move...
      A   B   C   D
    +---+---+---+---+
  1 | O | O | O |   |
@@ -1633,7 +1649,7 @@ X: 9
 O: 6
 
 What's your move?
-> D1
+&gt; D1
      A   B   C   D
    +---+---+---+---+
  1 | O | O | O | X |
@@ -1653,328 +1669,6 @@ O: 5
 You won! 👍
 </code></pre>
 
-{% comment %}
-4. If the board is full, announce that it's a draw: `It's a draw!`
-
-<br>
-__Here's an example game:__
-
-
-<br>
-__And the text-only version of the game above:__
-
-<pre><code data-trim contenteditable>Shall we play a game? TIC-TAC-TOE!
-
-How wide should the board be? (1 - 26)
-> 3
-Pick your letter: X or O
-> O
-Player is O
-     1   2   3
-   +---+---+---+
- A |   |   |   |
-   +---+---+---+
- B |   |   |   |
-   +---+---+---+
- C |   |   |   |
-   +---+---+---+
-
-Press &lt;ENTER&gt; to show computer's move...
-     1   2   3
-   +---+---+---+
- A | X |   |   |
-   +---+---+---+
- B |   |   |   |
-   +---+---+---+
- C |   |   |   |
-   +---+---+---+
-
-What's your move?
-> B2
-     1   2   3
-   +---+---+---+
- A | X |   |   |
-   +---+---+---+
- B |   | O |   |
-   +---+---+---+
- C |   |   |   |
-   +---+---+---+
-
-Press &lt;ENTER&gt; to show computer's move...
-     1   2   3
-   +---+---+---+
- A | X | X |   |
-   +---+---+---+
- B |   | O |   |
-   +---+---+---+
- C |   |   |   |
-   +---+---+---+
-
-What's your move?
-> C3
-     1   2   3
-   +---+---+---+
- A | X | X |   |
-   +---+---+---+
- B |   | O |   |
-   +---+---+---+
- C |   |   | O |
-   +---+---+---+
-
-Press &lt;ENTER&gt; to show computer's move...
-     1   2   3
-   +---+---+---+
- A | X | X | X |
-   +---+---+---+
- B |   | O |   |
-   +---+---+---+
- C |   |   | O |
-   +---+---+---+
-
-Computer won!!!
-</code></pre>
-
-<br>
-__Remember, the game should work with variable widths... here's the beginning of a game on a 5 x 5 board:__
-
-<pre><code data-trim contenteditable>
-Shall we play a game? TIC-TAC-TOE!
-
-How wide should the board be? (1 - 26)
-> 5
-Pick your letter: X or O
-> X
-Player is X
-     1   2   3   4   5
-   +---+---+---+---+---+
- A |   |   |   |   |   |
-   +---+---+---+---+---+
- B |   |   |   |   |   |
-   +---+---+---+---+---+
- C |   |   |   |   |   |
-   +---+---+---+---+---+
- D |   |   |   |   |   |
-   +---+---+---+---+---+
- E |   |   |   |   |   |
-   +---+---+---+---+---+
-
-What's your move?
-> E4
-     1   2   3   4   5
-   +---+---+---+---+---+
- A |   |   |   |   |   |
-   +---+---+---+---+---+
- B |   |   |   |   |   |
-   +---+---+---+---+---+
- C |   |   |   |   |   |
-   +---+---+---+---+---+
- D |   |   |   |   |   |
-   +---+---+---+---+---+
- E |   |   |   | X |   |
-   +---+---+---+---+---+
-
-Press &lt;ENTER&gt; to show computer's move...
-     1   2   3   4   5
-   +---+---+---+---+---+
- A | O |   |   |   |   |
-   +---+---+---+---+---+
- B |   |   |   |   |   |
-   +---+---+---+---+---+
- C |   |   |   |   |   |
-   +---+---+---+---+---+
- D |   |   |   |   |   |
-   +---+---+---+---+---+
- E |   |   |   | X |   |
-   +---+---+---+---+---+
-
-What's your move?
->
-</code></pre>
-
-### Scripted Moves for the Computer
-
-Testing your game against a computer player that makes random moves can be pretty annoying because you can't reliably repeat tests!
-
-To deal with this, add a feature to your game that allows you to pass in the computer's moves once you start your game. That is, when you run your game on the commandline, you can add an extra option to control the computer moves.
-
-To pick up commandline arguments, use the built-in variable `process.argv`. `process.argv` is an array that contains parts of the command used to run your program. For example, if you run your program with `node my-program.js`, `process.argv[0]` will be `node` and `process.argv[1]` will be `my-prgoram.js`.
-
-We can use this feature to supply an `Array` of moves (each represented by a 2-element `Array`). So... if we want the computer to move according to a commandline argument that we pass in, we can start the program by running:
-
-<pre><code data-trim contenteditable>node game.js "[[0,0],[0,1],[0,2]]"
-// the computer's first three moves are the first 3 columns of the first row
-</code></pre>
-
-To capture the commandline argument, you can use this line:
-
-<pre><code data-trim contenteditable>var computerMoves = process.argv[2]
-</code></pre>
-
-Now... instead of just randomly choosing the computer's move, you can consume the moves from the Array passed in.
-
-__To implement this feature...__
-
-1. At the beginning of your file, use `process.argv` to access the passed in argument... and use `JSON.parse` to turn it into an actual nested `Array`
-    <pre><code data-trim contenteditable>var computerMoves = process.argv[2] ? JSON.parse(process.argv[2]) : undefined;
-</code></pre>
-2. Notify the user that the computer is using scripted moves: `Computer will make the following moves: [ [ 0, 0 ], [ 0, 1 ], [ 0, 2 ] ]`
-3. When the computer moves
-    * check out the 1st element of the `computerMoves` `Array`... 
-    * if it's valid use it as the computer's move, otherwise just move randomly
-    * remove the 1st element of `computerMoves` (the first scripted move has been consumed)... you can use [splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) to do this
-    * if the `computerMoves` array is empty or undefined, just use a random move
-    * check out the example code below:  
-<pre><code data-trim contenteditable>// assume that a computerMoves global variable exists... 
-// and it is an Array of 2-element Arrays like [[0, 0], [0, 1], ...]
-        
-// the move the computer will make
-var move; 
-
-// do we have an Array of scripted moves and are there moves left?
-if(computerMoves && computerMoves.length > 0) {
-    var arr = computerMoves.splice(0, 1)[0];
-    // make sure it's a valid move!
-    if(rev.isValidMove(board, arr[0], arr[1])) {
-        move = {'row':arr[0], 'col':arr[1]};
-    }
-	// if it's not valid, move remains undefined
-}
-
-// if we still don't have a valid move, just get a random empty square
-if(move === undefined) {
-    move = rev.indexToRowCol(board, rev.getRandomEmptyCellIndex(board));
-}
-
-</code></pre>
-
-### dealing with scope and callbacks
-
-Because you'll be writing a lot of callback functions, you may find that you don't have access to certain variables because they're within the local scope of another function. Here's an example:
-
-<pre><code data-trim contenteditable>var readline = require('readline');
-
-function main() {
-    var greeting = "Hello ";
-
-    var userPrompt = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
-
-    userPrompt.question('What\'s your name?', handleUserInput);
-
-}
-
-function handleUserInput(response) {
-    console.log(greeting + ' ' + response);
-    userPrompt.close();
-}
-
-main();
-</code></pre>
-
-If you run the above code, you'll get the following error:
-
-`ReferenceError: greeting is not defined`
-
-Because greeting is within the local scope of `main`. Assuming you want to keep the `main` function around, you can get around this by:
-
-* (easy, but sloppy) using a lot of global variables - just move the declaration of `greeting` outside of `main`
-* (easy, slightly less sloppy) nest functions within other functions if you need inner function to access variables in the outer function 
-    <pre><code data-trim contenteditable>var readline = require('readline');
-    
-    function main() {
-    var greeting = "Hello ";
-
-    var userPrompt = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
-
-    userPrompt.question('What\'s your name?', handleUserInput);
-
-    function handleUserInput(response) {
-        console.log(greeting + ' ' + response);
-        userPrompt.close();
-    }
-}
-main();
-</code></pre>
-* (difficult) pass the necessary variables to the function as arguments, and then fix the arity by using an anonymous function (that is, fix the values of a function's parameters) when using the function as a callback:
-    <pre><code data-trim contenteditable>var readline = require('readline');
-    
-    function main() {
-    var greeting = "Hello ";
-
-    var userPrompt = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
-
-    userPrompt.question('What\'s your name?', function(response) {
-        handleUserInput(userPrompt, greeting, response);
-    });
-}
-function handleUserInput(userPrompt, greeting, response) {
-    console.log(greeting + ' ' + response);
-    userPrompt.close();
-}
-main();
-</code></pre>
-* (difficult) pass the necessary variables to the function as arguments, and then fix the arity of the callback by using [bind](https://www.google.com/search?q=js+bind&oq=js+bind&aqs=chrome..69i57j0l5.1794j0j4&sourceid=chrome&ie=UTF-8)
-    <pre><code data-trim contenteditable>var readline = require('readline');
-
-    function main() {
-    var greeting = "Hello ";
-
-    var userPrompt = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
-    userPrompt.question('What\'s your name?', handleUserInput.bind(null, userPrompt, greeting));
-}
-function handleUserInput(userPrompt, greeting, response) {
-    console.log(greeting + ' ' + response);
-    userPrompt.close();
-}
-main();
-</code></pre>
-
-__Issues Reading a File__
-
-When creating a readline interface for reading a file, the fileName argument to the `createReadStream` function expects a path to a file. Depending on where you're running node from (what directory), you'll have to figure out what the relative or absolute path is to `data/enable1.txt`.
-
-The syntax is like this:
-
-<pre><code data-trim contenteditable>fileInput = readline.createInterface({ 
-    input: fs.createReadStream(fileName)
-});
-</code></pre>
-
-The easiest way to deal with this is to set `fileName` to an absolute path. This way, it can work anywhere you run node. 
-
-`/Users/jversoza/project/homework01/data/enable1.txt`
-
-If you're running your program from your project directory, then fileName should be:
-
-`data/enable1.txt`
-
-If you're running from your `src`, then fileName should be:
-
-`../data/enable1.txt`
-
-
-__Reading a file after user input is not working__
-
-* make sure you create your readline interface for reading a file __after__ you've received user input
-* so you should create the `readline` interface for reading a file within the callback of the `readline` interface that prompts the user for input
-{% endcomment %}
-
-{% comment %}
-    * the diff of expected and observed shows a very subtle difference in spacing!
-        <br>
-        ![spaces!](../resources/img/hw01-tests-02.png)
-{% endcomment %}
 </div>
 
 </div>
