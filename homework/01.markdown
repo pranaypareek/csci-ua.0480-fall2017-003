@@ -534,35 +534,6 @@ __Example:__
     rev.algebraicToRowCol("A:2")) // undefined
     rev.algebraicToRowCol("**")) // undefined
 
-<hr> 
-
-### `placeLetter(board, letter, algebraicNotation)`
-
-__Parameters:__
-
-* `board` - the board where a cell will be set to `letter`
-* `letter` - the string to set the cell to
-* `algebraicNotation` - a `String` that specifies the position of a cell using algebraic notation 
-
-__Returns:__
-
-* a single dimensional `Array` representing the board where the cell at `row` and `col` is set to the value of `letter`
-
-__Description:__
-
-Translates algebraic notation specifying a cell into a row and column specifying the same cell.
-
-Use the `setBoardCell` function you created above to implement this. Consequently, the incoming board should not be mutated (instead, copy it, modify the copy and return the modified copy).
-
-__Example:__
-
-    // X and O are placed on the board
-    let board = rev.generateBoard(4, 4, " ");
-    board = rev.placeLetter(board, 'X', "B3");
-    board = rev.placeLetter(board, 'O', "D4");
-    // board is [" ", " ", " ", " ", " ", " ", " ", " ", " ", "X", " ", " ", " ", " ", " ", "O"]
-    // index      0    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15
-
 <hr>
 
 ### `placeLetters(board, letter, algebraicNotation)`
@@ -575,19 +546,27 @@ __Parameters:__
 
 __Returns:__
 
-* a single dimensional `Array` representing the board where the cell at `row` and `col` is set to the value of `letter`
+* a single dimensional `Array` representing the board where the cells at each `row` and `col` specified is set to the value of `letter`
 
 __Description:__
 
-Same as `placeLetter`, but can accept multiple cells as extra arguments. Use [rest parameters](http://exploringjs.com/es6/ch_parameter-handling.html#sec_rest-parameters) to implement this. Again, the original board passed in should not be changed (instead, copy it, modify the copy, and return the copy).
+Translates one or more moves in algebraic notation to row and column... and uses the row and column to set the letter specified on the board.
+
+Use the `setBoardCell` function you created above to implement this. Consequently, the incoming board should not be mutated (instead, copy it, modify the copy and return the modified copy).
+
+Use [rest parameters](http://exploringjs.com/es6/ch_parameter-handling.html#sec_rest-parameters) to handle multiple arguments this. Again, the original board passed in should not be changed (instead, copy it, modify the copy, and return the copy).
 
 __Example:__
 
     // X and O are placed on the board
     let board = rev.generateBoard(4, 4, " ");
-    board = rev.placeLetter(board, 'X', "B3", "D4");
+    board = rev.placeLetters(board, 'X', "B3", "D4");
     // board is [" ", " ", " ", " ", " ", " ", " ", " ", " ", "X", " ", " ", " ", " ", " ", "X"]
     // index      0    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15
+
+    // note that placeLetters can be called with an arbitrary number of moves
+    // ...instead of calling with two moves, the line below calls it with four
+    // rev.placeLetters(board, 'X', "B3", "D4", "A1", "A2");
 
 <hr>
 
