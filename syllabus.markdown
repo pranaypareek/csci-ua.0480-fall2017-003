@@ -64,7 +64,7 @@ __\*__ Basic knowledge of __HTML__ and __CSS__ and familiarity with using __comm
 
   <div class="col-md-6" name="quiz-policy" id="quiz-policy">
     <div class="panel panel-default">
-<a name="homework"></a>
+<a name="quizzes"></a>
 <div class="panel-heading">Quizzes</div>
 <div class="panel-body" markdown="block">
 Expect about __one quiz__ every __week__, which can be in one of the following formats:

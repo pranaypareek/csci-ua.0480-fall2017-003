@@ -9,13 +9,13 @@ course_section: "003"
 course_name: "Applied Internet Technology"
 course_semester: "Fall 2017"
 course_time: "Tuesdays and Thursdays, 11:00AM - 12:15PM"
-course_room: 60 Fifth Ave 110
+course_room: 60 Fifth Ave room 110
 course_site: http://foureyes.github.io/csci-ua.0480-fall2017-003/
 course_site_alt: http://cs.nyu.edu/~jversoza
 
 # office hours
-office_hours: "<br>&nbsp;2:15pm - 3:15pm on Mondays at WWH<br>12:30pm - 1:30pm on Tuesdays at 5th ave (Lobby)<br>12:30pm - 1:30pm on Wednesdays at WWH"
-office_hours_room: WWH 423 and 60 Fifth Ave 110 based on time 
+office_hours: "<br>&nbsp;2:15pm - 3:15pm on Mondays at WWH 422<br>12:30pm - 1:30pm on Tuesdays at 5th ave (Lobby)<br>12:30pm - 1:30pm on Wednesdays at WWH"
+office_hours_room: WWH 422 and 60 Fifth Ave 110 based on time 
 
 # finals
 # CSCI-UA.0480-002  Special Topics: Applied Internet Technology Joseph Versoza      Tuesday, December 16, 2014  8:00AM - 9:50AM 

@@ -40,9 +40,7 @@ TODO:
 {% endcomment %}
 
 </td>
-<td></td><td></td><td markdown="block"></td>{% comment %}
 {% include schedule/01.markdown %}
-{% endcomment %}
 </tr>
 
 
@@ -77,9 +75,7 @@ TODO
 * homework policy
 {% endcomment %}
 </td>
-<td></td><td></td><td markdown="block"></td>{% comment %}
 {% include schedule/02.markdown %}
-{% endcomment %}
 </tr>
 
 

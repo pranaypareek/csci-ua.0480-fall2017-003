@@ -81,6 +81,7 @@ module.exports = function(grunt) {
 					'*.yml',
 					'*.markdown',
 					'slides/*/*.markdown',
+					'slides/js/markdown',
 					'code/*.*',
 					'homework/*.*',
 					'slides/*/*.html',

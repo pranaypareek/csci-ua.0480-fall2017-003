@@ -3,11 +3,9 @@
 * [About Class #2](slides/02/meta.html)
 {% endcomment %}
 
-* Finish up [Variables, Built-in Functions](slides/01/variables-control-structures.html) from previous class
-* [Control Structures](slides/01/conditionals-loops.html)
-* [Coercion (Revisited), Casting, Undefined, and Style](slides/01/coercion-casting-undefined.html)
-* [Functions](slides/01/functions.html)
-* [Hoisting](slides/01/hoisting.html)
+* [Functions Some More!](slides/02/functions-addendum.html)
+* [Objects](slides/02/objects.html)
+* [Slides, Mutability and Variable Parameters](slides/02/strings-arrays.html)
 
 {% comment %}
 * [Review](slides/02/review.html) (and [a more in depth review on basics if you want it](slides/02/review-basics.html))

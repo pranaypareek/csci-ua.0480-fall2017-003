@@ -1,7 +1,4 @@
 	<td markdown="block">
-* [Functions Some More!](slides/02/functions-addendum.html)
-* [Objects](slides/02/objects.html)
-* [Slides, Mutability and Variable Parameters](slides/02/strings-arrays.html)
 * [Node, NPM, and git](slides/03/node-npm-debug-git.html)
     * process.argv
     * JSON.parse

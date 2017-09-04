@@ -1,8 +1,12 @@
 	<td markdown="block">
-* [Intro](slides/01/intro.html)
-* [About JavaScript](slides/01/javascript.html)
+* [Intro](slides/intro/intro.html)
+* [About JavaScript](slides/js/js-intro.html)
 * [Values, Types, and Operators](slides/01/values-types-operators.html)
 * [Variables, Built-in Functions](slides/01/variables-control-structures.html)
+* [Control Structures](slides/01/conditionals-loops.html)
+* [Coercion (Revisited), Casting, Undefined, and Style](slides/01/coercion-casting-undefined.html)
+* [Functions](slides/01/functions.html)
+* [Hoisting](slides/01/hoisting.html)
 
 {% comment %}
 * [About Class #3](slides/03/meta.html)
