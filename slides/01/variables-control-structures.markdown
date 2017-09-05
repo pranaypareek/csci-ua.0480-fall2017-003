@@ -414,7 +414,7 @@ console.log(full);
 </code></pre>
 <pre><code data-trim contenteditable>
 Joe Versoza
-ReferenceError: name is not defined
+ReferenceError: full is not defined
 // name is in scope, so full is Joe Versoza
 // but full is not in scope in last line
 </code></pre>

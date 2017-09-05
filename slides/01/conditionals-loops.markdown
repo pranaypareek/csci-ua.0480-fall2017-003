@@ -85,7 +85,7 @@ Again, should look familiar... repeatedly execute a __block__ of code:
 //    |        condition
 //    |        |       afterthought/increment
 //    |        |       |
-for(var i = 0; i <= 5; i = i + 1) {
+for(let i = 0; i <= 5; i = i + 1) {
 	console.log(i);
 }
 
@@ -94,7 +94,7 @@ for(var i = 0; i <= 5; i = i + 1) {
 
 {{ site.book_js }} calls the three parts: initialization, check and update.
 
-__Hey - notice that <code>var</code> in front of the loop variable declaration?  Do that.__
+__Hey - notice that <code>let</code> in front of the loop variable declaration?  Do that.__
 {:.fragment}
 </section>
 
@@ -124,7 +124,7 @@ do {
 The __keyword__ <code>break</code> immediately stops the execution of a loop:
 
 <pre><code data-trim contenteditable>
-for (var num = 1; num < 30; num++) { 
+for (let num = 1; num < 30; num++) { 
 	if (num % 7 == 0 && num % 3 == 0)
 		break; 
 	console.log(num);
@@ -133,7 +133,7 @@ for (var num = 1; num < 30; num++) {
 
 The __keyword__ <code>continue</code> stops the current iteration and immediately skips to the next one:
 <pre><code data-trim contenteditable>
-for(var num = 1; num < 30; num++) { 
+for(let num = 1; num < 30; num++) { 
 	if (num % 7 == 0 && num % 3 == 0)
 		continue; 
 	console.log(num);

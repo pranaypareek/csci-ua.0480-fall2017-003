@@ -122,7 +122,7 @@ We'll be using <code>typeof</code> extensively for the next few slides....
 <section markdown="block">
 ## BTW... Types According to the Specification
 
-[The ECMAScript 5 specifications list 6 types, but they're not the ones that typeof returns](http://www.ecma-international.org/ecma-262/5.1/#sec-8) (of course!)
+[The ECMAScript specification lists some types, but they're not the ones that typeof returns](http://www.ecma-international.org/ecma-262/#sec-ecmascript-data-types-and-values) (of course!)
 
 * <code>Undefined</code>
 * <code>Null</code>
@@ -278,6 +278,7 @@ A quick list of __binary__, __infix__ arithmetic operators (they take two operan
 * __/__ - division
 * __%__ - modulo (__what does this do?__)
 * {:.fragment} (remainder) &rarr;
+* {:.fragment} __\*\*__ works too if engine supports ES7)
 * {:.fragment} __check out these operations in the node REPL__ &rarr;
 </section>
 
