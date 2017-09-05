@@ -20,15 +20,30 @@
 
 		<script>
 			if( window.location.search.match( /print-pdf/gi ) ) {
-				var link = document.createElement( 'link' );
+				const link = document.createElement( 'link' );
 				link.rel = 'stylesheet';
 				link.type = 'text/css';
 				link.href = '../../resources/css/pdf.css';
 				document.getElementsByTagName( 'head' )[0].appendChild( link );
 				document.addEventListener('DOMContentLoaded', function() {
 					console.log("loaded");
-					[].forEach.call(document.getElementsByTagName("section"), function(el) {el.setAttribute("style", "")});
+					[].forEach.call(document.getElementsByTagName("section"), function(el) {
+						el.setAttribute("style", "");
+						el.classList.remove('future');
+					});
 					document.querySelector('div.reveal').removeChild(document.querySelector('.backgrounds'));
+				});
+			} else {
+				document.addEventListener('DOMContentLoaded', function() {
+					const printLink = document.createElement('a'),
+						controls = document.querySelector('.controls');
+					printLink.href = "?print-pdf";
+					printLink.textContent = 'print version';
+					printLink.style.display = "block";
+					printLink.style.top = "92px";
+					printLink.style.fontSize = "0.5em";
+					controls.style.textAlign = 'center';
+					controls.appendChild(printLink);
 				});
 			}
 		</script>
@@ -70,11 +85,22 @@
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
 					{ src: '{{ site.slides_lib }}/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: '{{ site.slides_lib }}/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlighting(); hljs.configure({languages: ['javascript', 'html']});} },
-					{ src: '{{ site.slides_lib }}/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: '{{ site.slides_lib }}/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					{ src: '{{ site.slides_lib }}/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { highlightCode(); } },
+					{ src: '{{ site.slides_lib }}/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: '{{ site.slides_lib }}/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});
+
+// hljs.initHighlighting(); hljs.configure({languages: ['javascript', 'html']});
+function highlightCode() {
+	hljs.configure({languages:['python']});
+	document.querySelectorAll('pre code')
+		.forEach((ele) => {
+				ele.className = '';
+				ele.classList.add('hljs', 'javascript');
+				hljs.highlightBlock(ele);
+		});
+}
 
 		</script>
 

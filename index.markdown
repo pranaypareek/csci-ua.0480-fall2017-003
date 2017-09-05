@@ -4,7 +4,7 @@ nav-state: index
 ---
 
 <div id="quick-links">
-<h3><a href="syllabus.html">Course Info</a> | <a href="syllabus.html#tutoring">Tutoring</a> | <a href="syllabus.html#hw-policy">Homework Policy</a> | <a href="syllabus.html#quiz-policy">Quiz Policy</a></h3>
+<h3><a href="syllabus.html">Course Info</a> | <a href="https://piazza.com/class/j6qyg6yrhvt4ti">Piazza</a> | <a href="syllabus.html#tutoring">Tutoring</a> | <a href="syllabus.html#hw-policy">Homework Policy</a> | <a href="syllabus.html#quiz-policy">Quiz Policy</a></h3>
 </div>
 
 <table class="table table-striped table-hover">
