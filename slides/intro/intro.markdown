@@ -74,15 +74,7 @@ This course is __a practical__, __hands-on__ __introduction__ to creating __mode
 4. {:.fragment} Maybe a Few _Trendy_ Frameworks / Libraries 
 5. {:.fragment} And We'll Pick up Some Development Tools Along the Way \*
 
-</section>
-
-<section markdown="block">
-## This May be Ambitious! 
-
-### (Or Not... Depending on Your Past Experience. __¯\\_(ツ)_/¯__)
-{:.fragment}
-
-#### Let's Get Into Some Specifics
+### Let's Look at Some Specific Topics...
 {:.fragment}
 </section>
 
@@ -113,8 +105,8 @@ This course is __a practical__, __hands-on__ __introduction__ to creating __mode
 * {:.fragment} Web Framework - __Express__
 * {:.fragment} Authentication and Session Management
 * {:.fragment} Storing Data and Using a Database Abstraction Layer - __MongoDB__ and __Mongoose__ respectively
-* {:.fragment} Building and Consuming APIs
 * {:.fragment} Forms
+* {:.fragment} Building and Consuming APIs
 * {:.fragment} Deployment
 
 <aside class="notes">
@@ -175,7 +167,7 @@ Programming
 * {:.fragment} Linter - __ESLint__
 * {:.fragment} Unit Testing Tools
 * {:.fragment} (Optionally) Debugger - __Node Debugger, Inspector__ and __Chrome Developer Tools__
-* {:.fragment} (Maybe)- __Grunt__, __Gulp__ ... or __webpack__?
+* {:.fragment} (Maybe) Build Tools - __Grunt__, __Gulp__ ... or __webpack__?
 
 <aside class="notes">
 * what's version control? why?
@@ -221,17 +213,24 @@ FYI, also - for coders - management is difficult, but it's a legit career track
 <section markdown="block">
 ## About... You
 
-### Some (non-) expectations:
+__I expect (hope?) that you__:
 
-Only __minimal__ experience with
+1. {:.fragment} are very __comfortable__ using the __commandline__
+2. {:.fragment} have the ability to install tools, software, etc. ... and troubleshoot installations (<strong>basically _know how to use a computer_ </strong>)
+3. {:.fragment} are able __navigate__ through your __file system__ (both through a file explorer like Finder and through the commandline)
+4. {:.fragment} have basic/rudimentary knowledge of __HTML__ and __CSS__ (even a [late 90's notion](https://www.google.com/search?q=90%27s+website&espv=2&tbm=isch&tbo=u&source=univ&sa=X&ei=wegEVMjPJcPxgwTA5YDICg&ved=0CCgQsAQ&biw=1307&bih=729) of how this stuff works _may be_ fine)
+5. {:.fragment} <strong>_actually do homework and - you know - occasionally come to class_</strong> 
+6. {:.fragment} (low bar, I know... but I mean it)
+
+<br>
+Also, a big (non-) expectation: 
 {:.fragment}
 
-* __JavaScript__ 
-* __server-side web development__ 
-* _modern_ __front-end development__
+Only __minimal experience with__ __JavaScript__, __server-side web development__, and _modern_ __front-end development__
 {:.fragment}
 
 </section>
+
 <section markdown="block">
 
 ## If You Already Know This Stuff
@@ -252,41 +251,9 @@ __What are you doing here? GET OUT!__ &#128073;
 </section>
 
 <section markdown="block">
-## More About You...
-
-### Additionally, I expect that you would:
-
-1. {:.fragment}  be very __comfortable__ using the __commandline__
-2. {:.fragment} have the ability to install tools, software, etc. ... and troubleshoot installations (<strong>basically _know how to use a computer_ </strong>)
-3. {:.fragment} be able __navigate__ through your __file system__ (both through a file explorer like Finder and through the commandline)
-4. {:.fragment} have basic/rudimentary knowledge of __HTML__ and __CSS__ (even a [late 90's notion](https://www.google.com/search?q=90%27s+website&espv=2&tbm=isch&tbo=u&source=univ&sa=X&ei=wegEVMjPJcPxgwTA5YDICg&ved=0CCgQsAQ&biw=1307&bih=729) of how this stuff works _may be_ fine)
-5. {:.fragment} <strong>_actually do homework and - you know - occasionally come to class_</strong> 
-6. {:.fragment} (low bar, I know... but I mean it)
-</section>
-
-
-{% comment %}
-<section markdown="block">
-## Workload
-
-__Some salient quotes from evaluations/reviews__ &rarr;
-
-* {:.fragment}"__Gives Lots of homework__ and focuses on too many details at exam. He has some sort of weird smartness that he would like to show off."
-* {:.fragment} "Great professor. Gives __a decent amount of homework__, but it's very effective at helping you learn the material." 
-
-<br>
-So, regardless of whether or not the review was positive or negative, __the common thread is there's kind of _a lot of work_ involved in this course__ ...
-{:.fragment}
-
-__Expect the workload to be on the same level as some your earlier cs courses__ (like Intro to CS, Data Structures) &rarr;
-{:.fragment}
-
-</section>
-{% endcomment %}
-
-
-<section markdown="block">
 ## Workload 
+
+There's a __significant amount of work__ involved in this class:
 
 * {:.fragment} 2 x exams (__final is last day of class, not during finals week!__)
 * {:.fragment} 8 or 9 x [homeworks](../../#hw-policy) 

@@ -824,6 +824,7 @@ How do we know? We can read the [ECMAScript specifications](http://www.ecma-inte
 ### (mostly)
 </section>
 
+{% comment %}
 <section markdown="block">
 ## Addition is Sooo Weird
 
@@ -857,6 +858,8 @@ foo12
 
     
 </section>
+{% endcomment %}
+
 <section markdown="block">
 ## Relational / Ordering Operators
 

@@ -86,7 +86,6 @@ Let's check out the rough [schedule on the course site](../../schedule.html)
 ### (Or Not... Depending on Your Past Experience. __¯\\_(ツ)_/¯__)
 {:.fragment}
 
-#### Let's Get Into Some Specifics
 {:.fragment}
 </section>
 
