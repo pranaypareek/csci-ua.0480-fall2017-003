@@ -44,7 +44,7 @@ Just to make sure you're in the right place:
 </div>
 
 <div markdown="block" class="img">
-![or bacon pancakes](/resources/img/pancake.gif)
+![or bacon pancakes](../../resources/img/pancake.gif)
 </div>
 
 

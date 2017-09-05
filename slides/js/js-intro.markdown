@@ -238,7 +238,7 @@ At this point:
 <section markdown="block">
 ## Why JavaScript / ES6
 
-So... __that leads to why we're using JavaScrip (and additionally, why ES6)__:
+So... __that leads to why we're using JavaScript (and additionally, why ES6)__:
 
 * {:.fragment} it's __ubiquitous on the web__
 * {:.fragment} it has some __interesting features__, making it _fun_ to program in

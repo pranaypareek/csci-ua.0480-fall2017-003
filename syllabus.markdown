@@ -153,7 +153,7 @@ __Readings will be sourced from the following books__ (all are free to read onli
 Significant material will be pulled from the following sites:
 
 * [Mozilla Developer Network](https://developer.mozilla.org/en-US/)
-* [ECMAScript® 2015 Language Specification](http://www.ecma-international.org/ecma-262/6.0/)
+* [ECMAScript® 2015 Language Specification](http://www.ecma-international.org/ecma-262/)
 * [2ality](http://www.2ality.com/)
 * [IETF (Internet Engineering Task Force) Tools](https://tools.ietf.org)
 * [OWASP (Open Web Application Security Project)](https://www.owasp.org/index.php/Main_Page)

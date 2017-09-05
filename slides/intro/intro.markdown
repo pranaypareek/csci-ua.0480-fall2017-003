@@ -289,13 +289,13 @@ __Expect the workload to be on the same level as some your earlier cs courses__ 
 ## Workload 
 
 * {:.fragment} 2 x exams (__final is last day of class, not during finals week!__)
-* {:.fragment} 8 or 9 x [homeworks](/#hw-policy) 
+* {:.fragment} 8 or 9 x [homeworks](../../#hw-policy) 
     * __Write your own code!__
     * some examples of homework are:
         * write your own library that _does x_
         * use that library to implement some sort of web application
         * use an existing library that already _does x_ to re-write above ^
-* {:.fragment} 8 x [online quizzes](/#quiz-policy) (taken from home)
+* {:.fragment} 8 x [online quizzes](../../#quiz-policy) (taken from home)
 * {:.fragment} 1 x final project
     * essentially, a single web app based on material we've learned
     * details to be posted mid-semester
