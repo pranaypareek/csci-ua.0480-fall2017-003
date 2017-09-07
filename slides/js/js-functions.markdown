@@ -26,10 +26,58 @@ TODO:
 * __argument__ - <span class="fragment"> a piece of data that is passed into a function when that function is called </span>
 * __scope__ - <span class="fragment">the area of the code where a name/identifier is available for access and/or use</span>
 </section>
+
 <section markdown="block">
 ## Defining a Function
 
-__Remember... functions are first class objects in JavaScript!__
+__We'll take a look at 3 ways of defining functions in JavaScript__ &rarr;
+
+1. {:.fragment} __function declarations__
+    <pre><code data-trim contenteditable>
+function foo(arg1, arg2) {
+    return arg1 + arg2; 
+} 
+</code></pre>    
+2. {:.fragment} __function expressions__
+    <pre><code data-trim contenteditable>
+const foo = function(arg1, arg2) {
+    return arg1 + arg2; 
+}
+</code></pre>
+3. {:.fragment} __arrow functions__
+    <pre><code data-trim contenteditable>
+(arg1, arg2) => { return arg1 + arg2 }    
+</code></pre>
+
+</section>
+
+<section markdown="block">
+## Function Declarations
+
+__Function declaration syntax__:
+
+<pre><code data-trim contenteditable>
+function foo(arg1, arg2) {
+    return arg1 + arg2; 
+} 
+</code></pre>    
+
+1. {:.fragment} start with the key word `function` (note that return type is not specified)
+2. {:.fragment} followed by function name
+3. {:.fragment} followed by optional comma separated parameters within parentheses (again, no types precede the arguments)
+4. {:.fragment} and finally, the function body surrounded by curly braces (with an optional return)
+    * __what do you think you get back if return is omitted?__ &rarr; <span class="fragment">... <code>undefined</code></span>
+
+<br>
+We'll see later that function declarations are special in that they can used before they are declared in your code!
+{:.fragment}
+
+</section>
+
+<section markdown="block">
+## Function Expressions
+
+__Another way to create a function is by using a function expression (remember, functions are first-class citizens):__ &rarr;
 
 <pre><code data-trim contenteditable>
 const doubleTheNumber = function(n) {
@@ -38,23 +86,84 @@ const doubleTheNumber = function(n) {
 console.log(doubleTheNumber(5));
 </code></pre>
 
-* declare a variable
-* set it equal to the keyword, <code>function</code>
-* followed by parentheses and an __optional__ list of __parameters__ (separated by commas if more than one)
-* the function body is just a __block__ of code (surrounded by curly braces, of course!)
-* __return__ is totally optional
-* __what do you think you get back if return is omitted?__ &rarr; <span class="fragment">... <code>undefined</code></span>
+1. {:.fragment} declare a variable
+2. {:.fragment} set it equal to the keyword, <code>function</code>
+3. {:.fragment} followed by parentheses and an __optional__ list of __parameters__ (separated by commas if more than one)
+4. {:.fragment} the function body is just a __block__ of code (surrounded by curly braces, of course! ...and again with an optional return)
+5. {:.fragment} note the semicolon at the end of the function definition (it is an assignment statement after all!)
+6. {:.fragment} finally, the variable, <code>doubleTheNumber</code>, can be called/invoked because it's a function!
 </section>	
+
 
 <section markdown="block">
-## Psssst... By The Way...
+## Function Expressions Continued
 
-__Did you notice:__ &rarr;
+__Function expressions, as the name implies, _are_ expressions!__ &rarr;
 
-* the semicolon at the end of the function definition (it is an assignment statement after all!)
-* that the variable, <code>doubleTheNumber</code>, can be called/invoked because it's a function!
-* this style of creating a function is also called a __function expression__
-</section>	
+1. {:.fragment} that means that they evaluate to a value (that is... they evaluate to a function)
+2. {:.fragment} so, you can use them anywhere values are needed... some examples:
+    <pre class="fragment"><code data-trim contenteditable>
+// to initialize a variable    
+const doubleTheNumber = function(n) { return n + n; };
+</code></pre>
+    <pre class="fragment"><code data-trim contenteditable>
+// as an argument
+const numbers = [1, 2, 3, 4];
+numbers.map(function(n) { return n + n; });
+</code></pre>
+    <pre class="fragment"><code data-trim contenteditable>
+// as a return value
+function f() {
+    return function(n) { 
+        return n + n; 
+    });
+}
+</code></pre>
+
+</section>
+
+
+<section markdown="block">
+## Arrow Functions
+
+__Introduced in ES6, arrow functions are a way of writing function expressions in a very concise syntax.__ &rarr;
+
+<pre><code data-trim contenteditable> (arg1, arg2) => { /* body goes here */}
+</code></pre>
+
+
+* {:.fragment} it's a __shorthand / more convenient__ way of writing a function expression
+* {:.fragment} its behavior is subtly different from regular function expressions
+    * {:.fragment} it doesn't have a built in `arguments` object (we'll see this later)
+    * {:.fragment} its `this` is the value of `this` where it was defined (we'll talk about `this` later as well)
+
+</section>
+
+<section markdown="block">
+## Arrow Function Syntax
+
+__There are a few ways to write arrow functions.__ &rarr; 
+
+* {:.fragment} Parentheses around parameters, curly braces around body:
+    <pre><code data-trim contenteditable>
+(p1, p2, ..., pN) => { statements }
+</code></pre>
+* {:.fragment} You can drop the curly braces if you have a single expression. The value of that expression will be __implicitly returned__ if you drop curly braces:
+    <pre><code data-trim contenteditable>
+(p1, p2, ..., pN) => expression // same as { return expression; }
+</code></pre>
+* {:.fragment} If there's only one parameter, you could also drop the parentheses:
+    <pre><code data-trim contenteditable>
+singleParam => { statements }
+</code></pre>
+* {:.fragment} If you have no parameters, use empty parentheses:
+    <pre><code data-trim contenteditable>
+() => { statements }
+</code></pre>
+
+</section>
+
+
 
 <section markdown="block">
 ## Let's Create a Function Together
@@ -64,7 +173,7 @@ __Let's create a function called <code>myPow</code>. It will (surprisingly) rais
 * two parameters: <code>base</code> and <code>exponent</code>
 * calculate the <code>base</code> raised to the <code>exponent</code>
 * return the resulting value
-* yeah, <code>Math.pow</code> exists...
+* use function expression syntax to do this!
 
 <pre><code data-trim contenteditable>
 const myPow = function(base, exponent) {
@@ -180,7 +289,7 @@ from g
 </section>
 
 <section markdown="block" data-background="#440000">
-## Oh yeah. Always use `let`, `const`, or `var` when declaring variables plz
+## Oh yeah. Always use `let` or `const` (or `var`) when declaring variables plz
 
 </section>
 
@@ -199,7 +308,7 @@ from g
 ## Nested Functions
 
 * __functions can be defined within functions__
-* just create a variable within a function... and assign a new function!
+* just create a function within another function using declarations, expressions or arrow functions
 * the variables in the outer function are available to the inner function and can be used just by using the variable name (no new declaration is needed)
 * but the variables in the inner function are local to the inner function
 </section>
@@ -262,7 +371,7 @@ outside modified by inside
 <section markdown="block">
 ## Functions as Values
 
-* functions are a type... and they can exist as __values__, like __numbers__, __strings__, etc.
+* functions are objects... and they can exist as __values__, like __numbers__, __strings__, etc.
 * the names that we use for functions are just like regular __variables__
 * reassignment works fine!
 
@@ -309,9 +418,9 @@ nobody's home!
 </section>
 
 <section markdown="block">
-## Function Declarations
+## Function Declarations Revisited
 
-Of course, you can still define functions the old-fashioned way:
+__Let's take a look at function declarations again__ &rarr;
 
 <pre><code data-trim contenteditable>
 function f(x) {
@@ -380,6 +489,7 @@ __Write a function that:__ &rarr;
 * the function should return the largest number in the `Array`
 * if the `Array` is empty, just return undefined
 </section>
+
 {% comment %}
 * Definingafunction
 * Parametersandscopes

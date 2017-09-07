@@ -469,49 +469,7 @@ __We make that trade-off all the time__, which is why we're not writing with sup
 </section>
 
 <section markdown="block">
-## Arrow Functions
-
-I've been holding out on you! There's another way to create functions in JavaScript, using this expression:
-
-
-<pre><code data-trim contenteditable> (arg1, arg2) => { /* body goes here */}
-</code></pre>
-
-This is an __arrow function__
-{:.fragment}
-
-* {:.fragment} it's a __shorthand / more convenient__ way of writing a function expression
-* {:.fragment} but it __doesn't have__ a built in __`arguments` or `this`__ (we'll talk about `this` in a bit!)
-* {:.fragment} consequently, its behavior is subtly different from regular function expressions
-
-</section>
-
-<section markdown="block">
-## Arrow Function Syntax
-
-__There are a few ways to write arrow functions.__ &rarr; 
-
-* {:.fragment} Parentheses around parameters, curly braces around body:
-    <pre><code data-trim contenteditable>
-(p1, p2, ..., pN) => { statements }
-</code></pre>
-* {:.fragment} You can drop the curly braces if you have a single expression. The value of that expression will be __implicitly returned__ if you drop curly braces:
-    <pre><code data-trim contenteditable>
-(p1, p2, ..., pN) => expression // same as { return expression; }
-</code></pre>
-* {:.fragment} If there's only one parameter, you could also drop the parentheses:
-    <pre><code data-trim contenteditable>
-singleParam => { statements }
-</code></pre>
-* {:.fragment} If you have no parameters, use empty parentheses:
-    <pre><code data-trim contenteditable>
-() => { statements }
-</code></pre>
-
-</section>
-
-<section markdown="block">
-## Arrow Function Usage
+## An Aside on Arrow Function Usage
 
 For now, __we'll use arrow functions as:__ &rarr; 
 
@@ -529,6 +487,7 @@ const isEven = (x) => {return x % 2 === 0;};
 
 
 </section>
+
 
 <section markdown="block">
 ## Functions as Objects

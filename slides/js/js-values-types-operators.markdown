@@ -1,10 +1,10 @@
 ---
 layout: slides
-title: Values, Types, and Operators
+title: Values, Types, Operators and Type Coercion
 ---
 
 <section markdown="block" class="intro-slide">
-# Values, Types, and Operators 
+# {{ page.title }}
 
 ### {{ site.course_number}}-{{ site.course_section }}
 
@@ -29,6 +29,18 @@ let and const hoisting
 http://www.ecma-international.org/ecma-262/6.0/#sec-let-and-const-declarations
 {% endcomment %}
 
+<section markdown="block">
+## All Types All the Time
+
+In this set of slides, __we'll take a look at__:
+
+1. {:.fragment} JavaScript's types
+2. {:.fragment} `Numbers` and numeric operators
+3. {:.fragment} `Strings` and string operators
+4. {:.fragment} `Booleans` and logical and comparison operators
+5. {:.fragment} `undefined` and `null`
+</section>
+
 
 <section markdown="block">
 ## Some Definitions
@@ -42,6 +54,7 @@ http://www.ecma-international.org/ecma-262/6.0/#sec-let-and-const-declarations
 * __prefix operator__ <span class="fragment"> - an operator that goes before (to the left) of its operand(s)</span>
 * __infix operator__ <span class="fragment"> - an operator that goes between its operands</span>
 </section>
+
 
 <section markdown="block">
 ## Let's Start off with Comments
@@ -276,9 +289,8 @@ A quick list of __binary__, __infix__ arithmetic operators (they take two operan
 * __-__ - subtraction
 * __\*__ - multiplication
 * __/__ - division
-* __%__ - modulo (__what does this do?__)
-* {:.fragment} (remainder) &rarr;
-* {:.fragment} __\*\*__ works too if engine supports ES7)
+* __%__ - modulo (remainder)
+* {:.fragment} __\*\*__ for exponentiation works too if your js engine supports ES7
 * {:.fragment} __check out these operations in the node REPL__ &rarr;
 </section>
 
@@ -445,6 +457,21 @@ So, there's  __Infinity__ and  __-Infinity__
 * dividing by 0 yields `infinity`
 * equality operators and the global function `isFinite` can be used to determine if a value is `Infinity`
 
+</section>
+
+<section markdown="block">
+## Special Numeric Values and Bitwise Operators
+
+__For bitwise operators... <code>Nan</code>, <code>Infinity</code>, and <code>-Infinity</code> are all converted to 0__ &rarr;
+
+<pre><code data-trim contenteditable>
+NaN | 2 // evaluates to 2
+Infinity & 10 // evaluates to 0
+</code></pre>
+
+Why? Because [the specs](http://es5.github.io/#x11.10) [say so](http://es5.github.io/#x9.5)
+
+Also... there is definitely a binary representation for these special numbers (<code>Nan</code>, <code>Infinity</code>, and <code>-Infinity</code>)... the [closest I came to determining it was here](http://www.2ality.com/2012/04/number-encoding.html)
 </section>
 
 <section markdown="block">
@@ -707,6 +734,23 @@ true ? "ok" : "not ok!"
 * {:.fragment} "ok"
 * {:.fragment} format is <code>test</code> (boolean expression) __?__ <code>value</code> to return if true __:__ <code>value</code> to return if false
 
+<br>
+The ternary operator __works like an if/else statement__, but it's __one line__ and it __evaluates to a value__:
+{:.fragment}
+
+<pre><code data-trim contenteditable>
+// ternary followed by equivalent if/else
+let x = 5 > 2 ? 'yes' : 'no';
+
+let x;
+if(5 > 2) {
+    x = 'yes';
+} else {
+    x = 'no';
+}
+</code></pre>
+{:.fragment}
+
 
 </section>
 <section markdown="block">
@@ -815,6 +859,9 @@ How do we know? We can read the [ECMAScript specifications](http://www.ecma-inte
 * this is Usually an unwanted behavior; __to avoid this, use: === and !==__
 	* these operators check __type__ and __value__ 
 	* use these three-character comparison operators to prevent unexpected type conversions 
+
+<br>
+If you want to see the __details for every possible operand combination for double equals__, [check out mdn's table](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness#Loose_equality_using) 👀
 </section>
 
 
@@ -882,36 +929,27 @@ What the what????
 </code></pre>
 
 These expressions evaluate to...
+{:.fragment}
 <pre><code data-trim contenteditable>
 -12
 -12
 NaN
 </code></pre>
+{:.fragment}
 
 From the [docs on mdn](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Unary_negation_(-))...
+{:.fragment}
 
-* unary + ... will try to convert its operand to a number (if it can't be converted to a number, then NaN)
+* unary + ... will try to convert its operand to a number (if it can't be converted to a number, then `NaN`)
 * unary - ... will convert its operand to negative number
+{:.fragment}
 
 <br>
-I'm assuming that order of operations is innermost prefix operator first (right to left).
+The order of operations is [innermost prefix operator first (right to left)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence).
+{:.fragment}
 
 </section>
 
-<section markdown="block">
-## Bitwise Operators Again
-
-__For bitwise operators... <code>Nan</code>, <code>Infinity</code>, and <code>-Infinity</code> are all converted to 0__ &rarr;
-
-<pre><code data-trim contenteditable>
-NaN | 2 // evaluates to 2
-Infinity & 10 // evaluates to 0
-</code></pre>
-
-Why? Because [the specs](http://es5.github.io/#x11.10) [say so](http://es5.github.io/#x9.5)
-
-Also... there is definitely a binary representation for these special numbers (<code>Nan</code>, <code>Infinity</code>, and <code>-Infinity</code>)... the [closest I came to determining it was here](http://www.2ality.com/2012/04/number-encoding.html)
-</section>
 <section markdown="block">
 ## Ugh All of That is Kind of Crazy
 
@@ -923,45 +961,43 @@ Also... there is definitely a binary representation for these special numbers (<
 * __when comparing values with &lt;__
 	* try to convert both sides to numbers first, so that comparison can be easily performed
 	* if either operand is NaN, the result is False
-* __when it doubt, check the spec__ (or, of course [SO](http://stackoverflow.com/questions/14687876/how-do-the-javascript-relational-comparison-operators-coerce-types) it)
+* __when it doubt, check the [some online resources, like mdn](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators)__ (or, of course [SO](http://stackoverflow.com/questions/14687876/how-do-the-javascript-relational-comparison-operators-coerce-types) it)
 </section>
 
 <section markdown="block">
-## Equality
+## Handling Automatic Type Conversion
 
-As you know, this automatic type conversion continues on with <code>==</code>...
+### How do we get out of this mess?
 
-__How do we get out of this mess? ...without having to remember a series of obscure rules__ &rarr;
+__...Without having to remember a series of obscure rules__ &rarr;
 
-* one way is to use triple equals - <code>===</code> (we've gone over this before!)
-* another way is to just explicitly _cast_ your operand(s) to minimize surprises
-{:.fragment}
+1. {:.fragment} one way is to __use triple equals__ - <code>===</code> (we've gone over this before!)
+2. {:.fragment} another way is to just explicitly _cast_ your operand(s) to minimize surprises
 </section>
 
 <section markdown="block">
 ## Casting
 
-We can use __object contructors__ as functions to cast from one type to another: 
+We can use __object contructors__ as functions to cast to a type: 
 
-* you can use constructors as functions (without the keyword <code>new</code>) to convert to that particular type
-* however, using <code>new</code>...
-    * wraps the primitive type in an object (we'll discuss objects later)
-    * when asked for a value, these objects usually yield the value of their primitive type
-
-To cast, use __constructors without new__ if you want the _primitive_. &rarr;
+* {:.fragment} __use constructors__ (named after their corresponding type) __as functions__ by dropping the keyword <code>new</code> to convert to that type
+* {:.fragment} note that if you use <code>new</code> with your constructor (avoid!)...
+    * primitive type is wrapped in an object (to be discussed later!)
+    * when asked for a value, these objects _usually_ yield the value of their primitive type
 
 <pre><code data-trim contenteditable>
-// do this
+// do this (call constructor named after type as a function)
 i = Number("2")
 a = Boolean(false);
-// not this
+// not this (not a good idea to use new!)
 b = new Boolean(false);
 // because
 console.log(typeof a); // --> boolean
 console.log(typeof b); // --> object
-// you'll have a SAD FACE after you try this...
-Boolean(new Boolean(false))
+// ... and 😒
+Boolean(new Boolean(false)) // True!?
 </code></pre>
+{:.fragment}
 </section>
 
 <section markdown="block">

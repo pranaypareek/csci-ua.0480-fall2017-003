@@ -3,9 +3,39 @@
 * [About Class #2](slides/02/meta.html)
 {% endcomment %}
 
-* [Functions Some More!](slides/02/functions-addendum.html)
-* [Objects](slides/02/objects.html)
-* [Slides, Mutability and Variable Parameters](slides/02/strings-arrays.html)
+* [Objects](slides/js/js-objects.html)
+* [Functions Some More!](slides/js/js-functions-addendum.html)
+* [Strings, Arrays, Mutability and Variable Parameters](slides/js/js-strings-arrays.html)
+* [Node, NPM, and git](slides/js/js-node-npm-debug-git.html)
+
+{% comment %}
+    * file i/o
+    * demo: reading a file
+    * modules
+    * demo: making your own module
+    * demo: using npm: readline sync
+    * demo: config with readline sync
+    * process.argv
+    * demo: config with process.argv
+    * configuration files / json
+    * demo: load json file and read
+    * demo: homework
+* [Console.log](slides/js/js-questions-log.html)
+{% endcomment %}
+
+{% comment %}
+	* spread operator
+    * default args using rest operator
+    * node-sh
+    * objects
+    * objects with methods
+    * objects with shorthand
+    * destructuring
+    * rest
+    * spread
+    * slice vs ...arr
+    * concat vs ...arr
+{% endcomment %}
 
 {% comment %}
 * [Review](slides/02/review.html) (and [a more in depth review on basics if you want it](slides/02/review-basics.html))
@@ -44,6 +74,7 @@ For a more gentle introduction to functions in JavaScript, check out [{{ site.bo
 </td>
 	<td markdown="block">
 
+Quizzes should be posted Friday evening
 
 {% comment %}
 Due Thursday, 9/15, by 11pm

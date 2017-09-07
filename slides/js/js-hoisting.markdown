@@ -355,7 +355,16 @@ const f = function() {
     console.log('I am function!');
 }
 </code></pre>
+<pre><code data-trim contenteditable>
+ReferenceError   
+</code></pre>
+{:.fragment}
+
+(temporal dead zone for const and let; used before declared)
+{:.fragment}
+
 </section>
+
 <section markdown="block">
 ## Back to an Earlier Mystery
 
@@ -428,13 +437,14 @@ Always declare your variables at the beginning of your function!
 {:.fragment}
 
 Aaaaand... possibly, avoid using `var`; use `let` and `const` instead!
+{:.fragment}
 </section>
 
 {% comment %}
 <section markdown="block">
 ## One Last Thing
 
-### Multiple variable declarations on one line (YES!)
+### Multiple variable declarations on one line 
 A bit off topic... but since we're talking about __variable declarations__...
 
 You can define multiple variables at once with var. This works fine (that is, there's no <code>ReferenceError</code>):

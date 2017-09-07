@@ -143,14 +143,15 @@ JavaScript comes with a bunch of built in functions (and objects) that are avail
 <section markdown="block">
 ## Variables
 
-__variables__ are symbolic names for values. 
+__Variables__ are symbolic names for values; you can use a variable's name wherever you want to use that value.
 
-* you can use a variable's name wherever you want to use that value.
-* to create a variable, start with one of the following keywords:
-    * __const__ or __let__ (ES6) ... or __var__
-    * followed by a variable name
-    * optionally, assign a value to the variable by using `=` and a value or expression
-    * of course, you can add a semicolon (or not)
+__To create a variable__, start with one of the following keywords:
+
+* __const__ or __let__ (ES6) ... or __var__
+* followed by a variable name
+* optionally, assign a value to the variable by using `=` and a value or expression
+* of course, you can add a semicolon (or not)
+* __notice that type does not have to be specified!__
 
 <br>
 <pre><code data-trim contenteditable>
@@ -486,30 +487,17 @@ var a;
 
 <section markdown="block" data-background="#440000">
 
-## Always use `const`, `let` or `var` when declaring variable names!
+## Always use `const` or `let` (or `var`, I guess) when declaring variable names!
 
-Otherwise, you get global variables! This is particularly important when dealing with variable declarations in functions.
+If you don't declare variables with these keywords:
+{:.fragment}
+
+* you get global variables! 
+* This is particularly important when dealing with variable declarations in functions
+{:.fragment}
 </section>
 
 
-<section markdown="block">
-## Let's See This in Action
-
-__How is a variable declared in JavaScript?__ &rarr;
-
-(create a variable called officeHoursRoom and set it equal to the number 423)
-
-<pre><code data-trim contenteditable>
-const officeHoursRoom = 423;
-</code></pre>
-{:.fragment}
-
-* notice the keyword <code>const</code>? 
-* also notice that no type needs to be specified!
-{:.fragment}
-
-<!--_ -->
-</section>
 
 <section markdown="block">
 ## (Not) Declaring a Variable

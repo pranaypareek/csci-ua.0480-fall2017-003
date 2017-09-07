@@ -1,28 +1,5 @@
 	<td markdown="block">
-* [Node, NPM, and git](slides/03/node-npm-debug-git.html)
-    * process.argv
-    * JSON.parse
 * [Higher Order Functions](slides/03/higher-order-functions.html) 
-* [Console.log](slides/03/questions-log.html)
-* for homework
-    * file i/o
-    * readline sync
-    * modules
-    * homework demo
-
-{% comment %}
-	* spread operator
-    * default args using rest operator
-    * node-sh
-    * objects
-    * objects with methods
-    * objects with shorthand
-    * destructuring
-    * rest
-    * spread
-    * slice vs ...arr
-    * concat vs ...arr
-{% endcomment %}
 
 {% comment %}
 * [Node, NPM, and git](slides/02/node-npm-debug-git.html)
