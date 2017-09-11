@@ -74,7 +74,10 @@ For a more gentle introduction to functions in JavaScript, check out [{{ site.bo
 </td>
 	<td markdown="block">
 
-Quizzes should be posted Friday evening
+Quizzes __due Tue, 9/19, before class (11am)__
+
+* Objects 
+* Higher Order Functions 
 
 {% comment %}
 Due Thursday, 9/15, by 11pm
