@@ -440,6 +440,13 @@ function f(x=1) {
 f(); // no args, result is 1!
 </code></pre>
 
+* {:.fragment} these arguments are evaluated at call time, so a new object is created each time (that way, changes won't be persisted across function calls for default arguments that are  mutable)
+* {:.fragment} you can reference other parameters in your expression!
+
+<br>
+[See more examples at mdn](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters)
+{:.fragment}
+
 </section>
 
 <section markdown="block">
@@ -472,7 +479,7 @@ I'm in here!
 
 ([Via MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures))...
 
-* normally, the local letiables within a function only exist for the duration of that function's execution
+* normally, the local variables within a function only exist for the duration of that function's execution
 * once the outer function <code>gimmeFunction</code> finishes executing, you'd expect that its local letiable, a, would no longer be accessible
 * however... a __closure__ is created when it returns a function!
 * a __closure__ is a special kind of __object that combines two things__: 

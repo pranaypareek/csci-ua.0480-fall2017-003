@@ -3,10 +3,11 @@
 * [About Class #2](slides/02/meta.html)
 {% endcomment %}
 
-* [Objects](slides/js/js-objects.html)
-* [Functions Some More!](slides/js/js-functions-addendum.html)
-* [Strings, Arrays, Mutability and Variable Parameters](slides/js/js-strings-arrays.html)
-* [Node, NPM, and git](slides/js/js-node-npm-debug-git.html)
+* [Variables, Built-in Functions](slides/js/js-variables-functions.html)
+* [Control Structures](slides/js/js-conditionals-loops.html)
+* [Functions](slides/js/js-functions.html)
+* [Hoisting](slides/js/js-hoisting.html)
+
 
 {% comment %}
     * file i/o

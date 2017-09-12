@@ -5,10 +5,10 @@ nav-state: assignments
 
 ## Assignments
 
-{% comment %}
-Homework
 * [Homework #0](homework/00.html) 
 * [Homework #1](homework/01.html) 
+
+{% comment %}
 * [Homework #2](homework/02.html) 
 * [Homework #3](homework/03.html) 
 * [Homework #4](homework/04.html) 

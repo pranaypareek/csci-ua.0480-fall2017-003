@@ -2,10 +2,6 @@
 * [Intro](slides/intro/intro.html)
 * [About JavaScript](slides/js/js-intro.html)
 * [Values, Types, and Operators](slides/js/js-values-types-operators.html)
-* [Variables, Built-in Functions](slides/js/js-variables-functions.html)
-* [Control Structures](slides/js/js-conditionals-loops.html)
-* [Functions](slides/js/js-functions.html)
-* [Hoisting](slides/js/js-hoisting.html)
 * Survey, Homework #0 and Piazza
 
 {% comment %}

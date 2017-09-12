@@ -283,6 +283,35 @@ console.log(a);
 
 </section>
 
+<section markdown="block">
+## Spread to Copy
+
+As of ES6, you can also use __spread syntax__ to copy an Array:
+
+<pre><code data-trim contenteditable>
+const numbers = [1, 2, 3, 4];
+const copy = [...numbers]
+</code></pre>
+
+1. in your `Array` literal
+2. add three dots 
+3. followed by the name of the Array you're copying
+4. only goes one-level deep (shallow)
+5. note that you can also use this on multiple Arrays (to __concatenate__):
+    <pre><code data-trim contenteditable>
+const words1 = ['foo', 'bar'];
+const words2 = ['baz', 'qux'];
+const allWords = [...words1, ...words2]
+</code></pre>
+{:.fragment}
+
+[See more about spread syntax on mdn](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator#Copy_an_array)
+{:.fragment}
+
+
+
+</section>
+
 
 <section markdown="block">
 ## Back to Arrays and Mutability
@@ -499,7 +528,7 @@ Errrr. It looks like there are a lot of ways to do this. __What are they (there 
 
 * use a for loop
 * use the forEach method
-* use the every method
+* use for of
 {:.fragment}
 
 <br>
@@ -511,6 +540,7 @@ __Which one should we use?__ &rarr;
 	* though using a callback / dealing with scoping may be tricky
 	* can't break out of <code>forEach</code>
 	* can break out of <code>every</code> by returning <code>false</code> (you have to return <code>true</code> on every iteration, though)
+* `for of` - ES6 syntax that allows looping over every element in an iterable object
 {:.fragment}
 
 </section>
@@ -573,6 +603,20 @@ nums.every(function(num, i) {
 	return true;
 });
 </code></pre>
+</section>
+
+<section markdown="block">
+## And Part 3: For Of
+
+Similar in expressiveness to `forEach`, but only available in ES6 &rarr;
+
+<pre><code data-trim contenteditable>
+const words = ['foo', 'bar', 'baz']
+for (let w of words) {
+    console.log(words);
+}
+</code></pre>
+
 </section>
 
 <section markdown="block">
