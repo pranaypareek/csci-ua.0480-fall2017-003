@@ -29,7 +29,7 @@ __Hmmmm. For a class on Node, we haven't really talked about it too much yet. Do
 </section>
 
 <section markdown="block">
-# In Node, All I/O is Non-Blocking and Asynchonous 
+# In Node, All I/O is Non-Blocking and Asynchronous 
 
 </section>
 

@@ -189,18 +189,18 @@ Significant material will be pulled from the following sites:
 <a name="Tutoring"></a>
 <div class="panel-heading">Tutoring</div>
 <div class="panel-body" markdown="block">
-There is a __tutor available__ for the course.
+There are __tutors available__ for the course.
 
 * Location
     * __WWH 412__
 * Hours
-    * See pinned message on Piazza
+    * Typically:
+        * Monday 6:00pm - 8:00pm (Brian)
+        * Tuesday 4:00pm - 5:30pm (Radhika)
+        * Thursday 5:00pm - 7:00pm (Brian)
+        * Friday 1:30 - 3:00 (Radhika)
+    * See pinned message on Piazza for up-to-date hours
 
-{% comment %}
-    * __Wednesday__  - 5pm - 7pm
-    * __Thursday__ -  1pm - 3pm 
-    * __Friday__  - 1pm - 3pm
-{% endcomment %}
 
 Additionally, the tutor will hold workshops based on student demand. Some workshops may include:
 
