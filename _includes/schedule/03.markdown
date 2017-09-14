@@ -3,7 +3,6 @@
 * [Functions Some More!](slides/js/js-functions-addendum.html)
 * [Strings, Arrays, Mutability and Variable Parameters](slides/js/js-strings-arrays.html)
 * [Node, NPM, and git](slides/js/js-node-npm-debug-git.html)
-* [Higher Order Functions](slides/03/higher-order-functions.html) 
 
 {% comment %}
 * [Node, NPM, and git](slides/02/node-npm-debug-git.html)
