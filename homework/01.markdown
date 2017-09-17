@@ -582,7 +582,7 @@ __Returns:__
 
 __Description:__
 
-Creates a _text drawing_ representation of the Tic Tac Toe `board` passed in. The board should have:
+Creates a _text drawing_ representation of the `board` passed in. The board should have:
 
 * borders between cells
 * the contents of each cell 
