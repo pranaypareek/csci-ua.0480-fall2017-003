@@ -1301,7 +1301,7 @@ If there were scripted moves defined in the config file, allow the game to proce
 3. if there are no more moves to pull from the array of scripted moves, allow the computer or player to choose their move like usual
 4. Some more details:
     * again, __the player can move manually after the scripted moves have been exhausted__
-    * if the scripted move is an invalid move, that scripted move is skipped, and the next scripted move for that player (comp or user) will be used on that player's next turn
+    * if the scripted move is an invalid move, that scripted move is skipped (meaning that the current move for the player/computer is also entirely skipped), and the next scripted move for that player (comp or user) will be used on that player's next turn
     * execute the scripted moves based on who is 'X', so if the player is 'X', their scripted moves will start first (same as if playing interactively)
     * there can be an uneven number of moves - if there are, follow this process: is there a scripted move to use? use it... otherwise move like you would normally (computer picks randomly or player enters move manually)
 5. for example using this configuration:
