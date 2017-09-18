@@ -7,7 +7,7 @@ title: CSCI-UA.0480 - Homework #2
 	<div class="panel-heading">Homework #2</div>
 	<div class="panel-body" markdown="block">
 
-# Higher Order Functions Exercises, Basketball - __Due Thursday, February 16th, by 11PM__
+# Higher Order Functions Exercises, Basketball - __Due Thursday, September 26th, by 11PM__
 
 ## Overview
 
@@ -15,7 +15,7 @@ title: CSCI-UA.0480 - Homework #2
 
 __hoffy.js__ - Write a series of 8 functions that demonstrate the use of the rest operator (or call/apply), and higher order functions 
 
-__basketfunc.js__ and __report.js__ - Print out a report analyzing basketball games based off of JSON data. There are two parts to this file:
+__yelpfunc.js__ and __report.js__ - Print out a report analyzing yelp data. There are two parts to this file:
 
 * An initial version that works off of a local JSON file
 * An second version that works off of remote urls and additional data.
@@ -401,267 +401,252 @@ Once you're finished with your functions, remember to:
 3. commit and push your code!
 
 
-## (33 points) Part 2 - Processing NBA Game Data, Reading from a Local `json` File
 
-The original data for this game was sourced from [http://stats.nba.com/game/#!/0021600681/](http://stats.nba.com/game/#!/0021600681/). I've restructured it and made the data available through the course site and your repository. You'll be using this data to extract some information from the game.
+## Part 2 - Processing Yelp Business Data, Reading from a local JSON file
+
+The original data was sourced from [https://www.yelp.com/dataset](https://www.yelp.com/dataset). A subset of the data has been made available through the course site and your repository. You'll be using this data to extract a few analytics.
 
 You'll be using two files for this:
 
-1. `basketfunc.js` to create a function called `processGameData`
-2. `report.js` to read in JSON data and use the `processGameData` above to create a report
+1. `yelpfunc.js` to create a function called `processYelpData`
+2. `report.js` to read in JSON data and use the `processYelpData` above to create a report
 
 ### Importing Data
 
 * Create a file called `src/report.js`
-* Start by reading in the file `tests/0021600681_gamedetail.json` using `fs.readFile` (of course, require the module first, then call the function)
-* See the docs on [fs.readFile](https://nodejs.org/api/fs.html#fs_fs_readfile_file_options_callback) (hint: make sure you specify `utf8` as the second argument)
-* The file that you read in contains game data in JSON format
-* Parse the game data into an actual JavaScript object using the methods from the built-in <code>JSON</code> module.  See [the slides](../slides/02/objects.html#/20) or the [docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)
-* Note, you can only do this from within the function (the callback function, or the function to be called once data is read from the file) that you supply to `fs.readFile`
-* Examine the resulting object... (for example, try printing it out!)
+* Start by reading in the file `tests/business.json` using `fs.readFile` 
+	* make sure that the module is brought in using `require`, then call the function)
+	* __do not use readFileSync__ 
+* See the docs on `fs.readFile` (hint: make sure you specify `utf8` as the second argument)
+* The file that you read in contains restaurants
+	* there's one restaurant per line
+	* each restaurant is represented by a single JSON object 
+* Find a way to read in and parse the contents of the file so that:
+	* each line of JSON is parsed into an actual JavaScript object
+	* each resulting object is placed into an `Array` for later processing
+	* you can check out some [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) and/or [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON) methods to do this
+	* note that the goal of this assignment is to work with higher order functions and JSON, so memory efficiency does not need to be taken into consideration
+* All of your parsing can only be done from within the callback function (or the function to be called once data is read from the file) that you supply to `fs.readFile`
+* Examine the resulting `Array` ... (for example, try printing it out!)
+* Use the `Array` you created above and print the name, rating and location of the 80th business entry in the file in the format: '{name} is a business located in {city} with a rating of {stars} and {reviews} reviews.'
 
-## Examining the Data
+    ```
+The Great Canadian Pizza Company is a business located in Mississauga with 4 stars and 18 reviews.
+```
+* Later, you will be supplying this `Array` to the `procesYelpData` function to generate a report.
 
-* Assuming that your parsed data is in a variable called `data`...
-* `data` should be an object with nested objects and arrays, with all of the data nested in a property named `g`
-* Examine the properties in `data.g`
-    * note that any numeric values are __ALL strings__ (so it may be good to clean up / convert the data before working on it with numeric operators)
-    * there are a few properties that describe the game, such as the game's id, <code>gid</code>, game data and time, `gdte`, etc.
-    * ... and there two properties within `g`, `hls` and `vls` that represents data about each team in the game
-    * there's meta info in `hls` and `vls` that represents the team name and team cit (`tn` and `tc` respectively)
-    * additionally, `hls.pstsg` and `vls.pstsg` are both `Array`s that contain player data for each team (each player represented as an object)
-    * you can expect to find the following properties in each _player_ object 
-	    * <code>fn</code>: player's first name
-	    * <code>ln</code>: player's last name
-	    * <code>fgm</code>: the number of field goals (both two pointers and three pointers, worth 2 and 3 points each respectively) that a player made
-	    * <code>fga</code>: the number of field goals (both two pointers and three pointers) that a player attempted
-	    * <code>ftm</code>: the number of free throws that a player made (each only worth 1 point)
-	    * <code>fta</code>:  the number of free throws that a player attempted 
-	    * <code>oreb</code>:  the player's number of defensive rebounds
-	    * <code>dreb</code>:  the player's number of offensive rebounds
-	    * <code>tpm</code>:  the number of three point field goals that a player made
-	    * <code>tpa</code>:  the number of three point field goals that a player attempted
-	    * <code>tov</code>:  the number of turnovers a player made (loss of possession of ball)
-	    * <code>ast</code>:  the number of assists that a player made (the number of passes that led to a score)
-	    * <code>blk</code>:  the number of blocks that a player made (for a player on defense, the number of shots that the player blocked or tipped)
+### Examining the Data
 
-## Calculations
+* Assuming that your parsed data is in a variable called `data` ...
+* `data` will be an `Array` of JSON objects (each line should have been parsed as a JSON before pushing into the `data` array)
+* Each object in `data` contains location data, attributes, and categories.
 
-### The `processGameData` Function
+Below is a sample for a business that is a restaurant serving Mexican & Burgers, is located in San Francisco (CA), has been reviewed 1198 times and has an average rating of 4.5
 
-You'll create a function to generate a report (as a string) based on game data:
+```
+{
+    // string, 22 character unique string business id
+    "business_id": "tnhfDv5Il8EaGSXZGiuQGg",
 
-1. Create a function in `src/basketfunc.js` 
-2. ...that takes in game data as an object (for example, the parsed data from the sample file, `0021600680_gamedetail.json`) 
-3. ...and returns a single string that contains a report with the calculations listed below:
+    // string, the business's name
+    "name": "Garaje",
+
+    // string, the neighborhood's name
+    "neighborhood": "SoMa",
+
+    // string, the full address of the business
+    "address": "475 3rd St",
+
+    // string, the city
+    "city": "San Francisco",
+
+    // string, 2 character state code, if applicable
+    "state": "CA",
+
+    // string, the postal code
+    "postal code": "94107",
+
+    // float, latitude
+    "latitude": 37.7817529521,
+
+    // float, longitude
+    "longitude": -122.39612197,
+
+    // float, star rating, rounded to half-stars
+    "stars": 4.5,
+
+    // interger, number of reviews
+    "review_count": 1198,
+
+    // integer, 0 or 1 for closed or open, respectively
+    "is_open": 1,
+
+    // object, business attributes to values. note: some attribute values might be objects
+    "attributes": {
+        "RestaurantsTakeOut": true,
+        "BusinessParking": {
+            "garage": false,
+            "street": true,
+            "validated": false,
+            "lot": false,
+            "valet": false
+        },
+    },
+
+    // an array of strings of business categories
+    "categories": [
+        "Mexican",
+        "Burgers",
+        ...
+    ],
+
+    // an object of key day to value hours, hours are using a 24hr clock
+    "hours": {
+        "Monday": "10:00-21:00",
+        "Tuesday": "10:00-21:00",
+        ...
+    }
+}
+```
+
+### Analytics
+
+#### The `processYelpData` Function
+
+You'll create a function to generate a report (as a string) based on Yelp data.
+
+1. Create a function in `src/yelpfunc.js`
+2. ...that loads in data from the file as explained above, and
+3. ...returns a single string that contains a report with the analytics listed below
 
 ### Implementation Requirements
 
-When creating your report in `processGameData`, you must use __all__ of the following Array methods __at least once each__ in your program:
+When creating your report in processYelpData, you must use all of the following Array methods at least once each in your program:
 
-* <code>forEach</code>
-* <code>filter</code>
-* <code>map</code>
-* <code>reduce</code>
+* `forEach`
+* `filter`
+* `map`
+* `reduce`
 
 There will be a small penalty for each one not used (-2).
 
-### Game ID and Date/Time
+### Intro
 
-* Start the report with the game's id (for example, for the game in the sample file, Celtics vs Rockets, it's <code>0021600681</code>, and the date is 2017-01-25):
-    <pre><code data-trim contenteditable>Game ID: 0021600681, 2017-01-25
+* Start the report with the total number of records in the `business.json` file 
+
+```
+Total records read: 2000
 =====
-</code></pre>
-* Notice the line of 5 equal signs underneath the game id
+```
 
+* This should be followed by 5 equal signs
 
-### Final Score
+### Average Rating
 
-* Include the final score of the game in the report string... based on the data provided
-* The score for each team can be calculated by summing the following values for each player on that team:
-	* __3 points__ for every of three point field goal made 
-	* __2 points__ for every two point field goal made
-	* __1 point__ for every free throw made
-* Note that the number of 2 point field goals made is actually number of field_goals_made  - three_pointers_made (because field_goals_made counts both twos and threes)
-* The score should be in the following format: <code>team_city team_name - total_score</code>
+* Include the average rating of all the records in the file
 
-* Example string: 
-    <pre><code data-trim contenteditable>Boston Celtics - 120
-Houston Rockets - 109
-</code></pre>
+```
+* Average Rating of the dataset: 3.61
+```
 
-### Player With the Most Rebounds
+### All the Pizza places in Las Vegas, NV
 
-* Include the name and the number of rebounds of the player that had the most rebounds in the game in the report string
-* The number of rebounds is the sum of Offensive Rebounds and Defensive Rebounds.
-* Use the following format: <code> * Most rebounds:Jae Crowder with 10
-</code>.
+* Iterate through all the records and find all the restaurants that serve 'Pizza' and are located in the city of 'Las Vegas', in the state of 'NV'. Include each place's rating too.
 
-* Example string:
-    <pre><code data-trim contenteditable> * Most rebounds:Jae Crowder with 10
-</code></pre>
+```
+* All restaurants in Las Vegas, NV that serve pizza:
+    * Spago by Wolfgang Puck (* 4 stars *)
+    * Grimaldi's Pizzeria (* 4 stars *)
+    * Mama Cimino's (* 2.5 stars *)
+    * Noble Roman's Pizza (* 2 stars *)
+    * The Locker Room (* 3.5 stars *)
+```
 
-### Player With Highest Three Pointer Percentage that Took Attempted Least 5 Three Pointers
+### The two Mexican restaurants with the most reviews
 
-* Include the name of the player
-    * that attempted at least 5 three point shots
-    * and... has the highest three point shooting percentage in the game (either team)
-    * (three point shooting percentage is number of threes made divided by number of threes attempted)
-* Use the following format: <code> * Player with highest 3 point percentage: first_name, last_name at percentage (made/attempted)
-</code>. 
-* Example string:
-    <pre><code data-trim contenteditable> * Player with highest 3 point percentage that took at least 5 shots: Trevor Ariza at %50.00 (4/8) 
-</code></pre>
+```
 
+* The two highest reviewed Mexican serving restaurants are:
+    * The Mission Old Town, Scottsdale (AZ), 1539 reviews (* 4 stars *)
+    * Mariscos Playa Escondida, Las Vegas (NV), 330 reviews (* 4.5 stars *)
+```
 
+### The most common name in the dataset
 
-### Total Number of Players With at Least One Block
-
-* Include the total number of players across both teams that have at least one block
-* Use the following format: <code> * There were total_number_of_players_with_min_blocks players that had at least one block
-</code>.
-* Example string:
-    <pre><code data-trim contenteditable> * There were 6 players that had at least one block
-</code></pre>
-
-### Players With More Turnovers Than Assists
-
-* Include a list of all of the players that have more turnovers than assists.
-* The format should be: <code> * team_name players with more turnovers than assists:</code>.
-* ...Followed by a list of player names in the format <code>first_name last_name has an assist to turnover ratio of assists:turnovers</code>.
-* Example string:
-<pre><code data-trim contenteditable> *  Players with more turnovers than assists:
-         Boston - Celtics
-         * Jaylen Brown has an assist to turnover ratio of 0:3
-         * Amir Johnson has an assist to turnover ratio of 1:2
-         * Kelly Olynyk has an assist to turnover ratio of 2:3
-         * Gerald Green has an assist to turnover ratio of 0:1
-
-         Houston - Rockets
-         * Trevor Ariza has an assist to turnover ratio of 2:3
-         * Ryan Anderson has an assist to turnover ratio of 1:2
-         * Corey Brewer has an assist to turnover ratio of 1:2
-</code></pre>
+```
+* Starbucks is the most common business and appears 8 times in the dataset
+```
 
 ### Return Value
 
-The result of all of the calculations should be coalesced into a single large string representing the report.
+All of the analytics should be coalesced into a single large string representing the analytic report.
 
-This string should be returned by your `processGameData` function in your module, `basketfunc.js`.
+This string should be returned by your `processYelpData` function in your module, `yelpfunc.js`
 
-<!--* -->
+### Calling processYelpData
 
-### Calling `processGameData`
+Now that you've finished your function, you can try calling it on your data from `report.js`
 
-Now that you've finished your function, you can try calling it on the data coming in from the local sample file.
+1. In report.js: require the module that you created.
+2. Use your function on the data that you parsed from reading in the `business.json` file.
+3. Print out the resulting string.
+4. You can compare your output with the example output below.
 
-1. In `report.js`: `require` the module that you created. 
-2. Use your function on the data that you parsed from reading in the example json file, `0021600680_gamedetail.json`.
-3. Print out the resulting string. 
-4. You can check the original page that the data was sourced from to confirm your calculations: [http://stats.nba.com/game/#!/0021600681/](http://stats.nba.com/game/#!/0021600681/)  
-5. Additionally, compare your output with the example output below.
-
-
-### Example Output
-
-<pre><code data-trim contenteditable>Game ID: 0021600681, 2017-01-25
+```
+Total records read: 2000
 =====
-Boston Celtics - 120
-Houston Rockets - 109
-* Most rebounds:Jae Crowder with 10
-* Player with highest 3 point percentage that took at least 5 shots: Trevor Ariza at %50.00 (4/8)
-* There were 6 players that had at least one block
-* Players with more turnovers than assists:
-         Boston - Celtics
-         * Jaylen Brown has an assist to turnover ratio of 0:3
-         * Amir Johnson has an assist to turnover ratio of 1:2
-         * Kelly Olynyk has an assist to turnover ratio of 2:3
-         * Gerald Green has an assist to turnover ratio of 0:1
 
-         Houston - Rockets
-         * Trevor Ariza has an assist to turnover ratio of 2:3
-         * Ryan Anderson has an assist to turnover ratio of 1:2
-         * Corey Brewer has an assist to turnover ratio of 1:2
-</code></pre>
+* Average Rating of the dataset: 3.61
+
+* All restaurants in Las Vegas, NV that serve pizza
+    * Spago by Wolfgang Puck (* 4 stars *)
+    * Grimaldi's Pizzeria (* 4 stars *)
+    * Mama Cimino's (* 2.5 stars *)
+    * Noble Roman's Pizza (* 2 stars *)
+    * The Locker Room (* 3.5 stars *)
+
+* The two highest reviewed Mexican serving restaurants are:
+    * The Mission Old Town, Scottsdale (AZ), 1539 reviews (* 4 stars *)
+    * Mariscos Playa Escondida, Las Vegas (NV), 330 reviews (* 4.5 stars *)
+
+* The most common name in the dataset:
+    * Starbucks is the most common business and appears 8 times in the dataset
+```
 
 Lint, commit and push your code; the next part will make modifications to this existing code (you can overwrite your work in this file directly for the next part).
-<!--* -->
 
-## (12 points) Part 3 - Retrieve JSON from URL
+## Part 3 - Retrieve JSON from URL
 
-### Setup for Retrieving JSON 
+### Setup for Retrieving JSON
+Instead of reading a local file, **modify your program** so that it requests JSON data from a specified url. Run your report again; the output should remain unchanged despite the change in data source. **You should overwrite your existing report.js file (the diffs are in git anyway).**
 
-Instead of reading a local file, __modify your program__ so that it requests JSON data from a specified url. Run your report again; the output should remain unchanged despite the change in data source. __You should overwrite your existing `report.js` file__ (the diffs are in git anyway).
-
-* Install the requests library in your project's root folder: <code>npm install --save request</code> (similar to installing <code>readline-sync</code> in the previous assignment)
+* Install the requests library in your project's root folder: `npm install --save request` (similar to installing `readline-sync` in the previous assignment)
 * Add the module to the beginning of `report.js`
-* __Comment out or delete reading from a local file__
+* **Comment out or delete reading from a local file**
 
 ### Retrieve and Process JSON Data
 
-* Use the requests library to retrieve the URL that contains the game data for the [game shown on this page](http://stats.nba.com/game/#!/0021600680/)
-* The URL for the JSON data associated with this game is at:
-    * [http://foureyes.github.io/csci-ua.0480-spring2017-008/homework/02/0021600680_gamedetail.json](http://foureyes.github.io/csci-ua.0480-spring2017-008/homework/02/0021600680_gamedetail.json)
-* [Read the documentation](https://github.com/mikeal/request) to see how to use the requests module (or see the [slides](http://foureyes.github.io/csci-ua.0480-fall2016-001/slides/03/node-npm-debug-git.html#/6))
-* Notice that the data is only available within the callback that you pass in to calling <code>request</code> (much like using `readFile`
-* Again, a __callback__ is a function passed as an argument to another function... the callback will be invoked / executed at a later time, when some event is triggered
-* In the case of <code>request</code>, it's the function that you pass in as the 2nd argument
-* (The call to your report generation should be moved to the callback of request... )
-* Parse the body of the response from `request` into an object
-* Print out the result of calling `processGameData` on the parsed response
+* The URL for the dataset used in this assignment is:
+> URL HERE
 
+* Read the documentation to see how to use the requests module (or see the slides)
+* Notice that the data is only available within the callback that you pass in to calling `request` (much like using readFile)
+* Again, a **callback** is a function passed as an argument to another function... the callback will be invoked / executed at a later time, when some event is triggered
+* In the case of `request`, it's the function that you pass in as the 2nd argument
+* (The call to your report generation should be moved to the callback of request...)
+* Parse the body of the response from `request` into an object
+* Print out the result of calling `processYelpData` on the parsed response
 
 ### Process Data From Requested JSON
 
-* The top level object `g` from the parsed JSON data contains a <code>nextgid</code> property;
-* The <code>nextgid</code> property contains the next game id to parse
-* Construct a new URL based on that ID
-* Use the <code>request</code> library again to retrieve and process the data from this new URL
-* Continue to do this until the <code>next</code> property does not contain a url
-* Your program should print out reports on several games.
-* Example Output:
+> Need to discuss how we handle breaking down the dataset. We can either add another file with 2000 records or use the same file and break it down into two files of 1000 records each.
 
+TODO: __do not add urls here directly; instead, send them through piazza OR password protect__
 
-<pre name="hw02-sample" id="hw02-sample"><code data-trim contenteditable>Game ID: 0021600680, 2017-01-25
-=====
-Cleveland Cavaliers - 112
-Sacramento Kings - 116
-* Most rebounds:Kevin Love with 16
-* Player with highest 3 point percentage that took at least 5 shots: Arron Afflalo at %66.00 (4/6)
-* There were 8 players that had at least one block
-* Players with more turnovers than assists:
-         Cleveland - Cavaliers
-         * Channing Frye has an assist to turnover ratio of 0:2
-         * Kay Felder has an assist to turnover ratio of 1:3
-
-         Sacramento - Kings
-
-
-Game ID: 0021600681, 2017-01-25
-=====
-Boston Celtics - 120
-Houston Rockets - 109
-* Most rebounds:Jae Crowder with 10
-* Player with highest 3 point percentage that took at least 5 shots: Trevor Ariza at %50.00 (4/8)
-* There were 6 players that had at least one block
-* Players with more turnovers than assists:
-         Boston - Celtics
-         * Jaylen Brown has an assist to turnover ratio of 0:3
-         * Amir Johnson has an assist to turnover ratio of 1:2
-         * Kelly Olynyk has an assist to turnover ratio of 2:3
-         * Gerald Green has an assist to turnover ratio of 0:1
-
-         Houston - Rockets
-         * Trevor Ariza has an assist to turnover ratio of 2:3
-         * Ryan Anderson has an assist to turnover ratio of 1:2
-         * Corey Brewer has an assist to turnover ratio of 1:2
-.
-.
-&lt;additional games&gt;
-.
-.
+<pre name="hw02-sample" id="hw02-sample"><code data-trim contenteditable>
 
 </code></pre>
+
 </div>
 
 </div>
