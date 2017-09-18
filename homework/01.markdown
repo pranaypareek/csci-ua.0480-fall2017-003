@@ -9,7 +9,7 @@ title: CSCI-UA.0480 - Homework #1
 
 # Reversi / Othello
 
-## Due __Sep 19th, by 11PM__
+## Due <strike>Sep 19th</strike> __Sep 20th, by 11PM__
 
 <pre>     A   B   C   D   E   F   G   H
    +---+---+---+---+---+---+---+---+

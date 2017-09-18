@@ -34,7 +34,9 @@
 </td>
 	<td markdown="block">
 
-__Due Tuesday, 9/19, by 11pm__
+<strike>Due Tuesday, 9/19, by 11pm</strike>
+
+__Due Wednesday, 9/20, by 11pm__
 
 * [Homework #1](homework/01.html) 
 
