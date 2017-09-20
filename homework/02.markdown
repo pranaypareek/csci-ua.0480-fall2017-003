@@ -618,30 +618,46 @@ Lint, commit and push your code; the next part will make modifications to this e
 ## Part 3 - Retrieve JSON from URL
 
 ### Setup for Retrieving JSON
-Instead of reading a local file, **modify your program** so that it requests JSON data from a specified url. Run your report again; the output should remain unchanged despite the change in data source. **You should overwrite your existing report.js file (the diffs are in git anyway).**
 
-* Install the requests library in your project's root folder: `npm install --save request` (similar to installing `readline-sync` in the previous assignment)
-* Add the module to the beginning of `report.js`
-* **Comment out or delete reading from a local file**
+In this part, you'll be setting up your project to work with JSON data from a url:
+
+1. Install the requests library in your project's root folder: `npm install --save request` (similar to installing `readline-sync` in the previous assignment)
+2. Add the module to the beginning of `report.js` using `require`
+3. **Comment out or delete reading from a local file**
+
+Instead of reading a local file, **modify your program** so that it requests JSON data from a specified url. This URL will be distributed via piazza (see a pinned note). However, there will be one additional object in the last line of the file:
+
+`{"nextFile": "4df1c5ef1280bee2e2b44167027d2469.json"}`
+
+This last object has a key, `nextFile`, and the value represents the name of another file of business data (in the object above, the name of the next file is: `4df1c5ef1280bee2e2b44167027d2469.json`). The next section will explain how to retrieve this json file from the web.
+
 
 ### Retrieve and Process JSON Data
 
-* The URL for the dataset used in this assignment is:
-> URL HERE
-
-* Read the documentation to see how to use the requests module (or see the slides)
+* The URL for the dataset used in this assignment __will be posted on piazza__
+* [Read the documentation](https://github.com/mikeal/request) to see how to use the requests module (or see the [slides](../slides/js/js-node-npm-debug-git.html#/6))
 * Notice that the data is only available within the callback that you pass in to calling `request` (much like using readFile)
 * Again, a **callback** is a function passed as an argument to another function... the callback will be invoked / executed at a later time, when some event is triggered
 * In the case of `request`, it's the function that you pass in as the 2nd argument
 * (The call to your report generation should be moved to the callback of request...)
 * Parse the body of the response from `request` into an object
+    * For now, you can ignore the last object that contains `nextFile`
+    * (Modify your script if necessary to ignore that line) 
 * Print out the result of calling `processYelpData` on the parsed response
 
-### Process Data From Requested JSON
+When you run your report again, the output should remain unchanged despite the change in data source. **Again, feel free to overwrite your existing report.js file (the diffs are in git anyway) for this section.**
 
-> Need to discuss how we handle breaking down the dataset. We can either add another file with 2000 records or use the same file and break it down into two files of 1000 records each.
 
-TODO: __do not add urls here directly; instead, send them through piazza OR password protect__
+### Get Next JSON Files
+
+Instead of running this report on a single file, you'll download several files. However, you will not know the URLs of the subsequent files in advance. Instead, you'll have to examine the `nextFile` property of the last object in initial JSON data requested.
+
+* Print out the URL that you're retrieving before running your report
+* The last object from the JSON file contains a `nextFile` property;
+* The `nextFile` property contains the next file to retrieve
+* Construct a new URL based on that ID and print out the new URL
+* Use the `request` library again to retrieve and process the data from this new URL
+* Continue to do this until you encounter a file that does not have an object with a `nextFile` property
 
 <pre name="hw02-sample" id="hw02-sample"><code data-trim contenteditable>
 
@@ -650,4 +666,10 @@ TODO: __do not add urls here directly; instead, send them through piazza OR pass
 </div>
 
 </div>
+
+
+
+
+
+
 
