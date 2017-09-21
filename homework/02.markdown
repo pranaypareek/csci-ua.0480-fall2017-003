@@ -7,7 +7,7 @@ title: CSCI-UA.0480 - Homework #2
 	<div class="panel-heading">Homework #2</div>
 	<div class="panel-body" markdown="block">
 
-# Higher Order Functions: Exercises and Processing Data - __Due Thursday, September 26th, by 11PM__
+# Higher Order Functions: Exercises and Processing Data - __Due Thursday, September 28th, by 11PM__
 
 ## Overview
 
@@ -470,7 +470,9 @@ You'll be using two files for this:
 ### Importing Data
 
 * In `src/report.js`...
-* Start by reading in the file `tests/business.json` using `fs.readFile` 
+* Download and uncompress business.json.gz from the link given in piazza 
+    * put in a folder outside of your repository
+* Start by reading in the file `business.json` using `fs.readFile` (you can use the absolute path) 
 	* make sure that the module is brought in using `require`, then call the function)
 	* __do not use readFileSync__ 
 * See the docs on `fs.readFile` (hint: make sure you specify `utf8` as the second argument)
