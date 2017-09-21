@@ -7,18 +7,18 @@ title: CSCI-UA.0480 - Homework #2
 	<div class="panel-heading">Homework #2</div>
 	<div class="panel-body" markdown="block">
 
-# Higher Order Functions for Exercises and Processing Data - __Due Thursday, September 26th, by 11PM__
+# Higher Order Functions: Exercises and Processing Data - __Due Thursday, September 26th, by 11PM__
 
 ## Overview
 
 ### Description
 
-__hoffy.js__ - Write a series of 8 functions that demonstrate the use of the rest operator (or call/apply), and higher order functions 
+__hoffy.js__ - Write a series of functions that demonstrate the use of the rest operator (or call/apply), and higher order functions 
 
-__yelpfunc.js__ and __report.js__ - Print out a report analyzing yelp data. There are two parts to this file:
+__yelpfunc.js__ and __report.js__ - Print out a report analyzing yelp restaurant (business) data. There are two parts to this:
 
 * An initial version that works off of a local JSON file
-* An second version that works off of remote urls and additional data.
+* An second version that works off of remote urls and additional data (you can overwrite the previous part with this code)
 
 See the [sample output](#hw02-sample) at the end of these instructions.
 
@@ -50,7 +50,7 @@ The solutions to the following problems can go in the same file - __src/hoffy.js
 
 ### Background Info
 
-Implement 8 functions that use JavaScript features such as:
+Implement functions that use JavaScript features such as:
 
 * the rest operator
 * the spread operator
@@ -63,13 +63,21 @@ Implement 8 functions that use JavaScript features such as:
 
 Go through the functions in order; the concepts explored build off one-another, and the functions become more and more challenging to implement as you go on.
 
-Do not use a regular `while`, `for`, `for ... in`, `for ... of`, or `forEach` loop. __There will a small (-2) penalty every time one is used__.
+__Do not use__: 
+
+* `while` loops
+* `for` loops
+* `for ... in` loops
+* `for ... of` loops
+* `forEach` method . 
+
+__There will a small (-2) penalty every time one is used__. (Homework is 100 points total)
 
 
 ### Steps
 
 1. prep...
-    * create a `.gitignore` to ginore node_modules
+    * create a `.gitignore` to ignore node_modules
     * make sure that `mocha`, `chai`, and `eslint` are still installed (similar to previous assignment)
         <pre><code data-trim contenteditable>npm install -g mocha
 npm install --save-dev eslint
@@ -92,53 +100,98 @@ npm install --save-dev chai
 
 <hr>
 
-### `prod(num1 [, num2, ..., numN])`
+### `sum(num1, num2, ... numn)`
 
 __Parameters:__
 
-* `num1`, `num2`, up through ... `numN` - the values to be multiplied
+* `num1`, `num2` ... `numn` - the values to be summed
 
 __Returns:__
 
-* the product of the arguments as a `Number` 
-* the product of no arguments is undefined
-* the product of a single argument is that argument
+* the sum of the arguments as a `Number` 
+* the sum of no arguments is 0
 
 __Description:__
 
-This function demonstrates the use of the rest operator (ES6) or using the built-in arguments object. Multiplies all of the arguments together and returns the resulting product. If there are no arguments, the resulting product is undefined. Does not check for types of incoming arguments.
+Adds all of the arguments together and returns the resulting sum. If there are no arguments, the resulting sum is 0. Does not have to check for types.
+
+Hints:
+
+* use `rest` parameters!
 
 __Example:__
 
-    // returns the product of all arguments passed in
-    prod(1, 2, 3, 4) // --> 24
-    prod(1, 1, 1, 1, 1, 1, 1, 1, 1, 1) // --> 1
-    prod(1) // --> 1
+    // returns the sum of all arguments passed in
+    sum(1, 2, 3) // --> 6
+    sum(1, 1, 1, 1, 1, 1, 1, 1, 1, 1) // --> 10
+    sum(1) // --> 1
 
-    prod() // --> undefined
+    // returns 0 if there are no arguments passed in
+    sum() // --> 0
 
 <hr>
 
-### `any(arr, fn)`
+### `repeatCall(fn, n arg)`
 
 __Parameters:__
 
-* `arr` - the `Array` to test
-* `fn` - the function that will be used to test every element in the `Array`
+* `fn` - the function to be called repeatedly
+* `n` - the number of times to call function, `fn`
+* `arg` - the argument to pass to function, `fn`, when it is called
 
 __Returns:__
 
-* `true` or `false` - whether or not any of the elements in the `Array` pass the test
+* `undefined` (no return value)
 
 __Description:__
 
-This function demonstrates using functions as an argument or arguments to another function. It calls function, `fn`, on every element in `arr` checking if they pass the test. If at least one element passes the test, `fn`, then return true. Note that it is not possible to break from higher order functions (so the solution here will not be quite as efficient as a regular `for` or `for of` loop). Check out the [readings](http://eloquentjavascript.net/05_higher_order.html) or [slides](../slides/04/higher-order-functions-continued.html) on higher order functions for relevant background material and examples.
+This function demonstrates using functions as an argument or arguments to another function. It calls function, `fn`, `n` times, passing in the argument, `arg` to each invocation / call.  It will ignore the return value of function calls. Note that it passes in only one `arg`. Check out the [readings](http://eloquentjavascript.net/05_higher_order.html) or [slides](../slides/js/higher-order-functions-continued.html) on higher order functions for relevant background material and examples.
 
 __Example:__
 
-    // are any of these numbers odd?
-    any([2, 3, 4, 6], x => x % 2 === 1) // true
-    any([2, 4, 6, 8], x => x % 2 === 1) // false
+    repeatCall(console.log, 3, "Hello!");
+    // prints out:
+    // Hello!
+    // Hello!
+    
+    // calls console.log twice, each time passing in only the first argument
+    // (we'll see how to fix this later)
+    repeatCall(console.log, 2, "foo", "bar", "baz", "qux", "quxx", "corge");
+        
+    // prints out (again, only 1st arg is passed in):
+    // foo 
+    // foo 
+
+<hr>
+
+### `repeatCallAllArgs(fn, n, args1 ... argsn)`
+
+__Parameters:__
+
+* `fn` - the function to be called repeatedly
+* `n` - the number of times to call function, `fn`
+* `args1 ... argsn` - _all_ of the arguments to pass in to the function `fn` when it is called
+
+__Returns:__
+
+* `undefined` (no return value)
+
+__Description:__
+
+This is pretty much the same function as the previous, but it also demonstrates using a variable number of arguments. It calls function, `fn`, `n` times, passing in all of the remaining arguments that were passed to the original function, as the arguments to the `fn` function invocation. It will ignore the return value of function calls. Here are some hints:
+
+
+* use `rest` parameters and `spread`
+* or use the `arguments` object along with `apply`
+
+__Example:__
+
+    // calls console.log twice, each time passing in the args, "foo", "bar", ... "corge"
+    repeatCallAllArgs(console.log, 2, "foo", "bar", "baz", "qux", "quxx", "corge");
+        
+    // prints out:
+    // foo bar baz qux quxx corge
+    // foo bar baz qux quxx corge
 
 <hr>
 
@@ -154,9 +207,9 @@ __Returns:__
 
 __Description:__
 
-This is similar to the previous function, but it also demonstrates returning a function and using the spread operator. `maybe` will take a function, `fn` and return an entirely new function.
+`maybe` will take a function, `fn` and return an entirely new function that behaves mostly like the original function, `fn` passed in, but will return undefined if any `null` or `undefined` arguments are passed in to `fn`.
 
-The new function will take the same arguments as the original function (`fn`). Consequently when the new function is called, it will use the arguments passed to it and l call the old function and return the value that's returned from the old function. However, if any of the arguments are `undefined` or `null`, the old function is not called, and `undefined` is called instead. You can think of it as a way of calling the old function only if all of the arguments are not `null` or not `undefined`.
+The new function will take the same arguments as the original function (`fn`). Consequently when the new function is called, it will use the arguments passed to it and call the old function and return the value that's returned from the old function. However, if any of the arguments are `undefined` or `null`, the old function is not called, and `undefined` is returned instead. You can think of it as a way of calling the old function only if all of the arguments are not `null` or not `undefined`.
 
 
 __Example:__
@@ -169,6 +222,7 @@ __Example:__
     maybe(createFullName)('Freddy', undefined);          // undefined 
 
 <hr>
+
 
 ### `constrainDecorator(fn, min, max)`
 
@@ -252,7 +306,7 @@ __Example:__
 
 <hr>
 
-### `mapWith(fn)`
+### `filterWith(fn)`
 
 __Parameters:__
 
@@ -262,25 +316,26 @@ __Returns:__
 
 * `function` - a function that...
     * has 1 parameter, an `Array`
-    * returns a new Array where every element is the result of calling the original function passed in `fn` on elements in the incoming Array, producing an entirely new `Array`
+    * returns a new Array where only elements that cause `fn` to return `true` are present (all other elements from the old Array are not included)_
 
-__Description:__
+_Description:__
 
-This is different from regular map. The regular version of map immediately calls the callback function on every element in an Array to return a new Array. `mapWith`, on the other hand, gives back a function rather than executing the callback immediately (think of the difference between bind and call/apply). `mapWith` is basically a function that turns another function into a mapping function (a function that works on Arrays). 
+This is different from regular filter. The regular version of filter immediately calls the callback function on every element in an Array to return a new Array of filtered elements. `filterWith`, on the other hand, gives back a function rather than executing the callback immediately (think of the difference between bind and call/apply). `filterWith` is basically a function that turns another function into a filtering function (a function that works on Arrays). 
 
 __Example:__
 
-    // original square function that works on Numbers
-    function square(n) {return n * n;} 
+    // original even function that works on Numbers
+    function even(n) {return n % 2 === 0;} 
 
-    // create a 'mapped' version of the square function
-    mapWithSquare = mapWith(square); 
+    // create a 'filter' version of the square function
+    filterWithEven = filterWith(even); 
 
     // now square can work on Arrays of Numbers!
-    console.log(mapWithSquare([1, 2, 3])); // [1, 4, 9]    
+    console.log(filterWithEven([1, 2, 3, 4])); // [2, 4]    
     
-    mapWithParseInt = mapWith((n) => parseInt(n));
-    console.log(mapWithParseInt([' 123', '45', '67 '])); // [123, 45, 67]
+    const nums = [1, NaN, 3, NaN, NaN, 6, 7];
+    const filterNaN = filterWith(n => !isNaN(n));
+    console.log(filterNaN(nums)); // [1, 3, 6, 7]
 
 <hr>
 
@@ -404,16 +459,17 @@ Once you're finished with your functions, remember to:
 
 ## Part 2 - Processing Yelp Business Data, Reading from a local JSON file
 
-The original data was sourced from [https://www.yelp.com/dataset](https://www.yelp.com/dataset). A subset of the data has been made available through the course site and your repository. You'll be using this data to extract a few analytics.
+In this part, you'll work with JSON restaurant data from yelp. The original data was sourced from [https://www.yelp.com/dataset](https://www.yelp.com/dataset). A subset of the data has been made available through the course site and your repository. You'll be using this data to extract a few analytics.
 
 You'll be using two files for this:
 
 1. `yelpfunc.js` to create a function called `processYelpData`
-2. `report.js` to read in JSON data and use the `processYelpData` above to create a report
+    * the function will take an `Array` of objects with each object representing a restaurant
+2. `report.js` to read in and parse JSON data (first a local file, then download from a url) and use the `processYelpData` above to create a report
 
 ### Importing Data
 
-* Create a file called `src/report.js`
+* In `src/report.js`...
 * Start by reading in the file `tests/business.json` using `fs.readFile` 
 	* make sure that the module is brought in using `require`, then call the function)
 	* __do not use readFileSync__ 
@@ -421,24 +477,28 @@ You'll be using two files for this:
 * The file that you read in contains restaurants
 	* there's one restaurant per line
 	* each restaurant is represented by a single JSON object 
+    * __the last line may contain a an object with a nextFile property__ ...__this object is not a restaurant and should be skipped / ignored__ (you'll use this later)
 * Find a way to read in and parse the contents of the file so that:
+    * leading and trailing white space is removed from the initial contents (use the string method, `trim`)
 	* each line of JSON is parsed into an actual JavaScript object
+    * (the last line may contain an object that isn't a restaurant; it should not be included in the report generation below)
 	* each resulting object is placed into an `Array` for later processing
 	* you can check out some [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) and/or [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON) methods to do this
 	* note that the goal of this assignment is to work with higher order functions and JSON, so memory efficiency does not need to be taken into consideration
 * All of your parsing can only be done from within the callback function (or the function to be called once data is read from the file) that you supply to `fs.readFile`
 * Examine the resulting `Array` ... (for example, try printing it out!)
-* Use the `Array` you created above and print the name, rating and location of the 80th business entry in the file in the format: '{name} is a business located in {city} with a rating of {stars} and {reviews} reviews.'
-
-    ```
+* Later, you will be supplying this `Array` to the `procesYelpData` function to generate a report.
+* To verify your file reading and parsing, you can try:
+    * printing the name, rating and location of the 80th business entry in the file in the format: '{name} is a business located in {city} with a rating of {stars} and {reviews} reviews.'
+    * the result should be:
+        ```
 The Great Canadian Pizza Company is a business located in Mississauga with 4 stars and 18 reviews.
 ```
-* Later, you will be supplying this `Array` to the `procesYelpData` function to generate a report.
 
 ### Examining the Data
 
-* Assuming that your parsed data is in a variable called `data` ...
-* `data` will be an `Array` of JSON objects (each line should have been parsed as a JSON before pushing into the `data` array)
+* Assuming that your parsed data is in a variable called `data` ... 
+* `data` will be an `Array` of JSON objects (each line should have been parsed from JSON before pushing into the `data` array)
 * Each object in `data` contains location data, attributes, and categories.
 
 Below is a sample for a business that is a restaurant serving Mexican & Burgers, is located in San Francisco (CA), has been reviewed 1198 times and has an average rating of 4.5
@@ -515,35 +575,46 @@ Below is a sample for a business that is a restaurant serving Mexican & Burgers,
 
 You'll create a function to generate a report (as a string) based on Yelp data.
 
-1. Create a function in `src/yelpfunc.js`
-2. ...that loads in data from the file as explained above, and
-3. ...returns a single string that contains a report with the analytics listed below
+### `processYelpData(restaurants)`
+
+__Parameters:__
+
+* `restaurants` - an `Array` of objects, with each object representing a restaurant / business 
+
+__Returns:__
+
+* a string containing a report based on the data passed in
+
+__Description:__
+
+This function will generate a report based on the `Array` of objects passed in. The report will contain the average stars for all businesses in the file, the most common business name in the file, etc. (see full description of report requirements below)
+
 
 ### Implementation Requirements
 
-When creating your report in processYelpData, you must use all of the following Array methods at least once each in your program:
+1. When creating your report in `processYelpData`, you must use all of the following Array methods at least once each in your program:
+    * `forEach`
+    * `filter`
+    * `map`
+    * `reduce`
+    * There will be a small penalty for each one not used (-2).
+2. Maintain the order of the restaurants in the file - for example, if the report requires pizza places in Las Vegas, then the order that they are printed out should be the order that they appear in the file
 
-* `forEach`
-* `filter`
-* `map`
-* `reduce`
+### Report Overview
 
-There will be a small penalty for each one not used (-2).
+Your report will use the data passed in to determine:
 
-### Intro
+1. the average stars of all of the businesses
+2. the names of all of the pizza places in Las Vegas
+3. the two Mexican restaurants with the most reviews
+4. the most common name in the data set
+5. the number of restaurants per state
 
-* Start the report with the total number of records in the `business.json` file 
+See the following details...
 
-```
-Total records read: 2000
-=====
-```
+### Average Stars (Rating)
 
-* This should be followed by 5 equal signs
-
-### Average Rating
-
-* Include the average rating of all the records in the file
+* Include the average stars (rating) of all the records in the file; format to have at least two decimal places. Example output below:
 
 ```
 * Average Rating of the dataset: 3.61
@@ -551,7 +622,7 @@ Total records read: 2000
 
 ### All the Pizza places in Las Vegas, NV
 
-* Iterate through all the records and find all the restaurants that serve 'Pizza' and are located in the city of 'Las Vegas', in the state of 'NV'. Include each place's rating too.
+* Find all the restaurants that serve 'Pizza' and are located in the city of 'Las Vegas', in the state of 'NV'. Include each place's rating too. Example output below:
 
 ```
 * All restaurants in Las Vegas, NV that serve pizza:
@@ -564,8 +635,9 @@ Total records read: 2000
 
 ### The two Mexican restaurants with the most reviews
 
-```
+Use the `review_count` field to find the two Mexican restaurants with the most reviews. Example output below:
 
+```
 * The two highest reviewed Mexican serving restaurants are:
     * The Mission Old Town, Scottsdale (AZ), 1539 reviews (* 4 stars *)
     * Mariscos Playa Escondida, Las Vegas (NV), 330 reviews (* 4.5 stars *)
@@ -573,8 +645,37 @@ Total records read: 2000
 
 ### The most common name in the dataset
 
+Find the name that occurs the most frequently in the dataset. Example output below:
+
 ```
 * Starbucks is the most common business and appears 8 times in the dataset
+```
+
+### Restaurant Count for Each "State"
+
+Count the number of restaurants for each state that occurs in the file. This file contains data from businesses outside of the US, so state abbreviations are not constrained to 2 letters. Example output below
+
+```
+* Restaurant count by state
+    * AZ: 602
+    * BW: 42
+    * EDH: 52
+    * ELN: 1
+    * ESX: 1
+    * FIF: 2
+    * HLD: 4
+    * IL: 19
+    * MLN: 3
+    * NC: 152
+    * NI: 1
+    * NV: 329
+    * NYK: 1
+    * OH: 154
+    * ON: 363
+    * PA: 126
+    * QC: 88
+    * SC: 2
+    * WI: 58
 ```
 
 ### Return Value
@@ -590,12 +691,9 @@ Now that you've finished your function, you can try calling it on your data from
 1. In report.js: require the module that you created.
 2. Use your function on the data that you parsed from reading in the `business.json` file.
 3. Print out the resulting string.
-4. You can compare your output with the example output below.
+4. You can compare your output with the example output below
 
 ```
-Total records read: 2000
-=====
-
 * Average Rating of the dataset: 3.61
 
 * All restaurants in Las Vegas, NV that serve pizza
@@ -611,6 +709,27 @@ Total records read: 2000
 
 * The most common name in the dataset:
     * Starbucks is the most common business and appears 8 times in the dataset
+
+* Restaurant count by state
+    * AZ: 602
+    * BW: 42
+    * EDH: 52
+    * ELN: 1
+    * ESX: 1
+    * FIF: 2
+    * HLD: 4
+    * IL: 19
+    * MLN: 3
+    * NC: 152
+    * NI: 1
+    * NV: 329
+    * NYK: 1
+    * OH: 154
+    * ON: 363
+    * PA: 126
+    * QC: 88
+    * SC: 2
+    * WI: 58
 ```
 
 Lint, commit and push your code; the next part will make modifications to this existing code (you can overwrite your work in this file directly for the next part).
@@ -625,14 +744,15 @@ In this part, you'll be setting up your project to work with JSON data from a ur
 2. Add the module to the beginning of `report.js` using `require`
 3. **Comment out or delete reading from a local file**
 
-Instead of reading a local file, **modify your program** so that it requests JSON data from a specified url. This URL will be distributed via piazza (see a pinned note). However, there will be one additional object in the last line of the file:
+
+### Retrieve and Process JSON Data
+
+Instead of reading a local file, **modify your program** so that it requests JSON data from a specified url. This URL will be distributed via piazza (see a pinned note). Again, there will be one additional object in the last line of the file:
 
 `{"nextFile": "4df1c5ef1280bee2e2b44167027d2469.json"}`
 
-This last object has a key, `nextFile`, and the value represents the name of another file of business data (in the object above, the name of the next file is: `4df1c5ef1280bee2e2b44167027d2469.json`). The next section will explain how to retrieve this json file from the web.
+This last object has a key, `nextFile`, and the value represents the name of another file of business data (in the object above, the name of the next file is: `4df1c5ef1280bee2e2b44167027d2469.json`). This next section will explain how to retrieve this json file from the web.
 
-
-### Retrieve and Process JSON Data
 
 * The URL for the dataset used in this assignment __will be posted on piazza__
 * [Read the documentation](https://github.com/mikeal/request) to see how to use the requests module (or see the [slides](../slides/js/js-node-npm-debug-git.html#/6))
@@ -640,36 +760,125 @@ This last object has a key, `nextFile`, and the value represents the name of ano
 * Again, a **callback** is a function passed as an argument to another function... the callback will be invoked / executed at a later time, when some event is triggered
 * In the case of `request`, it's the function that you pass in as the 2nd argument
 * (The call to your report generation should be moved to the callback of request...)
-* Parse the body of the response from `request` into an object
+* Parse the body of the response from `request` into an Array of objects (similar to how you processed the file in the previous part)
+    * Leading and trailing white space should removed from the initial contents (use the string method, `trim`) before parsing (again, same as the previous part)
     * For now, you can ignore the last object that contains `nextFile`
-    * (Modify your script if necessary to ignore that line) 
-* Print out the result of calling `processYelpData` on the parsed response
+    * Modify your script if necessary to ignore that line 
+* Print out the url of the file you requested
+    ```==========
+url:  `https://some.domain/and/path/to/file.json
+==========```
+* Finally, print out the result of calling `processYelpData` on the parsed response
 
-When you run your report again, the output should remain unchanged despite the change in data source. **Again, feel free to overwrite your existing report.js file (the diffs are in git anyway) for this section.**
-
+When you run your report again, the output should looks similar to your previous version, though some of the data will be different.
 
 ### Get Next JSON Files
 
-Instead of running this report on a single file, you'll download several files. However, you will not know the URLs of the subsequent files in advance. Instead, you'll have to examine the `nextFile` property of the last object in initial JSON data requested.
+Now, instead of running this report on a single url, you'll download several files. You will not know the URLs of the subsequent files in advance. Instead, you'll have to examine the `nextFile` property of the last object in the initial JSON data requested.
 
-* Print out the URL that you're retrieving before running your report
+* Print out the URL that you're retrieving before running a report for each file/url
 * The last object from the JSON file contains a `nextFile` property;
 * The `nextFile` property contains the next file to retrieve
-* Construct a new URL based on that ID and print out the new URL
+* Construct a new URL based on that filename and print out the new URL
 * Use the `request` library again to retrieve and process the data from this new URL
-* Continue to do this until you encounter a file that does not have an object with a `nextFile` property
+* Continue to do this until you encounter a file that does not have an object with a `nextFile` property as its last line
 
 <pre name="hw02-sample" id="hw02-sample"><code data-trim contenteditable>
+==========
+url:  ...
+==========
+* Average Rating of the dataset: 3.6134432783608195
 
+* All restaurants in Las Vegas, NV that serve pizza
+    * Ray's Pizzeria and Restaurant (* 2.5 stars *)
+    * Bambino's East Coast Pizzeria (* 4.5 stars *)
+    * Papa John's Pizza (* 2 stars *)
+    * Bonanno's New York Pizzeria (* 3 stars *)
+    * Hunt & Gather Cafe (* 4 stars *)
+    * CiCi's Pizza (* 3.5 stars *)
+    * Marco's Pizza (* 3.5 stars *)
+    * Taqueria El Capullo (* 4.5 stars *)
+
+* The two highest reviewed Mexican serving restaurants are:
+    * Taco Guild, Phoenix (AZ), 958 (* 4 stars *)
+    * Jose Cuervo Tequileria, Las Vegas (NV), 414 (* 2 stars *)
+
+* The most common name in the dataset:
+    * Starbucks
+
+* Restaurant count by state
+    * 01: 2
+    * AZ: 546
+    * BW: 36
+    * C: 1
+    * EDH: 45
+    * ELN: 1
+    * ESX: 1
+    * HLD: 2
+    * IL: 24
+    * MLN: 3
+    * NC: 166
+    * NV: 369
+    * NY: 1
+    * NYK: 1
+    * OH: 154
+    * ON: 376
+    * PA: 114
+    * QC: 95
+    * SC: 9
+    * WI: 54
+
+
+.
+.
+.
+(more urls processed here...)
+.
+.
+.
+
+
+==========
+url:  https://...
+==========
+* Average Rating of the dataset: 3.64325
+
+* All restaurants in Las Vegas, NV that serve pizza
+    * Pizza Hut (* 1 stars *)
+    * Vit's Pizza (* 2.5 stars *)
+    * Napoli Pizza (* 3 stars *)
+    * Home Plate Grill & Bar (* 4 stars *)
+    * Pizza My Dear (* 4 stars *)
+    * Due Pizzeria (* 4.5 stars *)
+    * Pizza Hut (* 2 stars *)
+
+* The two highest reviewed Mexican serving restaurants are:
+    * Otro Cafe, Phoenix (AZ), 541 (* 4 stars *)
+    * Zócalo Tequilería, Cleveland (OH), 381 (* 2.5 stars *)
+
+* The most common name in the dataset:
+    * Starbucks
+
+* Restaurant count by state
+    * AZ: 543
+    * BW: 44
+    * EDH: 53
+    * FIF: 2
+    * HLD: 1
+    * IL: 17
+    * MLN: 5
+    * NC: 160
+    * NV: 385
+    * NYK: 1
+    * OH: 168
+    * ON: 359
+    * PA: 109
+    * QC: 103
+    * SC: 5
+    * WI: 42
+    * WLN: 3
 </code></pre>
 
 </div>
 
 </div>
-
-
-
-
-
-
-

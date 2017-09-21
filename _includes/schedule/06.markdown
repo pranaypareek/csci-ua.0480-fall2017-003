@@ -1,6 +1,17 @@
 	<td markdown="block">
 
-* Finish up Prototypes / Classes from Previous Class
+* From slides in previous classes...
+* Decorators
+    * spread (...args) / arguments and apply
+    * decorator example (negate, timing)
+* This
+    * method, regular, call/bind/apply, arrow
+    * animal example
+    * animal counter example
+* Objects and Prototypes
+    * Object.getPrototypeOf
+    * Object.prototype, null
+    
 * [Intro to Web Development](slides/05/web.html)  
 * [Networking and Sockets](slides/06/sockets.html)
 * [A Webserver](slides/06/webserver.html)
@@ -46,7 +57,7 @@ Online Articles on HTTP and Cookies
 </td>
 	<td markdown="block">
 
-Due Thursday, 2/16
+Due Thursday, 9/28
 
 * [Homework #2](homework/02.html) 
 

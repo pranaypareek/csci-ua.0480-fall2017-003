@@ -43,7 +43,4 @@ sp 2017 - moved out
 
 </td>
 	<td markdown="block">
-Homework #2 and Next Quizzes
-
-* to be posted 9/19 at 11pm
 </td>

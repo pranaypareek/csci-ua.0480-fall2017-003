@@ -413,18 +413,31 @@ function SpaceWerewolf(mood) {
 <section markdown="block">
 ## One Last Detail, Constructor Property
 
-All object's have a property named <code>constructor</code>. __<code>constructor</code>__ is the function that was used to create the instance's prototype.
+All object's have a property named <code>constructor</code>. __<code>constructor</code>__ is the function that was used to create the instance.
 
 <pre><code data-trim contenteditable>
 const a = [];
 console.log(a.constructor); // [Function: Array] 
 </code></pre>
+{:.fragment}
+
+Also, this constructor property is actually found on the prototype, not the actual instance...
+{:.fragment}
+
+<pre><code data-trim contenteditable>
+a.hasOwnProperty('constructor') // False
+Object.getPrototypeOf(a).hasOwnProperty('constructor')
+</code></pre>
+{:.fragment}
 
 So we should probably set that on our child constructor's prototype property explicitly so that all objects created from <code>SpaceWerewolf</code> have that as its constructor.
+{:.fragment}
+
 
 <pre><code data-trim contenteditable>
 SpaceWerewolf.prototype.constructor = SpaceWerewolf;
 </code></pre>
+{:.fragment}
 </section>
 
 <section markdown="block">
