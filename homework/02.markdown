@@ -469,10 +469,10 @@ You'll be using two files for this:
 
 ### Importing Data
 
-* In `src/report.js`...
 * Download and uncompress business.json.gz from the link given in piazza 
     * put in a folder outside of your repository
-* Start by reading in the file `business.json` using `fs.readFile` (you can use the absolute path) 
+* Create `src/report.js`...
+* Start by reading in the file `business.json` (remember uncompress the .gz file from above first) using `fs.readFile` (you can use the absolute path) 
 	* make sure that the module is brought in using `require`, then call the function)
 	* __do not use readFileSync__ 
 * See the docs on `fs.readFile` (hint: make sure you specify `utf8` as the second argument)
