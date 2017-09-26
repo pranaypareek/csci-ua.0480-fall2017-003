@@ -129,9 +129,7 @@ TODO
 * Routing
 * Node HTTP Module
 </td>
-<td></td><td></td><td markdown="block"></td>{% comment %}
 {% include schedule/07.markdown %}
-{% endcomment %}
 </tr>
 
 

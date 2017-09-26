@@ -491,7 +491,7 @@ You'll be using two files for this:
 * Examine the resulting `Array` ... (for example, try printing it out!)
 * Later, you will be supplying this `Array` to the `procesYelpData` function to generate a report.
 * To verify your file reading and parsing, you can try:
-    * printing the name, rating and location of the 80th business entry in the file in the format: '{name} is a business located in {city} with a rating of {stars} and {reviews} reviews.'
+    * printing the name, rating and location of the 81st business entry in the file in the format: '{name} is a business located in {city} with a rating of {stars} and {reviews} reviews.'
     * the result should be:
         ```
 The Great Canadian Pizza Company is a business located in Mississauga with 4 stars and 18 reviews.
@@ -600,7 +600,7 @@ This function will generate a report based on the `Array` of objects passed in. 
     * `map`
     * `reduce`
     * There will be a small penalty for each one not used (-2).
-2. Maintain the order of the restaurants in the file - for example, if the report requires pizza places in Las Vegas, then the order that they are printed out should be the order that they appear in the file
+2. Maintain the order of the restaurants in the file for the section that requires pizza places in Las Vegas (the order that they are printed out should be the order that they appear in the file)
 
 ### Report Overview
 

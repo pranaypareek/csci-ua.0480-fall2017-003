@@ -124,7 +124,7 @@ The __TCP/IP stack__ __consists of 4 layers__:
 
 1. {:.fragment} __Application Layer__ - application level protocols such as HTTP, SMTP, etc.
 2. {:.fragment} __Transport Layer__ - protocols involved in communication (connection establishment, flow-control) between __applications__ (either on the same host/computer or different host), such as TCP or UDP
-3. {:.fragment} __Internet Layer__ - the protocol responsible for exchanging __packets of data__ across network boundaries - directs data to a specific __computer / host__, which is IP or Internet Protocop
+3. {:.fragment} __Internet Layer__ - the protocol responsible for exchanging __packets of data__ across network boundaries - directs data to a specific __computer / host__, which is IP or Internet Protocol
 4. {:.fragment} __Physical (hardware) Layer / Link Layer__ - converts data to network signals and back (wi-fi, ethernet)
 
 </section>
@@ -416,7 +416,7 @@ curl -i www.google.com
 <section markdown="block">
 ## A Brief Note About Request and Response Headers
 
-We some some _actual_ requests / responses. It looked like there were some important headers set! &rarr;
+We saw some _actual_ requests / responses. It looked like there were some important headers set! &rarr;
 
 __Request__
 
