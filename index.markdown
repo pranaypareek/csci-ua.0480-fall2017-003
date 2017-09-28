@@ -140,9 +140,7 @@ TODO
 * Web Framework
 * Project Layout
 </td>
-<td></td><td></td><td markdown="block"></td>{% comment %}
 {% include schedule/08.markdown %}
-{% endcomment %}
 </tr>
 
 

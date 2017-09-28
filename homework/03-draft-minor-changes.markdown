@@ -13,13 +13,26 @@ hr {
 	<div class="panel-heading">Homework #3</div>
 	<div class="panel-body" markdown="block">
 
-# Creating a Tiny Web Framework, __Due Thursday, October 5th by 11PM__
+# Incrementally Build a Web Server and a Toy Web Framework, __Due Thursday, October 5th by 11PM__
+
 
 ## Overview
 
 ### Description
 
-You'll be writing a small web framework that allows a developer to write simple web applications. These web applications will be built off of and run from node's built-in TCP server (from the `net` module).
+This homework culminates in the __implementation of a toy library / framework__ (one that is meant for educational purposes, bu not professional use) that __facilitates the creation of web applications__ by providing:
+
+1. __routing__ - a simple mechanism to map urls to functions
+2. __request__ and __response__ objects - tools to create, send, and/or receive http messages
+
+As you incrementally build your web framework, you'll __develop three small web sites / applications__ to test your work:
+
+1. a page that contains a quote from your favorite character from a book, film or tv show 
+    * by building a simple http server using node's `net` module and built-in TCP server
+2. a hello world page styled as garishly as possible
+    * by creating Response and Request "classes"
+3. a fan site devoted to you favorite character from a book, film or tv show
+    * by creating a toy web framework
 
 __You can only use the following two modules for this assignment__ &rarr;
 
@@ -45,12 +58,19 @@ You will be given access to a private repository on GitHub. It will contain:
 * Commit multiple times throughout your development process.
 * Make at least 3 separate commits - (for example, one option may be to make one commit per part in the homework).
 
-## `miniWeb` - Framework Overview 
+## `aitstheweb` - Framework Overview 
 
 
 ### About the Framework
 
-Your framework, called `miniWeb`, will be built off of node's `net` module. It'll use the `net` module to create a TCP server that will allow connections from clients. The code that you'll write will handle an incoming http request from a client by parsing the http request, determining what do based on the request, and finally sending back an http response. You'll do this by minimally creating these objects (you can create more objects, but these 3 must be present):
+Your framework, called `aitstheweb`, will be built off of node's `net` module. It'll use the `net` module to create a TCP server that will allow connections from clients. The code that you'll write will handle an incoming http request from a client by:
+
+1. parsing the http request
+2. deciding what action to take based on the request's path
+3. ...with the action provided by the application's programmer (the person using your library to create a web site) as a callback function
+4. ...and with the callback function eventually sending back an http response, again as implemented by the application's programmer . 
+
+You'll do this by creating the following objects (you can create more objects, but these 3 must be present):
 
 1. `Request` - an object that represents an http request
 2. `Response` - an object that represents an http response... and has the ability to actually send back a response to the client
@@ -90,16 +110,16 @@ const app = new App();
 
 ### Building the Framework
 
-This homework is split into __3 parts__. Coding starts with __part 1__.
+This homework is split into __4 parts__. Coding starts with __part 1__.
 
-Each part builds off of the previous, with the last parts culminating in finishing up your web framework and building a small fan site 💖 with your web framework! (YES!). __Please do the following in order!__ &rarr;
+Each part builds off of the previous, with the last part completing the web framework and building a small fan site 💖 with your web framework! (YES!). __Please do the following in order!__ &rarr;
 
-1. __Part 1 - Warm Up__ - get familiar with the `net` module!
-    * work with nodes' net module to create a simple server 
+1. __Part 1 - A Quote__ - get familiar with the `net` module!
+    * work with node's net module to create a simple server 
     * use callbacks to handle new connections and arriving data
     * handle http requests from the browser
     * create a small "hello world" site
-2. __Part 2 - Even Warmer__ - build on the previous part, but adding functionality through `Request` and `Response` objects
+2. __Part 2 - A Garish Hello__ - build on the previous part, but adding functionality through `Request` and `Response` objects
     * create a `Request` object to encapsulate http requests
     * create a `Response` object to encapsulate http responses; this object will be able to:
         * send http responses back using a socket object
@@ -108,29 +128,31 @@ Each part builds off of the previous, with the last parts culminating in finishi
 3. __Part 3 - Converting to App Object__
     * create an app object that encapsulates your server...
     * add application level functionality, such as routing
-4. __Part 4 - Using your Module!__
+4. __Part 4 - A Fan Site
     * create a fan site using the module and "Classes" that you just made! 🎉
 
-## Part 1 - Warm Up
+## Part 1 - A Quote
 
-In this part, you'll get familiarize yourself with the `net` module by creating a simple server that responds to http requests. You'll make use of events and callback functions to handle a new connection, data arriving on a socket and closing a connection. 
+In this part, you'll get familiarize yourself with the `net` module by creating a TCP server that responds to http requests by sending back a valid http response. You'll make use of events and callback functions to handle a new connection, data arriving on a socket and closing a connection. 
 
-Start by opening `src/warmUp.js`. Create a simple server that responds to any request with a valid http response that says `hello world` (as html, with surrounding markup)... the response will have:
+Start by opening `src/part01quote.js`. Create a simple server that responds to any request with a valid http response that displays a quote from your favorite character from a book, movie or tv show. The http response should have:
 
-1. a status code of `200` 
+1. a status code of `200` and description of `OK`
 2. a `Content-Type` header of `text/html`
 3. a body that contains the following markup:
-    <pre><code data-trim contenteditable> &lt;em&gt;Hello&lt;/em&gt; &lt;strong&gt;World&lt;/strong&gt; </code></pre>
+    <pre><code data-trim contenteditable> &lt;em&gt;"Some quote (fill in your own here)"&lt;/em&gt; &lt;strong&gt;by Some Character&lt;/strong&gt; </code></pre>
 
 Use the following process to do this:
 
-1. Check out the [slides on the `net` module for some prep](../slides/06/sockets.html#/2), paying close attention to the [the last slide](../slides/06/sockets.html#/10).
+1. Check out the slides on the `net` module 
+    * start with [some prep on creating a server](../slides/06/sockets.html#/2)
+    * pay close attention to the [the last slide](../slides/06/sockets.html#/10).
 2. Build off of the last example by modifying the echo server code to...
 3. Write back a valid http response (you can write a string directly instead of using a `Buffer`):
     * [see the slides on http](../slides/05/web.html#/16)
     * [and an example response](../slides/05/web.html#/24)
 4. Close the connection after a `write` with `sock.end`.
-5. Run `warmup.js` (note that your terminal will look like its "frozen", but it's really just waiting for requests).
+5. Run `part01.js` (note that your terminal will look like its "frozen", but it's really just waiting for requests).
 6. Use `curl -i localhost:8080` to test your server.
 7. Then point your browser at `http://localhost:8080`.
 8. Make sure that the html renders (it should have italicized and bold text).
@@ -168,7 +190,7 @@ s += '\r\n\r\n';                     // empty line to mark the boundary between 
 const req = new Request(s);
 </code></pre>
 
-The string passed in will be parsed into the properties shown below. __You can assume that you will always receive a valid http request__
+The string passed in will be parsed into the properties shown below.
 
 <hr>
 
@@ -409,7 +431,7 @@ There's one last method that we'll implement on `Response`:
 * implementation details
     * use the `fs` module and the [`readFile` function](https://nodejs.org/api/fs.html#fs_fs_readfile_file_options_callback) to do this instead of using `readline` like we did previously (this is because we may be handling binary data)
     * `fileName` is searched for in `./public`
-    * consequently, you __should__ prefix the `fileName` with `__dirname + '/../public'` to get an absolute path to the file
+    * consequently, you can prefix the `fileName` with `__dirname + '/../public'` to get an absolute path to the file
     * you'll have to set the content type based on the file (using the file's extension is adequate for this assignment)
     * minimally, support the following extensions and file types:
         1. `jpeg` or `jpg`: `image/jpeg`

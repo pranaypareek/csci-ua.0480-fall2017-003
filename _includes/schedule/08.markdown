@@ -3,13 +3,19 @@
 * [About Class #8](slides/08/meta.html)
 {% endcomment %}
 
-See previous class for material 
+From previous classes
 
-* (we're still one class behind)
-* note that homework 3 is posted, though!
+* For http and `net` review 
+* Discuss homework 
+    * Academic integrity reminder
+    * Homework policy
+* Fixing arguments (bind, arrow)
+* Setting this (bind, arrow)
 
-* [Node's HTTP Module](slides/07/node-http.html)
-* [Project Setup](slides/08/setup.html)
+New Stuff
+
+* (maybe) [Node's HTTP Module](slides/07/node-http.html)
+* (maybe) [Project Setup](slides/08/setup.html)
 * [Express](slides/08/express.html) 
 
 {% comment %}
@@ -20,7 +26,7 @@ See previous class for material
 </td>
 	<td markdown="block">
 
-Due Thursday, 2/23, by 11PM
+Due Thursday, 10/5, by 11PM
 
 * [Homework #03](homework/03.html)
 
