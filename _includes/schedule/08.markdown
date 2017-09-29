@@ -11,6 +11,8 @@ From previous classes
     * Homework policy
 * Fixing arguments (bind, arrow)
 * Setting this (bind, arrow)
+* Coding Demo: [Echo Server](examples/net/echoServer.js)
+* Coding Demo: [Web Server / Routing / Dispatching](examples/net/webServer.js)
 
 New Stuff
 

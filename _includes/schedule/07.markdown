@@ -6,8 +6,6 @@
 
 * [HTTP Summary](slides/07/http-summary.html)
 * [Sockets Review](slides/07/sockets-review.html)
-* Coding Demo: Routing / Dispatching
-* Coding Demo: Arrow Functions / Binding Methods Revisited
 
 {% comment %}
 * Coding Demo: [Routing / Dispatching](https://github.com/nyu-csci-ua-0480-008-spring-2017/examples/blob/master/class08/webServer.js)
