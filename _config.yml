@@ -92,6 +92,8 @@ book_js_9_author: Eric Elliott
 
 survey_intro: https://docs.google.com/forms/d/e/1FAIpQLSfnMMP1Poac3bU-tzBdr7VWj_yZ9irDWZkKYtpHsmPpPWxUWw/viewform
 piazza: https://piazza.com/class/j6qyg6yrhvt4ti
+relative_links:
+    enabled: false
 
 
 
