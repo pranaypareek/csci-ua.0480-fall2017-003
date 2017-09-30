@@ -135,7 +135,7 @@ Use the following process to do this:
 7. Then point your browser at `http://localhost:8080`.
 8. Make sure that the html renders (it should have italicized and bold text).
 9. To shutdown your server, CTRL + c in your terminal...
-10. Here's an example of what it might look like: <br> ![pic alt](../resources/img/hw03-01-warmUp.gif)
+10. Here's an example of what it might look like: <br> ![pic alt](/csci-ua.0480-fall2017-003/resources/img/hw03-01-warmUp.gif)
 
 Troubleshooting
 
@@ -244,7 +244,7 @@ Once your finished with your implementation above, you can export, test and try 
     * Above hello world, include your style sheet using a `link` tag in your response for `/`...
     * Also above hello world, but below your link tag, add an `h2` tag that contains the text, 'this is a red header!'
     * When you point your browser at `localhost:8080', you should now see a red header above your hello world text.
-7. It should look something like <br> ![pic alt](../resources/img/hw03-02-evenWarmer-01-request.gif)
+7. It should look something like <br> ![pic alt](/csci-ua.0480-fall2017-003/resources/img/hw03-02-evenWarmer-01-request.gif)
 
 ### And now, for our `Response` object
 
@@ -636,7 +636,7 @@ To do this:
 1. Add another condition for the paths `/test` and `/img/bmo1.gif`
 2. Use `sendFile` to send the appropriate file relative to `public`
 3. Remember that the path of the request doesn't have to match the path of the actual file being read
-4. Here's what it'll all look like together: <br> ![pic alt](../resources/img/hw03-03-evenWarmer-response.gif)
+4. Here's what it'll all look like together: <br> ![pic alt](/csci-ua.0480-fall2017-003/resources/img/hw03-03-evenWarmer-response.gif)
 5. `bmo1.gif` should be present
 6. you'll have to write your own `test.html`
 
@@ -808,7 +808,7 @@ Check your work
 
 Here's an example of how it might all work:
 
-![pic alt](../resources/img/hw03-04-fansite.gif)
+![pic alt](/csci-ua.0480-fall2017-003/resources/img/hw03-04-fansite.gif)
 
 
 </div>
