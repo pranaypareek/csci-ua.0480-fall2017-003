@@ -29,9 +29,9 @@ https://expressjs.com/en/guide/writing-middleware.html
 </td>
 	<td markdown="block">
 
-Due <strike>Thursday 3/9</strike> Friday 3/10, 11PM 
+Due Monday 10/16, 11PM 
 
-(__but you should probably try to get most of it down BEFORE the midterm on 3/8__)
+(__but you should probably try it BEFORE the midterm on 10/12__)
 
 * [Homework #4](homework/04.html)
 
