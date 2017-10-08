@@ -11,6 +11,11 @@
 * [Sessions and Cookies](slides/10/sessions.html)
 * Homework #4 Demo
 
+Midterm Practice
+
+* [midterm practice](resources/handouts/midterm/midterm_1_practice.pdf)
+* [midterm practice solutions](resources/handouts/midterm/midterm_1_practice_solutions.pdf)
+
 <!-- 
 * [Maybe Static Sites, Remote Server](slides/08/static.html)
 * [Maybe Debugging](slides/09/debugging.html)
