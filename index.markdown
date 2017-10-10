@@ -189,9 +189,7 @@ TODO
 
 * About the Exam, Review
 </td>
-<td></td><td></td><td markdown="block"></td>{% comment %}
 {% include schedule/11.markdown %}
-{% endcomment %}
 </tr>
 
 

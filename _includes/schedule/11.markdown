@@ -1,5 +1,6 @@
 	<td markdown="block">
 
+{% comment %}
 We're a class behind, so we'll do the following from the previous classes: 
 
 * [Middleware](slides/09/middleware.html)
@@ -10,14 +11,16 @@ And some new-ish material:
 * [Forms Revisited](slides/11/forms-revisited.html)
 
 __Midterm Practice__
+{% endcomment %}
 
-* [midterm practice](resources/handouts/midterm/midterm_1_practice.pdf)
-* [midterm practice solutions](resources/handouts/midterm/midterm_1_practice_solutions.pdf)
+* [midterm practice solutions](resources/handouts/midterm/midterm-review.zip)
 
+{% comment %}
 Unlikely that we'll get to this:
 
 * [Project Layout and Scaffolding](slides/11/scaffolding.html)
 * [Mongo DB](slides/14/mongo.html)
+{% endcomment %}
 
 </td>
 	<td markdown="block">
