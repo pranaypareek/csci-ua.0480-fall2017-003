@@ -13,7 +13,7 @@ And some new-ish material:
 __Midterm Practice__
 {% endcomment %}
 
-* [midterm practice solutions](resources/handouts/midterm/midterm-review.zip)
+* [Notes from midterm review](resources/handouts/midterm/midterm-review.zip)
 
 {% comment %}
 Unlikely that we'll get to this:
