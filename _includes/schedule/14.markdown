@@ -1,6 +1,5 @@
 	<td markdown="block">
 
-* [Forms Revisited](slides/11/forms-revisited.html)
 * See Middleware from Previous Class
 * See Cookies, Sessions from Previous Class
 * [Project Layout and Scaffolding](slides/11/scaffolding.html) (from class before midterm review)
