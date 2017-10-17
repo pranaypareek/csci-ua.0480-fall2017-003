@@ -214,9 +214,7 @@ __EXAM #1 (Midterm Exam)__
 * Object Document Mapper 
 * Database Design
 </td>
-<td></td><td></td><td markdown="block"></td>{% comment %}
-{% include schedule/14.markdown %}
-{% endcomment %}
+{% include schedule/13.markdown %}
 </tr>
 
 

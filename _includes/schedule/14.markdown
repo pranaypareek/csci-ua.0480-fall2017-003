@@ -1,7 +1,7 @@
 	<td markdown="block">
 
-* Exams returned on Wednesday, but Results Are...
-* Cookies, Sessions!
+* See Middleware from Previous Class
+* See Cookies, Sessions from Previous Class
 * [Project Layout and Scaffolding](slides/11/scaffolding.html) (from class before midterm review)
 * [Parameters from URLs](slides/14/params.html)
 * [Mongo DB  and Mongoose](slides/14/mongo.html)
@@ -27,9 +27,13 @@ Mongoose
 </td>
 	<td markdown="block">
 
+Quiz on HTTP and Cookies to be Posted
+
+{% comment %}
 Due Monday, March 27th 11PM
 
 * Quiz in NYU Classes on MongoDB 
 * (Based on readings from class 14 and 15)
+{% endcomment %}
 
 </td>

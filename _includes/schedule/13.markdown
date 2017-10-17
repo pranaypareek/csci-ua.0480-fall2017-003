@@ -1,31 +1,39 @@
 	<td markdown="block">
 
-Slides
+* See Middleware from Previous Slides
+* See Cookies, Sessions from Previous Slides
+* [Project Layout and Scaffolding](slides/11/scaffolding.html)
+* [Parameters from URLs](slides/14/params.html)
+* [Mongo DB  and Mongoose](slides/14/mongo.html)
 
-* [About Class #13 / Homework?](slides/13/meta.html)
-* [About the Midterm](slides/13/exam.html)
-
-
-Sample Questions for Midterm
-
-* [Sample Questions](resources/handouts/midterm/midterm_1_practice.pdf)
-* [Solutions for Sample Questions](resources/handouts/midterm/midterm_1_practice_solutions.pdf)
-
-</td>
-	<td markdown="block">
-<!--
-* Chapter 
-* Chapter 
--->
-</td>
-	<td markdown="block">
-<!--
-* [](assignments/.html)
--->
 {% comment %}
-Due October 27th
+* [Final Project](final-project.html)
+{% endcomment %}
 
-* [Homework #5](homework/05.html)
+</td>
+	<td markdown="block">
+
+MongoDB
+
+* [MongoDB Documentation](http://docs.mongodb.org/manual/)
+* [Install](http://docs.mongodb.org/manual/installation/)
+* [MongoDB Intro](https://docs.mongodb.com/manual/introduction/)
+
+Mongoose
+
+* [Mongoose Documentation](http://mongoosejs.com/)
+* [Quick Start](http://mongoosejs.com/docs/index.html)
+
+</td>
+	<td markdown="block">
+
+Quiz on HTTP and Cookies to be Posted
+
+{% comment %}
+Due Monday, March 27th 11PM
+
+* Quiz in NYU Classes on MongoDB 
+* (Based on readings from class 14 and 15)
 {% endcomment %}
 
 </td>
