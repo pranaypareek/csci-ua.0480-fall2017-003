@@ -1,7 +1,7 @@
 	<td markdown="block">
 
 * See Middleware from Previous Slides
-* See Cookies, Sessions from Previous Slides
+* See Sessions from Previous Slides
 * [Project Layout and Scaffolding](slides/11/scaffolding.html)
 * [Parameters from URLs](slides/14/params.html)
 * [Mongo DB  and Mongoose](slides/14/mongo.html)

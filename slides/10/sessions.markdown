@@ -206,7 +206,7 @@ __You can create your own session management by creating custom middleware that:
 1. {:.fragment} has an __in-memory store of session ids__ (read: global variable)
 2. {:.fragment} __checks__ every request for __a `Cookie` header__ 
 3. {:.fragment} if there is no `Cookie` header that contains a session id, it'll __generate a session id__ (using the `crypto` module)
-    *. {:.fragment} then __sends back the `Set-Cookie` header with that id__
+    * {:.fragment} then __sends back the `Set-Cookie` header with that id__
 4. {:.fragment} however, if there is a `Cookie` header with a session id, it'll:
     * {:.fragment} search for that id in the session store
     * {:.fragment} retrieve that data
@@ -218,7 +218,7 @@ __You can create your own session management by creating custom middleware that:
 <section markdown="block">
 ## Creating Your Own Session Management Continued
 
-__You'll try writing this session management middleware for your homework by using__ &rarr;
+__You can try writing some session management middleware by using__ &rarr;
 
 * `req.get` - to retrieve the `Cookie` header
 * parsing that header into name/value pairs
@@ -287,7 +287,7 @@ If you used the example in the previous slide, the `HttpOnly` cookie, `MY_SESSIO
 <section markdown="block">
 ## Using Session Middleware
 
-As an assignment, you'll use the previous slides as a starting point for adding sessions to your application.
+The previous slides sketch out a way of implementing manual cookie management.
 
 __For "production", instead of using a custom solution , you can use the `express-session` module!__ &rarr;
 
@@ -334,7 +334,7 @@ app.use(session(sessionOptions));
 
 Check out the [docs for details on all of the options](https://github.com/expressjs/session). The ones that we set explicitly are:
 
-* __secret__ - used to sign session the session id cookie to prevent tampering (and possibly to ensure length/complexity to make _unguessable_)
+* __secret__ - used to sign the session id cookie to prevent tampering (and possibly to ensure length/complexity to make _unguessable_)
 * __saveUnitialized__: false - don't save new empty session (to preserve space)
 * __resave__: false - prevents session data from being resaved if session data is unmodified
 
