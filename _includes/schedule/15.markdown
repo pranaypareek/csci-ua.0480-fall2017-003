@@ -28,6 +28,7 @@ Mongoose
 </td>
 	<td markdown="block">
 
+{% comment %}
 Due 3/30
 
 * [Homework #05](homework/05.html)
@@ -36,5 +37,6 @@ Due 3/30
 Due 4/27 
 
 * [Final Project](final-project.html)
+{% endcomment %}
 
 </td>

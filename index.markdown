@@ -230,9 +230,7 @@ __EXAM #1 (Midterm Exam)__
 
 </td>
 
-<td></td><td></td><td markdown="block"></td>{% comment %}
 {% include schedule/14.markdown %}
-{% endcomment %}
 
 </tr>
 
