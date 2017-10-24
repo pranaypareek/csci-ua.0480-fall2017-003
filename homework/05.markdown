@@ -52,7 +52,7 @@ Just like the previous assignment, we'll have a non-standard layout for our proj
     * `package.json`
     * `node_modules`
     * `.gitignore`
-    * `.jshintrc`
+    * `.eslintrc.js`
     * `/src`
         * `/cookied` (part 1)
             * `app.js`
@@ -99,7 +99,7 @@ See the animation below for the site works (note that the 2nd browser is in inco
 
 
 1. in the root of your project, create the following files with appropriate configuration:
-    * `.jshintrc`
+    * `.eslintrc.js` (you can use one from our previous projects and customize it if you like)
     * `.gitignore` (minimally ignore `node_modules`)
     * `package.json` (by hand or by `npm init`)
 2. again, in the root of your project,  install the appropriate modules for:
