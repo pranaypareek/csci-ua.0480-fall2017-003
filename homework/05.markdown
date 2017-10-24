@@ -107,6 +107,7 @@ See the animation below for the site works (note that the 2nd browser is in inco
     * templating
     * parsing a POST body
     * `node-uuid` (for generating a session id)
+    * remember to save your dependencies in `package.json`
 3. open up `src/cookied/app.js` and read through the code to get an idea of what it's doing:
     * it only has 3 routes that render 2 _actual_ pages
     * it makes use of two middleware function (both of which don't exist yet; you'll be writing these functions!)
