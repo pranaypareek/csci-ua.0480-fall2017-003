@@ -32,7 +32,7 @@ pre {
 	<div class="panel-heading">Final Project</div>
 	<div class="panel-body" markdown="block">
 
-# Final Project, Due __Thursday, April 27th at 11pm__
+# Final Project, Due __WED, Nov 29th at 11pm__
 
 ## Overview 
 
@@ -146,7 +146,7 @@ Choose at least __8 points__ worth of these following topics (research and imple
 
 <a name="proposal"></a>
 
-### __3/30 at 11PM__ - Milestone 1 - Requirements / Specifications, Draft Data Model, Skeleton Application (15 points)
+### __11/01 at 11PM__ - Milestone 1 - Requirements / Specifications, Draft Data Model, Skeleton Application (15 points)
 
 [Check out sample documentation](https://github.com/nyu-csci-ua-0480-008-spring-2017/final-project-example)
 
@@ -192,8 +192,9 @@ Choose at least __8 points__ worth of these following topics (research and imple
 <br>
 <br>
 
-### 04/08 at 11pm - Milestone 2 - Initial Deployment and First Form (20 points)
+### 11/08 at 11pm - Milestone 2 - Initial Deployment and First Form (20 points)
 
+{% comment %}
 1. attempt to deploy your code to Courants _compute_ and assignment servers by following [instructions](homework/deploy.html)
 2. <span class="warning">use [this form to submit your deployed site](https://docs.google.com/a/nyu.edu/forms/d/e/1FAIpQLSe2TvDeXusZAqmG8644BKK8ItTvOOx-ByTE-6dmM_bleHhJCA/viewform)</span>
 3. your submission won't be graded unless the form above is sent with urls to your deployed site
@@ -210,9 +211,11 @@ Choose at least __8 points__ worth of these following topics (research and imple
 <br>
 <br>
 <br>
+{% endcomment %}
 
-### 4/15 at 11pm - Milestone 3 - 2nd Form and More Progress on Research (20 points)
+### 11/15 at 11pm - Milestone 3 - 2nd Form and More Progress on Research (20 points)
 
+{% comment %}
 1. make at least 3 additional commits to add:
     * your 2nd form / ajax interaction
     * make more progress on your research topics
@@ -231,63 +234,6 @@ Choose at least __8 points__ worth of these following topics (research and imple
                      
 
 
-{% comment %}
-OLD
-Prototype With Some Implemented Functionality (10 points total)
-
-1. (4 points) create at least 1 form that can add data to your database
-2. (3 points) have at least 1 page that reads data from your database
-3. (3 points) partially implement one of your research topics
-4. create a markdown file called <code>milestone02.md</code>
-    * specify the url that shows your form (for example, <code>http://localhost:3000/pizzas</code>)
-    * specify the url that shows a page reading data
-    * specify the url or directory for your research topic
-5. make sure that you have a <code>package.json</code> with all of your project's required dependencies so that numbers 1 through 3 will function
-6. __after pushing your code to github__:
-    * clone your project in a different directory
-    * run <code>npm install</code> and <code>nodemon bin/www</code> 
-    * and verify that your project works
-    * (if your project is not _runnable_, you will not receive credit for this milestone)
-{% endcomment %}
-
-{% comment %} 
-OLD
-* 1 or more forms and their corresponding route handlers
-* Demonstrate that at least 2 route handlers can read and write from MongoDB
-* Proof of concepts for some of your research topics (for example, if you wanted to use sass, I'd expect that you've made some progress integrating it into your project)
-* Prep for deploying your project
-    * Directions to be added for deploy prep
-    To prep for deploying your app so that it's accessible online... retrieve your password for the cs department's server for undergraduate students (i6)  and ensure that you can log in:
-	1. Get the new password that you'll use to log in to i6 by going to https://cims.nyu.edu/webapps/password ...and entering your netid and password
-	2. Use the i6 password that you received to log in to a remote server using the commandline tool, ssh (substituting your lowercase net id for your_net_id): <code>ssh your_net_id@i6.cims.nyu.edu</code>
-	3. If you're unable to do this, please email me!
-* (If you're not using the technologies above, use your best judgement to determine what's an appropriate amount of progress)
-* Lastly, bring your laptop to class on Tuesday, the 24th so that we can try deploying a test node application!!! (and potentially deploying your prototype!)
-
-<br>
-<br>
-<br>
-<br>
-{% endcomment %} 
-
-{% comment %}
-1. attempt to deploy your code to i6 by following [these instructions](homework/deploy.html)
-2. <span class="warning">use [this form to send me the urls](https://docs.google.com/a/nyu.edu/forms/d/e/1FAIpQLSe2TvDeXusZAqmG8644BKK8ItTvOOx-ByTE-6dmM_bleHhJCA/viewform)</span> of: 
-    * two working forms in your __deployed__ application 
-        * they should allow data to be modified or deleted
-        * the results of these forms should be apparent/viewable
-    * show progress on at least 2 of your research topics; the url that shows you've implemented what you've researched can be:
-        * a page on your site that's deployed to i6
-        * a link to the github repository / line no
-3. I can augment my office hours on Monday if you need help with deployment
-    * (really, deployment will be the bulk of your _work_ ... if you completed the previous milestone, then there will be little work for you to do to complete #2)
-    * send me an email if you're having issues with deploying
-
-<br>
-<br>
-<br>
-<br>
-{% endcomment %}
 
 
 <a id="final_submit" name="final_submit">
@@ -296,8 +242,10 @@ OLD
 <br>
 <br>
 <br>
+{% endcomment %}
 
-### __4/27 11PM__ - Final Project Complete and Code is fully  _Deployed_ 
+### __11/29 11PM__ - Final Project Complete and Code is fully  _Deployed_ 
+{% comment %}
 
 * __all commits must be in by Thursday, April 27th__ (repositories will be closed early Friday morning)
 * __project must be deployed__ on i6 (or other platform, such as Heroku, gomix, zeit, etc.)
@@ -314,6 +262,7 @@ OLD
 <br>
 
 <a name="suggestions">
+{% endcomment %}
 
 {% comment %}
 ## Potential Projects

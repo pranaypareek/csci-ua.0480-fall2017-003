@@ -247,9 +247,7 @@ __EXAM #1 (Midterm Exam)__
 * Validation
 
 </td>
-<td></td><td></td><td markdown="block"></td>{% comment %}
 {% include schedule/15.markdown %}
-{% endcomment %}
 </tr>
 
 
