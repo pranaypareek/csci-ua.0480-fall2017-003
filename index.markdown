@@ -148,7 +148,6 @@ TODO
 <tr><td>9</td><td><strong>Oct 03</strong><br>Tue</td>
 <td markdown="block">
 * Web Framework Continued
-* Middleware
 * Templating
 
 {% comment %} 
@@ -173,8 +172,7 @@ TODO
 <!-- ------------ --><a name="10"></a>
 <tr><td>10</td><td><strong>Oct 05</strong><br>Thu</td>
 <td markdown="block">
-* Cookies
-* Sessions
+* Web Framework Continued
 * Forms
 
 </td>
@@ -210,9 +208,9 @@ __EXAM #1 (Midterm Exam)__
 <!-- ------------ --><a name="13"></a>
 <tr><td>13</td><td><strong>Oct 17</strong><br>Tue</td>
 <td markdown="block">
-* NoSQL Database
-* Object Document Mapper 
-* Database Design
+* Middleware
+* Cookies
+* Sessions
 </td>
 {% include schedule/13.markdown %}
 </tr>
@@ -221,8 +219,8 @@ __EXAM #1 (Midterm Exam)__
 <!-- ------------ --><a name="14"></a>
 <tr><td>14</td><td><strong>Oct 19</strong><br>Thu</td>
 <td markdown="block">
-* Database Design Continued
-* Authentication
+* Project Layout
+* URLs, URL Parameters
 
 {% comment %}
 * validation comes from next class?
@@ -239,12 +237,10 @@ __EXAM #1 (Midterm Exam)__
 <!-- ------------ --><a name="15"></a>
 <tr><td>15</td><td><strong>Oct 24</strong><br>Tue</td>
 <td markdown="block">
+* NoSQL Database
+* Object Document Mapper 
+* Database Design
 
-* Authentication
-* Authentication Library
-* URL Parameters
-* Finishing Database
-* Validation
 
 </td>
 {% include schedule/15.markdown %}
@@ -254,25 +250,22 @@ __EXAM #1 (Midterm Exam)__
 <!-- ------------ --><a name="16"></a>
 <tr><td>16</td><td><strong>Oct 26</strong><br>Thu</td>
 <td markdown="block">
-* HTML Primer, JavaScript and the Browser
-* The Document Object Model
-* Deployment
+* Database Design Continued
+* Validation
 
 </td>
-<td></td><td></td><td markdown="block"></td>{% comment %}
 {% include schedule/16.markdown %}
-{% endcomment %}
 </tr>
 
 
 <!-- ------------ --><a name="17"></a>
 <tr><td>17</td><td><strong>Oct 31</strong><br>Tue</td>
 <td markdown="block">
-* Manipulating Elements
+* Authentication
+* Authentication Library
+* Deployment
 </td>
-<td></td><td></td><td markdown="block"></td>{% comment %}
 {% include schedule/17.markdown %}
-{% endcomment %}
 </tr>
 
 
@@ -280,9 +273,8 @@ __EXAM #1 (Midterm Exam)__
 <tr><td>18</td><td><strong>Nov 02</strong><br>Thu</td>
 <td markdown="block">
 
-* Timers
-* Events
-* CSS
+* HTML Primer, JavaScript and the Browser
+* The Document Object Model
 
 </td>
 <td></td><td></td><td markdown="block"></td>{% comment %}
@@ -294,9 +286,7 @@ __EXAM #1 (Midterm Exam)__
 <!-- ------------ --><a name="19"></a>
 <tr><td>19</td><td><strong>Nov 07</strong><br>Tue</td>
 <td markdown="block">
-* CSS/ Events / Timers Continued
-* AJAX
-* APIs
+* Manipulating Elements
 
 </td>
 <td></td><td></td><td markdown="block"></td>{% comment %}
@@ -307,9 +297,9 @@ __EXAM #1 (Midterm Exam)__
 <!-- ------------ --><a name="20"></a>
 <tr><td>20</td><td><strong>Nov 09</strong><br>Thu</td>
 <td markdown="block">
-* AJAX Continued
-* Promises
-* Maybe Fetch API
+* Timers
+* Events
+* CSS
 </td>
 <td></td><td></td><td markdown="block"></td>{% comment %}
 {% include schedule/20.markdown %}
@@ -321,8 +311,9 @@ __EXAM #1 (Midterm Exam)__
 <tr><td>21</td><td><strong>Nov 14</strong><br>Tue</td>
 <td markdown="block">
 
-* More Promises/AJAX
-* SocketIO
+* CSS/ Events / Timers Continued
+* AJAX
+* APIs
 
 {% comment %}
 concat and min? grunt and/or gulp?
@@ -338,7 +329,9 @@ concat and min? grunt and/or gulp?
 <tr><td>22</td><td><strong>Nov 16</strong><br>Thu</td>
 <td markdown="block">
 
-* SocketIO - Lab
+* AJAX Continued
+* Promises
+* Maybe Fetch API
 
 {% comment %}
 remove css refresher 
@@ -357,7 +350,8 @@ show react basics
 <tr><td>23</td><td><strong>Nov 21</strong><br>Tue</td>
 <td markdown="block">
 
-* Frontend Framework
+* More Promises/AJAX
+* SocketIO
 {% comment %} consolidate React stuff here maybe from 26 and 27, including build tools {% endcomment %}
 
 </td>
@@ -373,7 +367,7 @@ show react basics
 <!-- ------------ --><a name="24"></a>
 <tr><td>24</td><td><strong>Nov 28</strong><br>Tue</td>
 <td markdown="block">
-* Frontend Framework - Lab
+* SocketIO - Lab
 </td>
 <td></td><td></td><td markdown="block"></td>{% comment %}
 {% include schedule/24.markdown %}
@@ -385,8 +379,7 @@ show react basics
 <tr><td>25</td><td><strong>Nov 30</strong><br>Thu</td>
 <td markdown="block">
 
-* Maybe Flexbox
-* Maybe CSS Meta Languages
+* Frontend Framework
 
 </td>
 <td></td><td></td><td markdown="block"></td>{% comment %}
@@ -399,7 +392,7 @@ show react basics
 <a name="26"></a>
 <tr><td>26</td><td><strong>Dec 05</strong><br>Tue</td>
 <td markdown="block">
-* TBD
+* Frontend Framework - Lab
 
 </td>
 <td></td><td></td><td markdown="block"></td>{% comment %}
@@ -412,6 +405,9 @@ show react basics
 <tr><td>27</td><td><strong>Dec 07</strong><br>Thu</td>
 <td markdown="block">
 * Review
+* Or...
+    * Maybe Flexbox
+    * Maybe CSS Meta Languages
 </td>
 <td></td><td></td><td markdown="block"></td>{% comment %}
 {% include schedule/27.markdown %}

@@ -4,11 +4,9 @@
 * Review Middleware
 {% endcomment %}
 
-* [Middleware](slides/09/middleware.html)
 * Review [Response and Request Objects / Along with Templating](slides/09/request-response.html)
 * [More About Get](slides/10/review-get.html)
 * [Forms](slides/10/forms.html)
-* [Sessions and Cookies](slides/10/sessions.html)
 * Homework #4 Demo
 
 Midterm Practice

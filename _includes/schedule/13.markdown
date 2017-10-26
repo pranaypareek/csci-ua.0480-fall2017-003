@@ -1,11 +1,8 @@
 	<td markdown="block">
 
+* [Middleware](slides/09/middleware.html)
+* [Sessions and Cookies](slides/10/sessions.html)
 * [Forms Revisited](slides/11/forms-revisited.html)
-* See Middleware from Previous Slides
-* See Sessions from Previous Slides
-* [Project Layout and Scaffolding](slides/11/scaffolding.html)
-* [Parameters from URLs](slides/14/params.html)
-* [Mongo DB  and Mongoose](slides/14/mongo.html)
 
 {% comment %}
 * [Final Project](final-project.html)
@@ -14,21 +11,11 @@
 </td>
 	<td markdown="block">
 
-MongoDB
-
-* [MongoDB Documentation](http://docs.mongodb.org/manual/)
-* [Install](http://docs.mongodb.org/manual/installation/)
-* [MongoDB Intro](https://docs.mongodb.com/manual/introduction/)
-
-Mongoose
-
-* [Mongoose Documentation](http://mongoosejs.com/)
-* [Quick Start](http://mongoosejs.com/docs/index.html)
 
 </td>
 	<td markdown="block">
 
-Quiz on HTTP and Cookies to be Posted
+Quiz on HTTP and Cookies Posted on NYU Classes
 
 {% comment %}
 Due Monday, March 27th 11PM

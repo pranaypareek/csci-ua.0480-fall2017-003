@@ -95,6 +95,8 @@ So the director can be:
 * a separate document embedded in your movie document
 * a separate document referenced by your movie document
 
+<br>
+
 See [mongodb's docs](https://docs.mongodb.com/manual/core/data-modeling-introduction/) on data modeling.
 
 <br>
@@ -108,7 +110,7 @@ __What are the advantages / disadvantages of each?__
 
 A schema is analogous to a collection. We create a schema with the <code>mongoose.Schema</code> constructor.
 
-* the convention is that your schema's name will match a lowercase, plural colleciton in your database
+* the convention is that your schema's name will match a lowercase, plural collection in your database
 * the Schema constructor takes an object with keys as names of keys that the documents created from this schema will have
 * ...and values that represent the configuration of these keys (for example, type)
 </section>
@@ -133,14 +135,55 @@ Static Methods
 </section>
 
 <section markdown="block">
+## A Note About Warnings
+
+__You may get some deprecation warnings__ &rarr;
+
+1. `DeprecationWarning: Mongoose: mpromise (mongoose's default ...`
+    * this basically means that you have to pick which promise library to use
+    * promises are a way of handling async operations without nexted callbacks
+    * to use ES6 native promises: `mongoose.Promise = global.Promise;`
+2. `DeprecationWarning: open() is deprecated in mongoose...`
+    * mongoose uses some deprecated calls for connecting to the database
+    * for now, add this second argument to `mongoose.connect`
+    * `{useMongoClient: true}`
+
+</section>
+
+
+<section markdown="block">
+## Plugins
+
+__Some Schema / model functionality is so common that they're implemented on multiple schemas__
+
+* {:.fragment} to add functionality on the Schema level, you can use a plugin
+* {:.fragment} from the mongoose docs:
+    * {:.fragment} "Schemas are pluggable, that is, they allow for applying pre-packaged capabilities to extend their functionality. This is a very powerful feature."
+* {:.fragment} for example, some useful _pluggable_ functionality for a schema may be: 
+    1. last modified
+    2. access control
+    3. ...and slugs
+
+
+</section>
+<section markdown="block">
 ## Slugs and Plugins (Slug-ins?)
 
-To add extra features to your schemas, you can use plug-ins.
 
-One plug-in, mongoose-url-slugs... 
+
+So... __one useful plug-in is mongoose-url-slugs__  &rarr;
 
 * can be used to generate a __slug__ (human readable string that's unique for each document) for all of your objects
 * __without having to manually specify slug in the schema!__
+
+<br>
+
+To use:
+
+1. install via `npm install`
+2. `require`
+3. call `SchemaName.plugin(...)` to activate the plugin for that schema
+
 </section>
 
 <section markdown="block">
@@ -195,15 +238,20 @@ mongoose.connect('mongodb://localhost/pizzadb');
 <section markdown="block">
 ## Types / Embedded Documents
 
-* one way to define relationships is to __embed__ one document in another... 
-    * for example, this specifies that field Foo contains an Array / list of Bar objects
-    * Foo: [Bar]
-* additionally, instead of specifying the type outright, you can use an object that defines some field specifications:
-    * type
-    * max
-    * min
-    * required
-    * default (for default value)
+__One way to define relationships is to embed one document in another...__ &rarr;
+
+* for example, this specifies that field Foo contains an Array / list of Bar objects
+* `Foo: [Bar]`
+
+<br>
+
+Additionally, instead of specifying the type outright, you can use an object that defines some field specifications:
+
+* `type`
+* `max`
+* `min`
+* `required`
+* `default` (for default value)
 </section>
 <section markdown="block">
 ## Your Schema
