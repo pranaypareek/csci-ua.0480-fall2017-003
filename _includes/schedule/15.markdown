@@ -68,7 +68,7 @@ Mongoose
 
 </td>
 	<td markdown="block">
-Due 11/01
+Due <strike>11/01</strike> 11/02
 
 * [Homework #05](homework/05.html)
 * [First milestone for Final Project](final-project.html#proposal)

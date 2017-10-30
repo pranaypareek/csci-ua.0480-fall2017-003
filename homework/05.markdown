@@ -7,7 +7,7 @@ title: CSCI-UA.0480 - Homework #5
 	<div class="panel-heading">Homework #5</div>
 	<div class="panel-body" markdown="block">
 
-# More Colors / Let's Watch Some Movies! (Sessions and Storing Data) - __Wednesday Nov 1st, by 11PM__
+# More Colors / Let's Watch Some Movies! (Sessions and Storing Data) - <strike>Wednesday Nov 1st</strike> __Thursday, Nov 2nd, by 11PM__
 
 ## Overview
 
