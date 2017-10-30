@@ -146,7 +146,7 @@ Choose at least __8 points__ worth of these following topics (research and imple
 
 <a name="proposal"></a>
 
-### <strike>11/01</strike> __11/01 at 11PM__ - Milestone 1 - Requirements / Specifications, Draft Data Model, Skeleton Application (15 points)
+### <strike>11/01</strike> __11/02 at 11PM__ - Milestone 1 - Requirements / Specifications, Draft Data Model, Skeleton Application (15 points)
 
 
 [Check out sample documentation](https://github.com/nyu-csci-ua-0480-008-spring-2017/final-project-example)
