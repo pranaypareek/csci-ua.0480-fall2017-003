@@ -14,6 +14,7 @@ Slides
 
 * [Authentication](slides/16/auth.html)
 * [High-Level Description of SSL/TLS](slides/16/ssl.html)
+* [Discuss Deployment](homework/deploy.html)
 
 {% comment %}
 Midterm Exam - Solution Sets

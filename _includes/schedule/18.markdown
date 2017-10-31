@@ -9,7 +9,6 @@
 * [DOM Continued sample markup](code/dom-continued.html)
 * [Attributes](slides/17/attributes.html)
 * [Modifying and Adding Elements](slides/18/modifying-creating.html)
-* Discuss Deployment (Maybe?)
 
 {% comment %}
 * reminder re: final project - milestone 2: [deployment](homework/deploy.html) and [submit form](https://docs.google.com/a/nyu.edu/forms/d/e/1FAIpQLSe2TvDeXusZAqmG8644BKK8ItTvOOx-ByTE-6dmM_bleHhJCA/viewform)
