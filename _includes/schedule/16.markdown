@@ -3,6 +3,10 @@
 * [Mongoose, Linking Documents](slides/14/mongoose.html)
 * [Routers, Project/Directory Layout, nodemon](slides/14/layout.html)
 * [Validation](slides/15/validation.html)
+* Coding Demos and Class Notes: 
+    * [Mongoose](examples/mongodb/mongoose.js)
+    * [Mongoose and Express](examples/mongodb/mongooseexpress.zip) (functioning web app)
+    * [Embedded Documents](examples/mongodb/embedded.zip) (pseudo-code)
 
 {% comment %}
 NOTES
