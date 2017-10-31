@@ -4,10 +4,16 @@
 * [](slides//.html)
 -->
 
-* go back over DOM slides
+* [HTML Primer, JavaScript and the Browser](slides/17/javascript-browser.html)
+* [The Document Object Model](slides/17/dom.html)
 * [DOM Continued sample markup](code/dom-continued.html)
-* reminder re: final project - milestone 2: [deployment](homework/deploy.html) and [submit form](https://docs.google.com/a/nyu.edu/forms/d/e/1FAIpQLSe2TvDeXusZAqmG8644BKK8ItTvOOx-ByTE-6dmM_bleHhJCA/viewform)
+* [Attributes](slides/17/attributes.html)
 * [Modifying and Adding Elements](slides/18/modifying-creating.html)
+* Discuss Deployment (Maybe?)
+
+{% comment %}
+* reminder re: final project - milestone 2: [deployment](homework/deploy.html) and [submit form](https://docs.google.com/a/nyu.edu/forms/d/e/1FAIpQLSe2TvDeXusZAqmG8644BKK8ItTvOOx-ByTE-6dmM_bleHhJCA/viewform)
+{% endcomment %}
 
 
 
@@ -16,13 +22,9 @@
 
 </td>
 	<td markdown="block">
-(readings same as previous class)
-
-{% comment %}
 * {{site.book_js}} - Chapter 12 - JavaScript and the Browser
 * {{site.book_js}} - Chapter 13 - The Document Object Model
 * [HTML and CSS from shayhowe.com](http://learn.shayhowe.com/html-css/getting-to-know-html/)
-{% endcomment %}
 </td>
 	<td markdown="block">
 

@@ -14,10 +14,6 @@ Slides
 
 * [Authentication](slides/16/auth.html)
 * [High-Level Description of SSL/TLS](slides/16/ssl.html)
-* [HTML Primer, JavaScript and the Browser](slides/17/javascript-browser.html)
-* [The Document Object Model](slides/17/dom.html)
-* [DOM Continued](slides/17/dom-continued.html)
-* [Attributes](slides/17/attributes.html)
 
 {% comment %}
 Midterm Exam - Solution Sets

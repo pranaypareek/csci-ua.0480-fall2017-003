@@ -277,9 +277,7 @@ __EXAM #1 (Midterm Exam)__
 * The Document Object Model
 
 </td>
-<td></td><td></td><td markdown="block"></td>{% comment %}
 {% include schedule/18.markdown %}
-{% endcomment %}
 </tr>
 
 
