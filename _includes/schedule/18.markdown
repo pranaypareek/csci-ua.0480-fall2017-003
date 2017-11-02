@@ -27,6 +27,12 @@
 </td>
 	<td markdown="block">
 
+Due Thursday, November 9th at 11PM
+
+* [Homework #06](homework/06.html) (probably)
+* [Milestone #2 (Deployment)](final-project.html#milestone2)
+    * server names and ports to be posted late this evening
+
 {% comment %}
 Due <strike>Tuesday, November 15th</strike>
 

@@ -68,11 +68,7 @@ In class activity
 * [Instructions / slides](slides/17/dom.html#/14)
 {% endcomment %}
 
-{% comment %}
-Due Wednesday, November 8th at 11PM
 
-* [Homework #06](homework/06.html)
-* [Milestone #2 (Deployment)](final-project.html#milestone2)
-{% endcomment %}
+
 
 </td>

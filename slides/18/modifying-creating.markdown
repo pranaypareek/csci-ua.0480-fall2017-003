@@ -3,10 +3,14 @@ layout: slides
 title: "Modifying and Creating Elements"
 ---
 
-<section markdown="block">
-# Slides we Previewed From the Previous Class...
+<section markdown="block" class="intro-slide">
+# {{ page.title }}
 
+### {{ site.course_number}}-{{ site.course_section }}
+
+<p><small></small></p>
 </section>
+
 <section markdown="block">
 ## Modifying the DOM
 

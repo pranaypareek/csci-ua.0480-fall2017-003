@@ -12,7 +12,7 @@ title: CSCI-UA.0480 - Homework #6
 	<div class="panel-heading">Homework #6</div>
 	<div class="panel-body" markdown="block">
 
-# A Taste of Login - __Due Saturday, April 8th, by 11PM__
+# <span style="color:red">DRAFT</span> A Taste of Login - __Due Thursday, November 9th, by 11PM__ 
 
 ## Overview
 
@@ -380,7 +380,7 @@ Here's what the restricted page interaction should look like:
 
 <br> ![viewing a restricted page](../resources/img/hw06-auth-04-restricted.gif)
 
-## Extra Credit (15 points)
+## Extra Credit (10 points)
 
 ### Logout
 
