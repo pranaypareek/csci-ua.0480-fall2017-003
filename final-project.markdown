@@ -193,26 +193,25 @@ Choose at least __8 points__ worth of these following topics (research and imple
 <br>
 <br>
 
-### 11/08 at 11pm - Milestone 2 - Initial Deployment and First Form (20 points)
+### 11/09 at 11pm - Milestone 2 - Initial Deployment and First Form (20 points)
 
-{% comment %}
-1. attempt to deploy your code to Courants _compute_ and assignment servers by following [instructions](homework/deploy.html)
-2. <span class="warning">use [this form to submit your deployed site](https://docs.google.com/a/nyu.edu/forms/d/e/1FAIpQLSe2TvDeXusZAqmG8644BKK8ItTvOOx-ByTE-6dmM_bleHhJCA/viewform)</span>
+1. attempt to deploy your code to Courant's _compute_ and assignment servers by following [instructions](homework/deploy.html)
+2. <span class="warning">use [this form to submit your deployed site](https://docs.google.com/forms/d/e/1FAIpQLSe299kscG9jNjh7p7gHmdYOzy2MVmSiE3FJibi3h3iGRMRIRA/viewform)</span>
 3. your submission won't be graded unless the form above is sent with urls to your deployed site
-3. your deployed site should contain the following progress:
+4. your deployed site should contain the following progress:
     * __one working form (that is not login or registration)__ 
         * ...that should allow data to be modified or deleted
         * the results of submitting this form should be apparent/viewable
-    * show progress on at least 1 of your research topics; the url that shows you've implemented what you've researched can be:
-        * a page on your site that's deployed to the server
-        * a link to the github repository / line no
+    * show _some_ progress on at least 1 of your research topics,  __it doesn't have to be fully working... stub code from documentation or pseudocode is adequate__
+        * consequently, a link to the github repository / line no that shows any proof of work is sufficient
+        * or, if it's something that's already visible, a link to the a page on your site that's deployed to the server
+      
 
 <a name="milestone3">
 
 <br>
 <br>
 <br>
-{% endcomment %}
 
 ### 11/15 at 11pm - Milestone 3 - 2nd Form and More Progress on Research (20 points)
 
