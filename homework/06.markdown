@@ -58,11 +58,11 @@ And, as extra credit:
 
 Here's an example of adding an image post that has 1 image in it:
 
-![add post with multiple images](../resources/img/hw06-01-add-one-post.gif)
+![add post with multiple images](/csci-ua.0480-fall2017-007/resources/img/hw06-01-add-one-post.gif)
 
 ### Submission Process
 
-You will be given access to a private repository on GitHub. Generate an Express application using express-generator (see instructions below) when you clone it.
+You will be given access to a private repository on GitHub. Create an Express application from scratch.
 
 The final version of your assignment should be in GitHub
 
@@ -190,7 +190,7 @@ In this route handler, <code>GET /image-posts</code>:
 2. add the fields necessary to create an image post along with 3 images
     * it should have the title of the post
     * and 3 fields, each with a url (a link to an image) and a caption
-        ![form](../resources/img/hw06-00-form.png) 
+        ![form](/csci-ua.0480-fall2017-007/resources/img/hw06-00-form.png) 
 3. have the form post to a path of your choosing (you'll define this route handler later in the next part)
 4. __test that your form renders by going to__ <code>/image-posts</code>
 
@@ -268,7 +268,7 @@ The list of all <code>ImagePost</code>s should appear underneath your form. Retr
 * verify that you're redirected back to <code>image-posts</code> with your new post added to the bottom of the page.
 * see the example below:
 
-![add post with multiple images](../resources/img/hw06-02-add-multi-pizza-party.gif)
+![add post with multiple images](/csci-ua.0480-fall2017-007/resources/img/hw06-02-add-multi-pizza-party.gif)
 
 
 ## Part 4 - Single ImagePost Detail Page, Adding New Images to ImagePost, Deleting Iamges from ImagePost
@@ -288,7 +288,7 @@ In this route handler, <code>GET /image-post/[slug-name]</code>:
 * in the next two parts, add a couple of forms this page to add more images and delete images
 
 <div markdown="block" class="img">
-![go to detail page](../resources/img/hw06-03-detail-slug.gif) 
+![go to detail page](/csci-ua.0480-fall2017-007/resources/img/hw06-03-detail-slug.gif) 
 </div>
 
 ###  Adding Images
@@ -321,7 +321,7 @@ __you'll have to handle this post, so...__
 * in your last callback, redirect back to the original __image-post detail__ page
 * here's the example interaction:
 
-![add image to existing](../resources/img/hw06-04-add-image.gif) 
+![add image to existing](/csci-ua.0480-fall2017-007/resources/img/hw06-04-add-image.gif) 
 
 ## Part 5 - Deleting Images
 
@@ -366,7 +366,7 @@ __Finally, in your route handler, you'll have to remove all of the images that w
     * <code>factoryObj.widgets.id(varWithId).remove()</code>
 * here's what the interaction should look like:
 
-![remove images](../resources/img/hw06-05-remove.gif) 
+![remove images](/csci-ua.0480-fall2017-007/resources/img/hw06-05-remove.gif) 
 
 ### Validation and Error Messages
 
