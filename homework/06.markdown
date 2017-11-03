@@ -161,7 +161,7 @@ mongoose.model('ImagePost', ImagePost);
 
 We'll be using mongoose to create, read and modify data from MongoDB, and we'll be doing this in the functions that handle our routes.
 
-Consequently, in a file that contains your router (one of the files in the routes directory, your choice!):
+Consequently, in the file that contains your route handlers (probably `app.js`):
 
 * require mongoose
 * retrieve a model (to be used as a constructor later)
