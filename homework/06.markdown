@@ -78,39 +78,17 @@ The final version of your assignment should be in GitHub
 
 ###  Installing Tools, Starting Project
 
-Specifically, we'll be using the following tools to help with our development process:
+You'll be starting this project from scratch. Clone your repository and add the following:
 
-* __nodemon__ to automatically restart your server
-* __express-generator__ to create a bare-bones application
-
-Install both globally:
-
-* <code>npm install -g nodemon</code>
-* <code>npm install -g express-generator</code>
-
-Generate scaffolding (this will create a folder called image-board, along with app.js, a views directory, a public directory, etc.). Remember to use the <code>--hbs</code> flag to tell the generator that we'll be using handlebars:
-
-* <code>express --hbs image-board</code>
-
-Install the dependencies that are required by the generated code:
-
-* <code>cd image-board && npm install</code>
-
-Within the image-board directory, we'll be using a couple of tools to help with database access and creating _url slugs_:
-
-* <code>npm install --save mongoose</code>
-* `npm install --save mongoose-url-slugs`
-
-Of course, add your eslint configuration file:
-
-* `.eslintrc.js`
-
-Lastly, start your server in a different terminal window using __nodemon__ to automatically restart whenever a file changes:
-
-* <code>nodemon bin/www</code>
-* to explicity set extensions that nodemon will watch for:
-* `nodemon -e js,hbs bin/www`
-
+1. a directory called `image-board`
+2. within that directory, create everything that you need for an express project, such as:
+    * templating
+    * linting (you can use a previous linting config from another assignment)
+    * serving static files
+    * `.gitignore`
+    * `package.json` (you can use `npm init` to create this)
+    * etc.
+3. make sure that you have use `--save` as you proceed to install necessary modules
 
 ## Part 2 - Installing MongoDB, Creating a Schema, Connecting to the Database
 
@@ -136,8 +114,8 @@ Create a file called <code>db.js</code> within the root of your project director
 
 Add the required modules:
 
-<pre><code data-trim contenteditable>var mongoose = require('mongoose'),
-	URLSlugs = require('mongoose-url-slugs');
+<pre><code data-trim contenteditable>const mongoose = require('mongoose')
+const URLSlugs = require('mongoose-url-slugs');
 </code></pre>
 
 Leave a placeholder for your schema...
@@ -188,8 +166,8 @@ Consequently, in a file that contains your router (one of the files in the route
 * require mongoose
 * retrieve a model (to be used as a constructor later)
 
-<pre><code data-trim contenteditable>var mongoose = require('mongoose'),
-var ImagePost = mongoose.model('ImagePost');
+<pre><code data-trim contenteditable>const mongoose = require('mongoose');
+const ImagePost = mongoose.model('ImagePost');
 </code></pre>
 
 * you'll have to create route, <code>/image-posts</code>; it'll contain:
