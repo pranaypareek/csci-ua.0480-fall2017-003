@@ -29,9 +29,9 @@ Most attributes can be accessed as properties on that particular element's objec
 __Try writing a tiny script that takes all of the images on a page and changes the src of those images to [the look of disapproval](http://foureyes.github.io/csci-ua.0480-spring2016-010/resources/img/disapproval.png)__ &rarr;
 
 <pre><code data-trim contenteditable>
-var images = document.getElementsByTagName('img');
+const images = document.getElementsByTagName('img');
 
-for (var i=0; i < images.length; i++) {
+for (let i=0; i < images.length; i++) {
 	images[i].src = "http://foureyes.github.io/csci-ua.0480-fall2015-001/resources/img/disapproval.png";;
 }
 </code></pre>
@@ -103,8 +103,8 @@ You can use the string's replace method and a regular expression to do this: <co
 Using a __data-\*__ attribute...
 
 <pre><code data-trim contenteditable>
-var paragraphs = document.getElementsByTagName('p');
-for (var i = 0; i < paragraphs.length; i++) {
+const paragraphs = document.getElementsByTagName('p');
+for (let i = 0; i < paragraphs.length; i++) {
 	if (paragraphs[i].hasAttribute('data-shout')) {
 		paragraphs[i].textContent = paragraphs[i].textContent.replace(/\./g, '!!!!!');
 	}

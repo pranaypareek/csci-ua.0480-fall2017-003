@@ -29,14 +29,14 @@ We didn't have a chance to try this previously... so let's check out [another sa
  Starting with:
 
 <pre><code data-trim contenteditable>
-var content = document.getElementById('content');
-var paragraphs = document.getElementsByTagName('p');
+const content = document.getElementById('content');
+const paragraphs = document.getElementsByTagName('p');
 </code></pre>
 
 __Move the 3rd paragraph between the first two.__ &rarr;
 
 <pre><code data-trim contenteditable>
-var inserted = content.insertBefore(paragraphs[2], paragraphs[1]);
+const inserted = content.insertBefore(paragraphs[2], paragraphs[1]);
 </code></pre>
 {:.fragment}
 
@@ -44,7 +44,7 @@ __Now, instead of just inserting before, let's replace paragraph "Two" with para
 {:.fragment}
 
 <pre><code data-trim contenteditable>
-var replaced = content.replaceChild(paragraphs[2], paragraphs[1]);
+const replaced = content.replaceChild(paragraphs[2], paragraphs[1]);
 </code></pre>
 {:.fragment}
 </section>
@@ -55,10 +55,10 @@ var replaced = content.replaceChild(paragraphs[2], paragraphs[1]);
 We also looked at removing elements with __removeChild__. This was our first attempt:
 
 <pre><code data-trim contenteditable>
-var div = document.getElementById('content');
-var p = div.getElementsByTagName('p');
+const div = document.getElementById('content');
+const p = div.getElementsByTagName('p');
 
-for(var i = 0; i < p.length; i++) {
+for(let i = 0; i < p.length; i++) {
 	div.removeChild(p[i]);
 }
 </code></pre>
@@ -86,7 +86,7 @@ while (div.firstChild) {
 * use a copy... 
 
 <pre><code data-trim contenteditable>
-var copy = Array.prototype.slice.call(p, 0)
+const copy = Array.prototype.slice.call(p, 0)
 copy.forEach(function(ele) {
 	div.removeChild(ele)
 });
@@ -109,7 +109,7 @@ node.firstChild.nodeValue = 'new text';
 [textContent](https://developer.mozilla.org/en-US/docs/Web/API/Node.textContent) - the __text content__ of the node and all of its descendants (!)
 
 <pre><code data-trim contenteditable>
-var text = element.textContent; 
+const text = element.textContent; 
 element.textContent = "this is some sample text";
 </code></pre>
 
@@ -132,7 +132,7 @@ __What do the following lines of code represent / do based on the markup below?_
 document.body.textContent
 document.body.innerHTML
 document.body.nodeValue
-var p = document.getElementsByTagName('p')[0]
+const p = document.getElementsByTagName('p')[0]
 p.firstChild.nodeValue
 p.firstChild.nodeValue = 'Surprised?'
 p.textContent = 'Maybe not.'
@@ -164,10 +164,10 @@ Replace each paragraph element with text that says "this was a paragraph".
 </code></pre>
 
 <pre><code data-trim contenteditable>
-var div = document.getElementById('content');
-var p = div.getElementsByTagName('p');
+const div = document.getElementById('content');
+const p = div.getElementsByTagName('p');
 
-for(var i = p.length - 1; i >= 0; i--) {
+for(let i = p.length - 1; i >= 0; i--) {
 	div.replaceChild( 
 		document.createTextNode("this was a paragraph"),
 		p[i]);
@@ -187,12 +187,12 @@ __Instead of just a text node, replace each paragraph with an <code>h1</code> (a
 * replace the div
 
 <pre><code data-trim contenteditable>
-var div = document.getElementById('content');
-var p = div.getElementsByTagName('p');
+const div = document.getElementById('content');
+const p = div.getElementsByTagName('p');
 
-for(var i = p.length - 1; i >= 0; i--) {
-	var header = document.createElement("h1");
-	var content = document.createTextNode(p[i].textContent);
+for(let i = p.length - 1; i >= 0; i--) {
+	const header = document.createElement("h1");
+	const content = document.createTextNode(p[i].textContent);
 	header.appendChild(content);
 	div.replaceChild(header, p[i]);
 }
@@ -227,10 +227,10 @@ __A potential implementation...__ &rarr;
 
 <pre><code data-trim contenteditable>
 function elt(type) {
-	var ele = document.createElement(type);
+	const ele = document.createElement(type);
 	// start at 1 or else we'll get the type argument!
-	for (var i = 1; i < arguments.length; i++) {
-		var child = arguments[i];
+	for (let i = 1; i < arguments.length; i++) {
+		let child = arguments[i];
 		if (typeof child === "string") {
 			child = document.createTextNode(child);
 		}
@@ -238,7 +238,7 @@ function elt(type) {
 	}
 	return ele;
 }
-var ul = elt('ul', elt('li', 'item one'), elt('li', 'item two'));
+const ul = elt('ul', elt('li', 'item one'), elt('li', 'item two'));
 document.body.appendChild(ul);
 </code></pre>
 </section>
