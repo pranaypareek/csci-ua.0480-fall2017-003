@@ -6,14 +6,10 @@
 * [CSS](slides/19/css.html)
 * [Selectors, JS and CSS](slides/19/js-css.html)
 * [Events](slides/19/events.html)
-* __CIMS Servers Reboot 4/6 at 7pm__
-    * you check that your site is running before deadline!
-    * you can __restart your process using the `forever start` command detailed in the [deploy instructions](homework/deploy.html)__
-* Milestone #1 grades released
-* [Remember to submit form for milestone 2](http://localhost:4000/final-project.html#milestone2)
-* Homework #7 demo 
+* Remember to submit form for milestone 2
 
 {% comment %}
+* Milestone #1 grades released
 * homework
     * extra credit
 * final project
@@ -45,10 +41,12 @@
 </td>
 	<td markdown="block">
 
+{% comment %}
 Due Saturday, April 15th at 11PM
 
 * [Homework #07](homework/07.html)
 * [Milestone #3](final-project.html#milestone3)
+{% endcomment %}
 
 
 
