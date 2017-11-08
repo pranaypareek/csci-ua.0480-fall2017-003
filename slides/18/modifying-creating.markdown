@@ -25,7 +25,7 @@ __What were some methods that we could use to add or get rid of elements from th
 <section markdown="block">
 ## Swapping Paragraphs
 
-We didn't have a chance to try this previously... so let's check out [another sample page](../../code/class18.html).
+We didn't have a chance to try this previously... so let's check out [another sample page](../../code/class19.html).
  Starting with:
 
 <pre><code data-trim contenteditable>

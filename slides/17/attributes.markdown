@@ -26,13 +26,13 @@ __What's an attribute again? What are some examples of attributes?__ &rarr;
 
 Most attributes can be accessed as properties on that particular element's object. The property name is usually just the camel-case name of the attribute.
 
-__Try writing a tiny script that takes all of the images on a page and changes the src of those images to [the look of disapproval](http://foureyes.github.io/csci-ua.0480-spring2016-010/resources/img/disapproval.png)__ &rarr;
+__Try writing a tiny script that takes all of the images on a page and changes the src of those images to [the look of disapproval](https://foureyes.github.io/csci-ua.0480-fall2017-003/resources/img/disapproval.png)__ &rarr;
 
 <pre><code data-trim contenteditable>
 const images = document.getElementsByTagName('img');
 
 for (let i=0; i < images.length; i++) {
-	images[i].src = "http://foureyes.github.io/csci-ua.0480-fall2015-001/resources/img/disapproval.png";;
+	images[i].src = "http://foureyes.github.io/csci-ua.0480-fall2017-003/resources/img/disapproval.png";;
 }
 </code></pre>
 {:.fragment}
@@ -68,7 +68,7 @@ __Let's try these out on our [sample page](../../code/class18.html)__ &rarr;
 
 <pre><code data-trim contenteditable>
 // change an image's src (similar to just using the attribute)
-document.getElementsByTagName('img')[0].setAttribute('src', 'http://foureyes.github.io/csci-ua.0480-fall2015-001/resources/img/disapproval.png')
+document.getElementsByTagName('img')[0].setAttribute('src', 'http://foureyes.github.io/csci-ua.0480-fall2017-003/resources/img/disapproval.png')
 
 // check for a class attribute... and try to read it
 document.getElementById('content').hasAttribute('class')

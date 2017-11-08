@@ -44,11 +44,11 @@ Here's how __window.requestAnimationFrame(callback)__ could be used to move the 
 * note that the callback function must tell the browser to continue to animate by calling requestAnimationFrame
 
 <pre><code data-trim contenteditable>
-var pos = 0;
+let pos = 0;
 window.requestAnimationFrame(animate);
 function animate() {
 	console.log('I am being animated!')
-	var c = document.getElementById('content')
+	const c = document.getElementById('content')
 	c.style.left = pos + 'px';
 	pos += 1;
 	window.requestAnimationFrame(animate);
@@ -62,8 +62,8 @@ function animate() {
 Open up a page... and __modify the following code in the developer console to animate an element off screen__!
 
 <pre><code data-trim contenteditable>
-var pos = 0;
-var ele = document.getElementsByClassName('className')[0];
+let pos = 0;
+const ele = document.getElementsByClassName('className')[0];
 ele.style.position = 'relative';
 ele.style.zIndex = 1000;
 function move() {
@@ -101,7 +101,7 @@ The following example uses set interval to:
 
 <pre><code data-trim contenteditable>
 setInterval(function() {
-	var header = document.getElementsByClassName('header')[0];
+	const header = document.getElementsByClassName('header')[0];
 	header.appendChild(document.createElement('h1')).innerText = Date();
 }, 2000);
 </code></pre>
