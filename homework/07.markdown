@@ -14,7 +14,7 @@ title: CSCI-UA.0480 - Homework #7
 	<div class="panel-body" markdown="block">
 
 
-# One Hand of Blackjack (Client Side JavaScript) - __Due Saturday, April 15th, by 11PM__
+# One Hand of Blackjack (Client Side JavaScript) - __Due Thursday, Nov 16th, by 11PM__
 
 
 ## Overview
@@ -52,7 +52,7 @@ Create a two-player (user vs computer) client-side card game. The card game will
 
 Here's an example of what your game may look like:
 
-![Demo](../resources/img/hw07-blackjack-01-overview.gif)
+![Demo](/csci-ua.0480-fall2017-007/resources/img/hw07-blackjack-01-overview.gif)
  
 ### Submission Process
 
@@ -86,10 +86,21 @@ There are three main features required for the game:
 ### Create an express application and setup some directories
 
 1. You don't _really_ need an Express application to do this homework, but start with one anyway, in case you decide to do the extra credit...
-2. Start a new express project with express generator or create a project that uses express-static.
+2. Start a new express project that uses express-static, using the following directory structure:
+    * `package.json`
+    * `.eslintrc.js`
+    * `README.md`
+    * `src`
+        * `app.js`
+        * `public`
+            * `index.html`
+            * `stylesheets`
+                * `style.css`
+            * `javascripts`
+                * `main.js`
 3. (there's no need to create any route handlers for this homework, you can do the whole thing with static files)
 4. In your public folder, create an <code>index.html</code> file.
-5. In your public folder, create a `stylesheets` folder and a file, `style.css`, within it (if you're using express-generator, these will be created for you)
+5. In your public folder, create a `stylesheets` folder and a file, `style.css`, within it 
 6. In your public folder, create a `javascripts` folder and a file, `main.js`, within it 
 
 
@@ -153,7 +164,7 @@ Start off by handling the submit button on the form and making the form disappea
     * Using this JavaScript: `document.querySelector('#clicker').addEventListener('click', myCallback)`
     * `this` within `function myCallback` will refer to the original div element clicked on!
 
-![Demo](../resources/img/hw07-blackjack-02-form.gif)
+![Demo](/csci-ua.0480-fall2017-007/resources/img/hw07-blackjack-02-form.gif)
 
 ### Generate a Deck of Cards and Deal Cards
 
@@ -209,8 +220,11 @@ Based on the cards dealt, add elements to the user interface to represent both t
     * the user total should reflect the total in the user's hand
 * Create two buttons, `Hit` and `Stand`
 * See an example interaction below:
+* <span class=warning>THE STYLING IN THE ANIMATED GIFS IS JUST FOR EMBELLISHMENT; YOUR STYLING DOES NOT HAVE TO MATCH</span>
+    * (but you should put in some effort to make the cards _card-like_)
 
-![Deal](../resources/img/hw07-blackjack-03-deal.gif)
+
+![Deal](/csci-ua.0480-fall2017-007/resources/img/hw07-blackjack-03-deal.gif)
 
 ### Hit and Stand
 
@@ -234,7 +248,7 @@ The following is an example of the user:
 2. then going over 21 (busting)
 3. (and consequently, immediately losing the hand)
 
-![Play](../resources/img/hw07-blackjack-04-play.gif)
+![Play](/csci-ua.0480-fall2017-007/resources/img/hw07-blackjack-04-play.gif)
 
 ### Determine the winner
 
@@ -248,7 +262,7 @@ Once the user and computer have both decided to "stand" or have a hand total ove
 
 Below is an example of the user winning a hand:
 
-![Win](../resources/img/hw07-blackjack-05-win.gif)
+![Win](/csci-ua.0480-fall2017-007/resources/img/hw07-blackjack-05-win.gif)
 
 ### Optional Features (Extra Credit)
 
@@ -259,7 +273,7 @@ Implement any of the following features for extra credit.
 1. add a README.md to the root of your project
 2. add notes specifying which extra credit you did
 
-(20 points) __Reset hand__
+(5 points) __Reset hand__
 
 * when a hand ends, remove the `Hit` and `Stand` buttons and add a `Restart` button along the bottom row
 * when the `Restart` button is pressed, it resets the game so that:
@@ -267,7 +281,7 @@ Implement any of the following features for extra credit.
     * new cards are dealt
     * the `Hit` and `Stand` button are added back
 
-(25 points) __Save results in database__
+(10 points) __Save results in database__
 
 * when the game ends, allow the user to enter their initials in a form
 * when the form is submitted:

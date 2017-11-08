@@ -1,10 +1,15 @@
 	<td markdown="block">
 
+{% comment %}
 * Re: Milestone #2
     * Don't break your deploy until you get your grades for milestone #2
     * Don't making changes on "production"
-* Back to [events](slides/19/events.html)
-* [Ajax Part 1](slides/20/ajax.html)
+{% endcomment %}
+
+* [CSS](slides/19/css.html)
+* [Selectors, JS and CSS](slides/19/js-css.html)
+* [Events](slides/19/events.html)
+* (optionally) [Ajax Part 1](slides/20/ajax.html)
 
 
 <!-- 
@@ -16,7 +21,10 @@
 * {{site.book_js_5}} - Chapter 17 - HTML (Focus on the section on XMLHttpRequest)
 </td>
 	<td markdown="block">
-<!--
-* [](assignments/.html)
--->
+
+Due Saturday, Nov 16th at 11PM
+
+* [Homework #07](homework/07.html)
+* [Milestone #3](final-project.html#milestone3)
+
 </td>

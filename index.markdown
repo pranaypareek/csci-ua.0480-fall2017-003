@@ -285,6 +285,7 @@ __EXAM #1 (Midterm Exam)__
 <tr><td>19</td><td><strong>Nov 07</strong><br>Tue</td>
 <td markdown="block">
 * Manipulating Elements
+* Timers
 
 </td>
 {% include schedule/19.markdown %}
@@ -293,13 +294,10 @@ __EXAM #1 (Midterm Exam)__
 <!-- ------------ --><a name="20"></a>
 <tr><td>20</td><td><strong>Nov 09</strong><br>Thu</td>
 <td markdown="block">
-* Timers
-* Events
 * CSS
+* Events
 </td>
-<td></td><td></td><td markdown="block"></td>{% comment %}
 {% include schedule/20.markdown %}
-{% endcomment %}
 </tr>
 
 
@@ -307,7 +305,6 @@ __EXAM #1 (Midterm Exam)__
 <tr><td>21</td><td><strong>Nov 14</strong><br>Tue</td>
 <td markdown="block">
 
-* CSS/ Events / Timers Continued
 * AJAX
 * APIs
 

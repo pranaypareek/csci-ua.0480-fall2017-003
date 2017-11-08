@@ -213,9 +213,8 @@ Choose at least __8 points__ worth of these following topics (research and imple
 <br>
 <br>
 
-### 11/15 at 11pm - Milestone 3 - 2nd Form and More Progress on Research (20 points)
+### 11/16 at 11pm - Milestone 3 - 2nd Form and More Progress on Research (20 points)
 
-{% comment %}
 1. make at least 3 additional commits to add:
     * your 2nd form / ajax interaction
     * make more progress on your research topics
@@ -225,7 +224,7 @@ Choose at least __8 points__ worth of these following topics (research and imple
     3. run `forever stopall` and `forever start bin/www` 
         * you'll have to use the full path to forever, likely `~/usr/local/node_modules/bin/forever`
         * and perhaps the full bath to `bin/www`
-3. [submit this form for milestone #3 to indicate urls](https://docs.google.com/a/nyu.edu/forms/d/e/1FAIpQLScIKAMNIuUBakdzhwLUGpZ7v8zSHDzykPIdWyzsqm3IkiV6Pg/viewform)
+3. form submission to be posted; it will contain:
     * __both working forms or ajax interactions (that are not login or registration)__ 
     * a link to show code changes since milestone #2:
         * start with the url to your repository: `https://github.com/nyu-csci-ua-0480-008-spring-2017/NETID-final-project/`
@@ -233,6 +232,8 @@ Choose at least __8 points__ worth of these following topics (research and imple
         * for example: `https://github.com/nyu-csci-ua-0480-008-spring-2017/NETID-final-project/compare/master@%7B04-09-17%7D...master`
                      
 
+{% comment %}[submit this form for milestone #3 to indicate urls](https://docs.google.com/a/nyu.edu/forms/d/e/1FAIpQLScIKAMNIuUBakdzhwLUGpZ7v8zSHDzykPIdWyzsqm3IkiV6Pg/viewform)
+{% endcomment %}
 
 
 
@@ -242,7 +243,6 @@ Choose at least __8 points__ worth of these following topics (research and imple
 <br>
 <br>
 <br>
-{% endcomment %}
 
 ### __11/29 11PM__ - Final Project Complete and Code is fully  _Deployed_ 
 {% comment %}
