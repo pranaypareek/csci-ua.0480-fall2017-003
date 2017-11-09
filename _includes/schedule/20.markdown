@@ -22,7 +22,9 @@
 </td>
 	<td markdown="block">
 
-Due Saturday, Nov 16th at 11PM
+Due Thursday, Nov 16th at 11PM 
+
+(this due date may change)
 
 * [Homework #07](homework/07.html)
 * [Milestone #3](final-project.html#milestone3)

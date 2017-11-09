@@ -215,10 +215,12 @@ Choose at least __8 points__ worth of these following topics (research and imple
 
 ### 11/16 at 11pm - Milestone 3 - 2nd Form and More Progress on Research (20 points)
 
+Note - this due date may change!
+
 1. make at least 3 additional commits to add:
     * your 2nd form / ajax interaction
     * make more progress on your research topics
-2. redeploy your code to Courant's server by running git pull and restarting forever
+2. redeploy your code to Courant's server by running git pull and restarting forever (__do not do this until you receive your milestone #2 grades__)
     1. `ssh` into linserv1 or linserv2 (remember, you have to go to access.cims.nyu.edu first)
     2. `cd` into your project directory (should be in `~/opt/NETID-final-project`)
     3. run `forever stopall` and `forever start bin/www` 
