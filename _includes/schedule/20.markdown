@@ -21,6 +21,7 @@
 * {{site.book_js_5}} - Chapter 17 - HTML (Focus on the section on XMLHttpRequest)
 </td>
 	<td markdown="block">
+Quizzes on MongoDB, Auth and HTML/CSS to be Posted
 
 Due Thursday, Nov 16th at 11PM 
 
