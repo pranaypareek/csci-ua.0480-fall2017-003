@@ -213,7 +213,7 @@ Choose at least __8 points__ worth of these following topics (research and imple
 <br>
 <br>
 
-### 11/16 at 11pm - Milestone 3 - 2nd Form and More Progress on Research (20 points)
+### 11/17 at 11pm - Milestone 3 - 2nd Form and More Progress on Research (20 points)
 
 Note - this due date may change!
 
@@ -226,12 +226,12 @@ Note - this due date may change!
     3. run `forever stopall` and `forever start bin/www` 
         * you'll have to use the full path to forever, likely `~/usr/local/node_modules/bin/forever`
         * and perhaps the full bath to `bin/www`
-3. form submission to be posted; it will contain:
+3. __fill out form to submit assignment__ (form to be posted when milestone #2 grades are sent out); it will contain:
     * __both working forms or ajax interactions (that are not login or registration)__ 
     * a link to show code changes since milestone #2:
-        * start with the url to your repository: `https://github.com/nyu-csci-ua-0480-008-spring-2017/NETID-final-project/`
+        * start with the url to your repository: `https://github.com/nyu-csci-ua-0480-003-fall-2017/NETID-final-project/`
         * and append the following to the url: `compare/master@%7B04-09-17%7D...master`
-        * for example: `https://github.com/nyu-csci-ua-0480-008-spring-2017/NETID-final-project/compare/master@%7B04-09-17%7D...master`
+        * for example: `https://github.com/nyu-csci-ua-0480-003-fall-2017/NETID-final-project/compare/master@%7B04-09-17%7D...master`
                      
 
 {% comment %}[submit this form for milestone #3 to indicate urls](https://docs.google.com/a/nyu.edu/forms/d/e/1FAIpQLScIKAMNIuUBakdzhwLUGpZ7v8zSHDzykPIdWyzsqm3IkiV6Pg/viewform)
