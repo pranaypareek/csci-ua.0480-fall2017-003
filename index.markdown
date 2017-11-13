@@ -312,9 +312,7 @@ __EXAM #1 (Midterm Exam)__
 concat and min? grunt and/or gulp?
 {% endcomment %}
 </td>
-<td></td><td></td><td markdown="block"></td>{% comment %}
 {% include schedule/21.markdown %}
-{% endcomment %}
 </tr>
 
 
