@@ -1,12 +1,14 @@
 	<td markdown="block">
-* Previous class on AJAX post
+* Previous class on AJAX 
 * Previous class on Promises
+{% comment %}
 * AJAX Polling Code Examples to be Posted
     * AJAX Polling Chat
     * AJAX Polling Using Date and Time
 * Realtime Apps with Socket.io
     * [Socket.io](slides/23/socketio.html)
     * Example Code for Socket.io Chat to be Posted
+{% endcomment %}
 
 
 {% comment %}
@@ -34,7 +36,10 @@
 * Chapter 
 -->
 
+{% comment %}
 * [Socket IO How-To](http://socket.io/docs/)
+
+{% endcomment %}
 
 </td>
 	<td markdown="block">

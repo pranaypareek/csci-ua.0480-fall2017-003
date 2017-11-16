@@ -331,9 +331,7 @@ show react basics
 {% endcomment %}
 
 </td>
-<td></td><td></td><td markdown="block"></td>{% comment %}
 {% include schedule/22.markdown %}
-{% endcomment %}
 </tr>
 
 
